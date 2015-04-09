@@ -1,0 +1,99 @@
+There a few special rules when it comes to meteor folder structure:
+  
+  Code in the /server directory only runs on the server.
+  Code in the /client directory only runs on the client.
+  Everything else runs on both the client and server.
+  Files in /lib are loaded before anything else.
+  Any main.* file is loaded after everything else.
+  Your static assets (fonts, images, etc.) go in the /public directory.
+
+
+On the server, the collection has the job of talking to the Mongo database, and reading and writing
+any changes. In this sense, it can be compared to a standard database library. On the client
+however, the collection is a secure copy of a subset of the real, canonical collection. The client-side
+collection is constantly and (mostly) transparently kept up to date with that subset in real-time.
+  
+  
+  Server-side mongo & client-side MiniMongo are accessed with the same pattern:
+  Posts = new Meteor.Collection('posts')
+  db.posts.insert({title: "a new post"})
+  db.posts.find()
+  > { "_id": ObjectId(".."), "title" : "A new post"}
+
+  In general, a client side collection consists of a subset of all the documents stored in the Mongo collection (after all, we generally don't want to send our whole database to the client).
+
+  The port number can be found in .meteor/db/METEOR-PORT  if meteor is running you can connect to it with meteor (if it is installed) by typing 'mongo localhost:3001'
+
+  anything in the collections folder will be available to both the client and the server and act appropriately for both contexts
+
+  'meteor reset' will reset (empty) your server's mongo database. 
+
+  find() returns a cursor which has other methods. one of which is fetch(). this will return the data.
+
+  autopublish is a feature that is enabled by default in all new meteor packages. With this configuration set all collections will be shared in their entirety with each client. Not meant for production. Disable with 'meteor remove autopublish'
+
+
+
+
+
+In Meteor, the var keyword limits the scope of an object to the current file. We want to make the Posts collection available to our whole app, which is why we're omitting that
+keyword here.
+
+
+
+Sessions are available everywhere. to set a value call:
+  Session.set('username', 'King Kong')
+
+  Sessions are a reactive data source which means that they can be used in component controllers/model and will cause an automatic view redraw
+
+  if a session var is set to the same as it's current value it won't trigger
+
+  Deps.autorun is called when our client side data is changed. if this data changes our controller data our view will be redrawn.
+
+  store any state that you want to be shareable between users within the url itself
+
+
+Accounts:
+
+  https://atmospherejs.com/meteor/facebook
+  https://www.meteor.com/accounts
+  i personally think that we should just use the facebook oauth library because we will not be using handlebars.js.
+  Things this does for us that we must implement ourselves:
+    build our own users db using bcrypt library
+
+    manually set up subscription to the appropriate collection for currently logged in user
+
+Security:
+
+  'meteor remove insecure'
+  Client-side inserts into collection aren't allowed except by explicit permission
+
+  Posts.allow({
+    insert: function(userId, doc) {
+      // only allow posting if you are logged in
+      return !! userId;
+    }
+  });
+
+  Posts.deny({
+    update: function(userId, post, fieldNames) {
+      // may only edit the following two fields:
+    return (_.without(fieldNames, 'url', 'title').length > 0);
+    }
+  });
+
+
+  .allow tells meteor the circumstances under which clients are allowed to do things to the specified collection
+
+  this might take some extra time because i think the base functionality uses the userid built into the installable module mentioned previously
+
+  
+
+
+
+
+
+
+
+
+
