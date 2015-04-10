@@ -1,4 +1,4 @@
-NavBar = {
+NavBarTitle = {
 
   model: {
   //set title of page
@@ -7,10 +7,8 @@ NavBar = {
 
   controller: reactive(function() {
     ctrl = this
-    ctrl.css = NavBar.stylesheet().classes
-
-
-
+    ctrl.css = NavBarTitle.stylesheet().classes
+    return ctrl
   }),
 
 
@@ -19,20 +17,12 @@ NavBar = {
       main: {
         class: ctrl.css.main
       },
-      back: {
-        class: ctrl.css.back
-      },
       title: {
         class: ctrl.css.title
-      },
-      menu: {
-        class: ctrl.css.menu
       }
     }
     return m('div.main', attr.main, [
-      m('div.backBtn', attr.back, '<'),
       m('div.title', attr.title, 'Home Page'),
-      m('div.menuBtn', attr.menu, '*')
     ])
 
   },
@@ -43,21 +33,10 @@ NavBar = {
       'width': '100%',
       'height': '100%'
     },
-    back: {
-      'position': 'relative',
-      'top': '0',
-      'left': '0',
-      'border': 'black, solid, 1px'
-    },
     title: {
       'font-size': '2em',
       'float': 'left',
       'text-align': 'center'
-    },
-    menu: {
-      'position': 'relative',
-      'top': '0',
-      'right': '0'
     }
   },
 
