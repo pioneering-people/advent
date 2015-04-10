@@ -35,7 +35,7 @@ NavBar = {
       m('div.menuBtn', attr.menu, '*')
     ])
 
-  }
+  },
 
 //
   styles: {
