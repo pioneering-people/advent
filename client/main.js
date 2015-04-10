@@ -1,7 +1,7 @@
 /*
 
   After 'meteor remove autopublish':
-  
+
   Meteor.subscribe('posts')
 
 
@@ -30,10 +30,19 @@
 if(Meteor.isClient) {
   Meteor.startup(function() {
 
+    globalModel = {
+      getAllQuests : function(){
+        return Quests.find().fetch()
+      }
+    }
+
+    // WHAT ELSE IS GLOBAL?
+
     // var routes = {
-    
+
     // }
     // m.route.mode = "hash"
     // m.route(document.body, '/', routes)
   })
 }
+

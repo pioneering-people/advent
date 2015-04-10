@@ -1,5 +1,3 @@
-/*
-  //this would be automatically available on both the client and server side
-  Quests = new Meteor.Collection('quests')
+// this data is automatically available on both the client (minimongo) and server side (mongo)
+Quests = new Meteor.Collection('quests')
 
-*/
