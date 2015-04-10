@@ -26,3 +26,14 @@
 
 
 */
+
+if(Meteor.isClient) {
+  Meteor.startup(function() {
+
+    // var routes = {
+    
+    // }
+    // m.route.mode = "hash"
+    // m.route(document.body, '/', routes)
+  })
+}
