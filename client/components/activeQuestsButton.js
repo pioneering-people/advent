@@ -1,4 +1,4 @@
-ActiveQuests = {
+ActiveQuestsButton = {
   model: {
 
   },
@@ -6,7 +6,7 @@ ActiveQuests = {
 
   controller: reactive(function(){
     ctrl = this
-    ctrl.css = AvailQuests.stylesheet().classes
+    ctrl.css = ActiveQuestsButton.stylesheet().classes
   }),
 
 
@@ -17,13 +17,13 @@ ActiveQuests = {
         onclick: function() {
           m.route('/activeQuests')
         }
-      }
+      },
       title: {
         class: ctrl.css.title
       }
     }
     return m('div.main', attr.main, [
-      m('div.title', attr.title, 'activeQuests'),
+      m('div.title', attr.title, 'activeQuests')
     ])
   },
 
