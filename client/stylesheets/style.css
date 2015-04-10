@@ -1,6 +1,28 @@
+body{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.homepage{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 10%;
+  left: 0;
+  height: 90%;
+  width: 100%;
+}
+
 .navbar{
   width: 100%;
   height: 10%;
+  padding: 0;
+  margin: 0;
   border: 1px solid green;
   text-align: center;
 }
@@ -8,20 +30,26 @@
 .userStats{
   width: 100%;
   height: 50%;
+  padding: 0;
+  margin: 0;
   border: 1px solid red;
   text-align: center;
 }
 
 .activeQuests{
   width: 100%;
-  height: 20%;
+  height: 25%;
+  padding: 0;
+  margin: 0;
   border: 1px solid black;
   text-align: center;
 }
 
 .availableQuests{
   width: 100%;
-  height: 20%;
+  height: 25%;
+  padding: 0;
+  margin: 0;
   border: 1px solid black;
   text-align: center;
 }
