@@ -20,7 +20,9 @@ Home = {
     }
     return m('div.home', attr.home, [
       NavBar,
-      UserStats
+      UserStats,
+      ActiveQuestsButton,
+      AvailableQuestsButton
     ])
 
   },

@@ -1,4 +1,4 @@
-ActiveQuestsButton = {
+AvailableQuestsButton = {
   model: {
 
   },
@@ -6,7 +6,7 @@ ActiveQuestsButton = {
 
   controller: reactive(function(){
     ctrl = this
-    ctrl.css = ActiveQuestsButton.stylesheet().classes
+    ctrl.css = AvailableQuestsButton.stylesheet().classes
   }),
 
 
@@ -15,25 +15,23 @@ ActiveQuestsButton = {
       main: {
         class: ctrl.css.main,
         onclick: function() {
-          m.route('/activeQuests')
+          m.route('/availableQuests')
         }
       }
     }
-    return m('div.activeQuestsButton', attr.main, 'ActiveQuestsButton')
+    return m('div.availableQuestsButton', attr.main, 'AvailableQuestsButton')
   },
 
 
   styles: {
-    main:{
+    main: {
       'width': '100%',
       'height': '25%',
       'padding': '0',
       'margin': '0',
-      'border': '1px solid black',
+      'border': '1px solid cyan',
       'text-align': 'center'
-      
     }
-
   },
 
 

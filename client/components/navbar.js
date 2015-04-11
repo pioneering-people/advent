@@ -1,7 +1,6 @@
 NavBar = {
 
   model: {
-  //set title of page
 
   },
 
