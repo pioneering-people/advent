@@ -28,7 +28,7 @@ UserStats = {
       'height': '50%',
       'padding': '0',
       'margin': '0',
-      'border': '1px solid red',
+      'outline': '1px solid red',
       'text-align': 'center'
     }
   },

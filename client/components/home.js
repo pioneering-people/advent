@@ -34,7 +34,7 @@ Home = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      'border': '1px solid green'
+      'outline': '1px solid green'
     }
   },
 

@@ -26,10 +26,10 @@ AvailableQuestsButton = {
   styles: {
     main: {
       'width': '100%',
-      'height': '25%',
+      'height': '20%',
       'padding': '0',
       'margin': '0',
-      'border': '1px solid cyan',
+      'outline': '1px solid cyan',
       'text-align': 'center'
     }
   },
