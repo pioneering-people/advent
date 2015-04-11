@@ -36,13 +36,21 @@ if(Meteor.isClient) {
       }
     }
 
+
+
+
     // WHAT ELSE IS GLOBAL?
 
     // var routes = {
-
+    //   home: {
+    //     '/'
+    //   }
     // }
-    // m.route.mode = "hash"
-    // m.route(document.body, '/', routes)
+    m.route.mode = "hash"
+    //index routes
+    m.route(document.body, '/', {
+      '/': Home
+    })
   })
 }
 

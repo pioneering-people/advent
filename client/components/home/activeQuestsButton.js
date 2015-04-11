@@ -23,7 +23,8 @@ ActiveQuestsButton = {
       }
     }
     return m('div.main', attr.main, [
-      m('div.title', attr.title, 'activeQuests')
+      m('div.title', attr.title, 'activeQuests'),
+      NavBarTitle
     ])
   },
 

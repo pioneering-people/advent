@@ -1,4 +1,4 @@
-NavBarBackButton = {
+NavBarBack = {
 
   model: {
   //set title of page
@@ -7,7 +7,7 @@ NavBarBackButton = {
 
   controller: reactive(function() {
     ctrl = this
-    ctrl.css = NavBarBackButton.stylesheet().classes
+    ctrl.css = NavBarBack.stylesheet().classes
     return ctrl
   }),
 
@@ -16,27 +16,20 @@ NavBarBackButton = {
     var attr = {
       main: {
         class: ctrl.css.main
-      },
-      back: {
-        class: ctrl.css.back
       }
     }
-    return m('div.main', attr.main, [
-      m('div.backBtn', attr.back, '<')
-    ])
+    return m('div.backBtn', attr.main, '<')
 
   },
 
   styles: {
     main: {
-      'width': '100%',
-      'height': '100%'
-    },
-    back: {
-      'position': 'relative',
-      'top': '0',
-      'left': '0',
-      'border': 'black, solid, 1px'
+      'background-color': 'blue',
+      'width': '10%',
+      'display': 'inline-block',
+      'float': 'left',
+      'height': '100%',
+      'text-align': 'center'
     }
   },
 

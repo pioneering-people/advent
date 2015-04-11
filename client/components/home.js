@@ -1,4 +1,4 @@
-NavBarTitle = {
+Home = {
 
   model: {
   //set title of page
@@ -7,36 +7,32 @@ NavBarTitle = {
 
   controller: reactive(function() {
     ctrl = this
-    ctrl.css = NavBarTitle.stylesheet().classes
+    ctrl.css = Home.stylesheet().classes
     return ctrl
   }),
 
 
   view: function(ctrl) {
     var attr = {
-      main: {
-        class: ctrl.css.main
-      },
-      title: {
-        class: ctrl.css.title
+      home: {
+        class: ctrl.css.home
       }
     }
-    return m('div.main', attr.main, [
-      m('div.title', attr.title, 'Home Page'),
+    return m('div.home', attr.home, [
+      NavBar,
+      UserStats
     ])
 
   },
 
 //
   styles: {
-    main: {
+    home: {
       'width': '100%',
-      'height': '100%'
-    },
-    title: {
-      'font-size': '2em',
-      'float': 'left',
-      'text-align': 'center'
+      'height': '100%',
+      'padding': '0',
+      'margin': '0',
+      'border': '1px solid green'
     }
   },
 

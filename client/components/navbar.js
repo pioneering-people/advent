@@ -1,4 +1,4 @@
-NavBarMenu = {
+NavBar = {
 
   model: {
   //set title of page
@@ -7,36 +7,33 @@ NavBarMenu = {
 
   controller: reactive(function() {
     ctrl = this
-    ctrl.css = NavBarMenu.stylesheet().classes
+    ctrl.css = NavBar.stylesheet().classes
     return ctrl
   }),
 
 
   view: function(ctrl) {
     var attr = {
-      main: {
-        class: ctrl.css.main
-      },
-      menu: {
-        class: ctrl.css.menu
+      navbar: {
+        class: ctrl.css.navbar
       }
     }
-    return m('div.main', attr.main, [
-      m('div.menuBtn', attr.menu, '*')
+    return m('div.navbar', attr.navbar, [
+      NavBarBack,
+      NavBarTitle,
+      NavBarMenu
     ])
 
   },
 
 //
   styles: {
-    main: {
+    navbar: {
       'width': '100%',
-      'height': '100%'
-    },
-    menu: {
-      'position': 'relative',
-      'top': '0',
-      'right': '0'
+      'height': '10%',
+      'padding': '0',
+      'margin': '0',
+      'border': '1px solid green'
     }
   },
 
