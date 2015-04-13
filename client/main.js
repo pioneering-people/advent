@@ -49,7 +49,8 @@ if(Meteor.isClient) {
     m.route.mode = "hash"
     //index routes
     m.route(document.body, '/', {
-      '/': Home
+      '/': Home,
+      '/questLog': QuestLog
     })
   })
 }

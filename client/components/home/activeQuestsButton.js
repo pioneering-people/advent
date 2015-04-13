@@ -15,7 +15,7 @@ ActiveQuestsButton = {
       main: {
         class: ctrl.css.main,
         onclick: function() {
-          m.route('/activeQuests')
+          m.route('/questLog')
         }
       }
     }
