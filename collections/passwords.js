@@ -1,0 +1,1 @@
+Passwords = new Meteor.Collection('passwords')
