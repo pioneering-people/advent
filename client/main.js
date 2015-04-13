@@ -30,10 +30,7 @@
 if(Meteor.isClient) {
   Meteor.startup(function() {
 
-    globalModel = {
-      getAllQuests : function(){
-        return Quests.find().fetch()
-      }
+    globalModel =  {
     }
 
 
@@ -50,7 +47,8 @@ if(Meteor.isClient) {
     //index routes
     m.route(document.body, '/', {
       '/': Home,
-      '/questLog': QuestLog
+      '/questLog': QuestLog,
+      '/auth': Login
     })
   })
 }

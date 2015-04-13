@@ -1,13 +1,16 @@
 UserStats = {
 
   model: {
-  //set title of page
+    getStats: function() {
+      return Users.find({name: Session.get('user')}).fetch()[0] || {}
+    }
 
   },
 
   controller: reactive(function() {
     ctrl = this
     ctrl.css = UserStats.stylesheet().classes
+    ctrl.stats = UserStats.model.getStats()
     return ctrl
   }),
 
@@ -18,7 +21,13 @@ UserStats = {
         class: ctrl.css.main
       }
     }
-    return m('div.userStats', attr.main, 'cant match my stats')
+    console.log(ctrl.stats)
+    return m('div.userStats', attr.main, [
+      m('h1', ctrl.stats.name),
+      m('h2', ctrl.stats.title),
+      m('h3', ctrl.stats.experience),
+      m('h2', ctrl.stats.orginanization)
+    ])
 
   },
 

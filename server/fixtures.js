@@ -2,9 +2,9 @@
 if(Users.find().count() === 0) {
   Users.insert({
     name: 'Slippin Jimmy',
-    //Orginization: '',
-    //experience: 5,
-    //title: 'scrappy scavanger'
+    organization: '',
+    experience: 5,
+    title: 'scrappy scavanger',
     quests: {
       'City Cavalcade': {
         tasksCompleted: {

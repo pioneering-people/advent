@@ -7,6 +7,7 @@ Home = {
 
   controller: reactive(function() {
     ctrl = this
+    if(!Session.get('user'))m.route('/auth')
     ctrl.css = Home.stylesheet().classes
     return ctrl
   }),
