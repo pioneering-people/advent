@@ -15,7 +15,12 @@ NavBarBack = {
   view: function(ctrl) {
     var attr = {
       main: {
-        class: ctrl.css.main
+        class: ctrl.css.main,
+        onclick: function() {
+          console.log(globalModel.backStack[globalModel.backStack.length-1])
+          var route = globalModel.backStack.pop() || '/'
+          m.route(route)
+        }
       }
     }
     return m('div.backBtn', attr.main, '<')
