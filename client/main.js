@@ -50,7 +50,8 @@ if(Meteor.isClient) {
     m.route(document.body, '/', {
       '/': Home,
       '/questLog': QuestLog,
-      '/auth': Login
+      '/auth': Login,
+      '/options': Options
     })
   })
 }
