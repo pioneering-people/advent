@@ -22,18 +22,20 @@ NavBarTitle = {
       }
     }
     return m('div.titleBtn', attr.title, [
-      m('div.center', attr.center, 'Title')
+      m('div.center', attr.center, 'Quest App')
     ])
   },
 
   styles: {
     title: {
-      'background-color': '#cd563e',
-      'width': '80%',
+      'outline': '1px solid gray',
+      //'background-color': '#cd563e',
+      'width': '75%',
       'display':'inline-block',
       'float': 'left',
       'height': '100%',
-      'text-align': 'center'
+      'text-align': 'center',
+      'font': 'bold 22px Helvetica, Arial, sans-serif'
     },
     center: {
       'margin': 'auto',

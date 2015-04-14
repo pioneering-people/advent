@@ -30,7 +30,8 @@ QuestLog = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid green'
+      'outline': '1px solid gray', 
+      'font': 'bold 22px Helvetica, Arial, sans-serif'
     }
   },
 

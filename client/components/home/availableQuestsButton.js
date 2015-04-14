@@ -35,8 +35,9 @@ AvailableQuestsButton = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid cyan',
-      'text-align': 'center'
+      'outline': '1px solid gray',
+      'text-align': 'center',
+      'font': 'bold 18px Helvetica, Arial, sans-serif'
     },
     center:{
       'margin': 'auto',

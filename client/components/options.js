@@ -1,9 +1,9 @@
 Options = {
   model: {
     routes: [
-      {route: '/auth', name:'Logout'},
       {route: '/', name: 'Home'},
-      {route: '/questLog', name: 'Quest Log'}
+      {route: '/questLog', name: 'Quest Log'},
+      {route: '/auth', name:'Logout'}
     ]
 
   },
@@ -19,6 +19,9 @@ Options = {
       options: {
         class: ctrl.css.options
       },
+      center: {
+        class: ctrl.css.center
+      },
       optionLink: function(link){
         return {
           class: ctrl.css.optionLink,
@@ -31,7 +34,9 @@ Options = {
       NavBar,
       ctrl.routes.map(function(route) {
         return m('div.route', attr.optionLink(route.route), [
-          m('span',route.name)
+          m('div.center', attr.center, [ 
+            m('span',route.name)
+          ])
         ])
       })
     ])
@@ -40,16 +45,23 @@ Options = {
   styles: {
     options: {
       'width': '100%',
-      'height': '100%'
+      'height': '100%',
+      'font': 'bold 18px Helvetica, Arial, sans-serif'
     },
     optionLink: {
       'width': '100%',
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid blue',
+      'outline': '1px solid gray',
       'text-align': 'center',
       'font-size': '1em'
+    },
+    center: {
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '50%',
+      'transform': 'translateY(-50%)'
     }
 
   },
