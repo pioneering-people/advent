@@ -17,12 +17,16 @@ AvailableQuestsButton = {
         onclick: function() {
           m.route('/questLog')
           globalModel.backStack.push('/');
-
         }
+      },
+      center: {
+        class: ctrl.css.center
       }
     }
-    return m('div.availableQuestsButton', attr.main, 'AvailableQuestsButton')
-  },
+    return m('div.availableQuestsButton', attr.main, [
+      m('div.center', attr.center, 'Available Quests')
+    ]
+  )},
 
 
   styles: {
@@ -33,6 +37,12 @@ AvailableQuestsButton = {
       'margin': '0',
       'outline': '1px solid cyan',
       'text-align': 'center'
+    },
+    center:{
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '50%',
+      'transform': 'translateY(-50%)'
     }
   },
 

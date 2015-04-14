@@ -16,10 +16,14 @@ NavBarTitle = {
     var attr = {
       title: {
         class: ctrl.css.title
+      },
+      center: {
+        class: ctrl.css.center
       }
     }
-    return m('div.titleBtn', attr.title, 'Title')
-
+    return m('div.titleBtn', attr.title, [
+      m('div.center', attr.center, 'Title')
+    ])
   },
 
   styles: {
@@ -30,6 +34,12 @@ NavBarTitle = {
       'float': 'left',
       'height': '100%',
       'text-align': 'center'
+    },
+    center: {
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '50%',
+      'transform': 'translateY(-50%)'
     }
   },
 

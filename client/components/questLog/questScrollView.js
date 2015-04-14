@@ -60,6 +60,9 @@ QuestScroll = {
         onclick: function() {
           ctrl.scrollQuests()
         }
+      },
+      center:{
+        class: ctrl.css.center
       }
     }
 
@@ -68,21 +71,25 @@ QuestScroll = {
       m('div.questsList', attr.questsList, [
         ctrl.quests().map(function (quest) {
           return m('div.quest', attr.quest, [
-            m('br'),
-            m('br'),
-            m('span', attr.bold, quest.name),
-            m('br'),
-            m('span', 'created by '),
-            m('span', quest.creator),
-            m('br'),
-            m('span','Prize: '),
-            m('span', quest.prize),
+            m('div.center', attr.center, [
+              m('span', attr.bold, quest.name),
+              m('br'),
+              m('span', 'created by '),
+              m('span', quest.creator),
+              m('br'),
+              m('span','Prize: '),
+              m('span', quest.prize)
+            ])
           ])
         })
       ]),
       m('div.scrollButtons', attr.scrollButtons, [
-        m('div.downButton', attr.upButton, '^'),
-        m('div.upButton', attr.downButton, 'v')
+        m('div.downButton', attr.upButton, [
+          m('div.center', attr.center, '<-')
+        ]),
+        m('div.upButton', attr.downButton, [
+          m('div.center', attr.center, '->')
+        ])
       ])
       
     ])
@@ -91,16 +98,16 @@ QuestScroll = {
   styles: {
     main: {
       'width': '100%',
-      'height': '100%',
+      'height': '90vh',
       'padding': '0',
       'margin': '0',
       'outline': '10px dotted red',
       'text-align': 'center',
-      'font-size': '2em'
+      'font-size': '1em'
     },
     questsList: {
       'width': '100%',
-      'height': '80%',
+      'height': '90%',
       'padding': '0',
       'margin': '0',
       'outline': '1px solid orange',
@@ -145,6 +152,12 @@ QuestScroll = {
     },
     bold: {
       'font-weight': 'bold'
+    },
+    center:{
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '50%',
+      'transform': 'translateY(-50%)'
     }
   },
 

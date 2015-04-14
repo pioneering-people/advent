@@ -16,9 +16,14 @@ NavBarMenu = {
     var attr = {
       main: {
         class: ctrl.css.main
+      },
+      center: {
+        class: ctrl.css.center
       }
     }
-    return m('div.menuBtn', attr.main, '*')
+    return m('div.menuBtn', attr.main, [
+      m('div.center', attr.center, '=')
+    ])
 
   },
 
@@ -29,7 +34,13 @@ NavBarMenu = {
       'display': 'inline-block',
       'float': 'left',
       'height': '100%',
-      'text-align': 'center'
+      'text-align': 'center',
+    },
+    center: {
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '50%',
+      'transform': 'translateY(-50%)'
     }
   },
 

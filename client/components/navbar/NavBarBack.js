@@ -21,10 +21,14 @@ NavBarBack = {
           var route = globalModel.backStack.pop() || '/'
           m.route(route)
         }
+      },
+      center: {
+        class: ctrl.css.center
       }
     }
-    return m('div.backBtn', attr.main, '<')
-
+    return m('div.backBtn', attr.main, [
+      m('div.center', attr.center, '<')
+    ])
   },
 
   styles: {
@@ -35,6 +39,12 @@ NavBarBack = {
       'float': 'left',
       'height': '100%',
       'text-align': 'center'
+    },
+    center: {
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '50%',
+      'transform': 'translateY(-50%)'
     }
   },
 

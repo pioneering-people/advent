@@ -19,14 +19,30 @@ UserStats = {
     var attr = {
       main: {
         class: ctrl.css.main
+      },
+      center: {
+        class: ctrl.css.center
       }
     }
+
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+
+    var questSize = Object.size(ctrl.stats.quests)
+
     console.log(ctrl.stats)
     return m('div.userStats', attr.main, [
-      m('h1', ctrl.stats.name),
-      m('h2', ctrl.stats.title),
-      m('h3', ctrl.stats.experience),
-      m('h2', ctrl.stats.orginanization)
+      m('div.center', attr.center, [
+        m('br'),
+        m('h1', ctrl.stats.name),
+        m('h2', 'Active Quest(s): ' + questSize),
+        m('br')
+      ])
     ])
 
   },
@@ -39,6 +55,12 @@ UserStats = {
       'margin': '0',
       'outline': '1px solid red',
       'text-align': 'center'
+    },
+    center: {
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '50%',
+      'transform': 'translateY(-50%)'
     }
   },
 

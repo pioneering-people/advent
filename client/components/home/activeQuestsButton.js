@@ -18,10 +18,15 @@ ActiveQuestsButton = {
           m.route('/questLog')
           globalModel.backStack.push('/');
         }
+      },
+      center: {
+        class: ctrl.css.center
       }
     }
-    return m('div.activeQuestsButton', attr.main, 'ActiveQuestsButton')
-  },
+    return m('div.activeQuestsButton', attr.main, [
+      m('div.center', attr.center, 'Active Quests')
+    ]
+  )},
 
 
   styles: {
@@ -31,8 +36,13 @@ ActiveQuestsButton = {
       'padding': '0',
       'margin': '0',
       'outline': '1px solid black',
-      'text-align': 'center'
-      
+      'text-align': 'center',
+    },
+    center:{
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '50%',
+      'transform': 'translateY(-50%)'
     }
 
   },
