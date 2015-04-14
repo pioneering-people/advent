@@ -1,13 +1,16 @@
 QuestScroll = {
 
   model: {
-  //set title of page
-
+    getQuests: function() {
+      return Quests.find({}, {limit: 5}).fetch()
+      
+    }
   },
 
   controller: reactive(function() {
     ctrl = this
     ctrl.css = QuestScroll.stylesheet().classes
+    ctrl.quests = QuestScroll.model.getQuests()
     return ctrl
   }),
 
@@ -30,7 +33,7 @@ QuestScroll = {
 
 
     return m('div.questsList', attr.questsList, [
-       Quests.find().fetch().map(function (quest) {
+       ctrl.quests.map(function (quest) {
          return m('div.quest', attr.quest, [
            m('br'),
            m('br'),
