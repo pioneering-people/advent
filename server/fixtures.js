@@ -51,6 +51,7 @@ if(Users.find().count() === 0) {
 
 if(Quests.find().count() === 0) {
   Quests.insert({
+    normalId: 1,
     name: 'Downtown Dabbler',
     active: 'false',
     start: '04/04/15',
@@ -70,6 +71,7 @@ if(Quests.find().count() === 0) {
   }),
 
   Quests.insert({
+    normalId: 2,
     name: 'City Cavalcade',
     active: 'true',
     start: '04/08/15',
@@ -90,6 +92,7 @@ if(Quests.find().count() === 0) {
   }),
 
   Quests.insert({
+    normalId: 3,
     name: 'Round Up',
     active: 'true',
     start: '04/08/15',
@@ -110,6 +113,7 @@ if(Quests.find().count() === 0) {
   }),
 
   Quests.insert({
+    normalId: 4,
     name: 'SXSW',
     active: 'true',
     start: '08/08/15',
@@ -129,6 +133,7 @@ if(Quests.find().count() === 0) {
   }),
 
   Quests.insert({
+    normalId: 5,
     name: 'Austin City Limits',
     active: 'true',
     start: '10/08/15',
@@ -148,6 +153,7 @@ if(Quests.find().count() === 0) {
   }),
 
   Quests.insert({
+    normalId: 6,
     name: 'Euphoria',
     active: 'true',
     start: '04/10/15',

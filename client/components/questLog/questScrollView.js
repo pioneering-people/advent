@@ -2,8 +2,16 @@ QuestScroll = {
 
   model: {
     getQuests: function() {
-      return Quests.find({}, {limit: 5}).fetch()
-      
+      var fifth = []
+      if (globalModel.questViewOffset !== 0){
+        fifth = Quests.find({normalId: {'$gt': globalModel.questViewOffset}}, {limit: 5}).fetch()
+      }
+      else {
+        fifth = Quests.find({}, {limit: 5}).fetch()
+      }
+
+      if (fifth.length) globalModel.questViewOffset = fifth[fifth.length-1].normalId     //need to add logic for down button
+      return fifth
     }
   },
 
