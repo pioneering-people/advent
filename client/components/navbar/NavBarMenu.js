@@ -15,7 +15,8 @@ NavBarMenu = {
   view: function(ctrl) {
     var attr = {
       main: {
-        class: ctrl.css.main
+        class: ctrl.css.main,
+        onclick: m.route.bind(null, '/options')
       },
       center: {
         class: ctrl.css.center
