@@ -20,8 +20,7 @@ QuestLog = {
     }
     return m('div.QuestLog', attr.QuestLog, [
       NavBar,
-      QuestScroll,
-      QuestScrollButtons
+      QuestScroll
     ])
   },
 

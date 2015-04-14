@@ -1,24 +1,33 @@
 QuestScroll = {
 
   model: {
-    getQuests: function() {
+    lastQuestOnPage:  0,
+    getQuests: function(up) {
       var fifth = []
       if (globalModel.questViewOffset !== 0){
-        fifth = Quests.find({normalId: {'$gt': globalModel.questViewOffset}}, {limit: 5}).fetch()
+        if(up) fifth = Quests.find({normalId: {'$lt': globalModel.questViewOffset}}, {limit: 5}).fetch()
+        else fifth = Quests.find({normalId: {'$gt': globalModel.questViewOffset}}, {limit: 5}).fetch()
       }
       else {
         fifth = Quests.find({}, {limit: 5}).fetch()
       }
-
-      if (fifth.length) globalModel.questViewOffset = fifth[fifth.length-1].normalId     //need to add logic for down button
+      if (fifth.length) QuestScroll.model.lastQuestOnPage = fifth[fifth.length-1].normalId 
       return fifth
+    },
+    setMostRecentQuest: function() {
+      globalModel.questViewOffset = QuestScroll.model.lastQuestOnPage
     }
   },
 
   controller: reactive(function() {
     ctrl = this
     ctrl.css = QuestScroll.stylesheet().classes
-    ctrl.quests = QuestScroll.model.getQuests()
+    ctrl.quests = m.prop(QuestScroll.model.getQuests())
+    ctrl.scrollQuests = function(up) {
+      var direction = up || undefined
+      QuestScroll.model.setMostRecentQuest()
+      ctrl.quests(QuestScroll.model.getQuests(direction))
+    }
     return ctrl
   }),
 
@@ -36,34 +45,56 @@ QuestScroll = {
       },
       bold: {
         class: ctrl.css.bold
+      },
+      scrollButtons: {
+        class: ctrl.css.scrollButtons
+      },
+      upButton:{
+        class: ctrl.css.upButton,
+        onclick: function() {
+          ctrl.scrollQuests('up')
+        }
+      },
+      downButton:{
+        class: ctrl.css.downButton,
+        onclick: function() {
+          ctrl.scrollQuests()
+        }
       }
     }
 
 
-    return m('div.questsList', attr.questsList, [
-       ctrl.quests.map(function (quest) {
-         return m('div.quest', attr.quest, [
-           m('br'),
-           m('br'),
-           m('span', attr.bold, quest.name),
-           m('br'),
-           m('span', 'created by '),
-           m('span', quest.creator),
-           m('br'),
-           m('span','Prize: '),
-           m('span', quest.prize),
-         ])
-       })
-     ])
+    return m('div.main', attr.main, [
+      m('div.questsList', attr.questsList, [
+        ctrl.quests().map(function (quest) {
+          return m('div.quest', attr.quest, [
+            m('br'),
+            m('br'),
+            m('span', attr.bold, quest.name),
+            m('br'),
+            m('span', 'created by '),
+            m('span', quest.creator),
+            m('br'),
+            m('span','Prize: '),
+            m('span', quest.prize),
+          ])
+        })
+      ]),
+      m('div.scrollButtons', attr.scrollButtons, [
+        m('div.downButton', attr.upButton, '^'),
+        m('div.upButton', attr.downButton, 'v')
+      ])
+      
+    ])
   },
 
   styles: {
     main: {
       'width': '100%',
-      'height': '80%',
+      'height': '100%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid red',
+      'outline': '10px dotted red',
       'text-align': 'center',
       'font-size': '2em'
     },
@@ -84,6 +115,33 @@ QuestScroll = {
       'outline': '1px solid blue',
       'text-align': 'center',
       'font-size': '1em'
+    },
+    scrollButtons: {
+      'width': '100%',
+      'height': '10%',
+      'padding': '0px',
+      'margin': 'auto',
+      'outline': '1px solid green'
+    },
+    upButton: {
+      'position': 'relative',
+      'background-color': 'blue',
+      'display': 'inline-block',
+      'width': '50%',
+      'float': 'left',
+      'height': '100%',
+      'font-size': '2em',
+      'text-align': 'center'
+    },
+    downButton: {
+      'position': 'relative',
+      'background-color': 'magenta',
+      'display': 'inline-block',
+      'width': '50%',
+      'float': 'left',
+      'height': '100%',
+      'font-size': '2em',
+      'text-align': 'center'
     },
     bold: {
       'font-weight': 'bold'
