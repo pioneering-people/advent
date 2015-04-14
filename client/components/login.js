@@ -76,6 +76,7 @@ Login = {
       , 'margin': '0px auto 0px auto'
       , 'background-color': '#272822'
       , 'text-align': 'center'
+      , 'font': 'bold 22px Helvetica, Arial, sans-serif'
     }
     , header: {
       'color': '#FFFFFF'

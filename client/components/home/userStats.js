@@ -22,6 +22,9 @@ UserStats = {
       },
       center: {
         class: ctrl.css.center
+      },
+      bold: {
+        class: ctrl.css.bold
       }
     }
 
@@ -39,8 +42,8 @@ UserStats = {
     return m('div.userStats', attr.main, [
       m('div.center', attr.center, [
         m('br'),
-        m('h1', ctrl.stats.name),
-        m('h2', 'Active Quest(s): ' + questSize),
+        m('h2', attr.bold, ctrl.stats.name),
+        m('h3', 'Active Quest(s): ' + questSize),
         m('br')
       ])
     ])
@@ -53,14 +56,18 @@ UserStats = {
       'height': '50%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid red',
-      'text-align': 'center'
+      'outline': '1px solid gray',
+      'text-align': 'center',
+      'font': '18px Helvetica, Arial, sans-serif'
     },
     center: {
       'margin': 'auto',
       'position': 'relative',
       'top': '50%',
       'transform': 'translateY(-50%)'
+    },
+    bold: {
+      'font-weight': 'bold'
     }
   },
 
