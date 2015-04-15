@@ -26,8 +26,14 @@ TaskScroll = {
       tasksList: {
         class: ctrl.css.tasksList
       },
-      task: {
-        class: ctrl.css.task
+      task: function(taskName) {
+      return {
+        class: ctrl.css.task,
+          onclick: function() {
+            globalModel.backStack.push('/taskLog')
+            m.route('/taskItem/' + taskName)
+          }
+        }
       },
       bold: {
         class: ctrl.css.bold
@@ -57,7 +63,7 @@ TaskScroll = {
       m('div.tasksList', attr.tasksList, [
         // slice four items from the tasks array starting with the offset
         ctrl.tasks().slice(ctrl.offset, ctrl.offset + 5).map(function (task) {
-          return m('div.task', attr.task, [
+          return m('div.task', attr.task(task.name), [
             m('div.center', attr.center, [
               m('span', attr.bold, task.name)
             ])
