@@ -14,7 +14,7 @@ TaskScroll = {
     ctrl.tasks = m.prop(TaskScroll.model.tasks())
     ctrl.offset = 0
     ctrl.max = (function() {
-      var result = ctrl.quests().length ? ctrl.quests().length - 5 : 0
+      var result = ctrl.tasks().length ? ctrl.tasks().length - 5 : 0
       if(result < 0) result = 0
       return result
     })()
