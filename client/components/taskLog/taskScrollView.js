@@ -3,7 +3,7 @@ TaskScroll = {
   model: {
     tasks: function() {
       // find({questname: m.route.param('questName')})
-      return Tasks.find().fetch()
+      return Tasks.find({quest: ctrl.questName}).fetch()
     }
   },
 

@@ -1,15 +1,15 @@
-QuestScroll = {
+QuestScrollActive = {
 
   model: {
     quests: function() {
-      return Quests.find({participants: {$ne:Session.get('user')}}).fetch()
+      return Quests.find({participants: Session.get('user')}).fetch()
     }
   },
 
   controller: reactive(function() {
     ctrl = this
-    ctrl.css = QuestScroll.stylesheet().classes
-    ctrl.quests = m.prop(QuestScroll.model.quests())
+    ctrl.css = QuestScrollActive.stylesheet().classes
+    ctrl.quests = m.prop(QuestScrollActive.model.quests())
     ctrl.offset = 0
     ctrl.max = ctrl.quests().length ? ctrl.quests().length - 5 : 0
     return ctrl
@@ -28,7 +28,7 @@ QuestScroll = {
         return {
           class: ctrl.css.quest,
           onclick: function() {
-            globalModel.backStack.push('/questLog');
+            globalModel.backStack.push('/questLogActive');
             m.route('/taskLog/' + questName)
           }
         }
