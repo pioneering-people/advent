@@ -13,7 +13,11 @@ TaskScroll = {
     ctrl.questName = m.route.param('questName')
     ctrl.tasks = m.prop(TaskScroll.model.tasks())
     ctrl.offset = 0
-    ctrl.max = ctrl.tasks().length ? ctrl.tasks().length - 5 : 0
+    ctrl.max = (function() {
+      var result = ctrl.quests().length ? ctrl.quests().length - 5 : 0
+      if(result < 0) result = 0
+      return result
+    })()
     return ctrl
   }),
 

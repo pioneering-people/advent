@@ -11,7 +11,11 @@ QuestScroll = {
     ctrl.css = QuestScroll.stylesheet().classes
     ctrl.quests = m.prop(QuestScroll.model.quests())
     ctrl.offset = 0
-    ctrl.max = ctrl.quests().length ? ctrl.quests().length - 5 : 0
+      ctrl.max = (function() {
+      var result = ctrl.quests().length ? ctrl.quests().length - 5 : 0
+      if(result < 0) result = 0
+      return result
+    })()
     return ctrl
   }),
 

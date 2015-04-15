@@ -28,22 +28,13 @@ UserStats = {
       }
     }
 
-    Object.size = function(obj) {
-        var size = 0, key;
-        for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
-        }
-        return size;
-    };
-
-    var questSize = Object.size(ctrl.stats.quests)
 
     console.log(ctrl.stats)
     return m('div.userStats', attr.main, [
       m('div.center', attr.center, [
         m('br'),
         m('h2', attr.bold, ctrl.stats.name),
-        m('h3', 'Active Quest(s): ' + questSize),
+        m('span', 'You are currently participating in ' + Quests.find({participants: Session.get('user')}).fetch().length + ' quests'),
         m('br')
       ])
     ])
