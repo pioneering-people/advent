@@ -124,7 +124,8 @@ if(Quests.find().count() === 0) {
     participants: [
       '501337',
       'OompahLoompah',
-      'CookieMonster'
+      'CookieMonster',
+      'Zach'
     ],
     settings: {
       singleActivity: false, //one activity at a time
@@ -144,7 +145,8 @@ if(Quests.find().count() === 0) {
     participants: [
       '501337',
       'OompahLoompah',
-      'CookieMonster'
+      'CookieMonster',
+      'Zach'
     ],
     settings: {
       singleActivity: false, //one activity at a time
@@ -164,7 +166,8 @@ if(Quests.find().count() === 0) {
     participants: [
       '501337',
       'OompahLoompah',
-      'CookieMonster'
+      'CookieMonster',
+      'Zach'
     ],
     settings: {
       singleActivity: false, //one activity at a time
@@ -320,9 +323,33 @@ if(Tasks.find().count() === 0) {
   })
   Tasks.insert({
     normalId: 19,
-    quest: 'RoundUp',
+    quest: 'Austin City Limits',
     taskNumber: 6,
-    name: 'bike across town',
+    name: 'buy ACL tickets',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 20,
+    quest: 'SXSW',
+    taskNumber: 6,
+    name: 'get tacos at Hype Hotel',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 20,
+    quest: 'SXSW',
+    taskNumber: 6,
+    name: 'grab a beer at Fader Fort',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 20,
+    quest: 'SXSW',
+    taskNumber: 6,
+    name: 'get wasted at Spotify House',
     location: [35.2742415,-100.7415556],
     //image-feed: ,
   })
