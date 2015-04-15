@@ -1,21 +1,9 @@
 TaskScroll = {
 
   model: {
-    lastTaskOnPage:  0,
-    getTasks: function(questName, up) {
-      var fifth = []
-      if (globalModel.taskViewOffset !== 0){
-        if(up) fifth = Tasks.find({quest: questName, normalId: {'$lt': globalModel.taskViewOffset}}, {limit: 5}).fetch()
-        else fifth = Tasks.find({quest: questName, normalId: {'$gt': globalModel.taskViewOffset}}, {limit: 5}).fetch()
-      }
-      else {
-        fifth = Tasks.find({quest: questName}, {limit: 5}).fetch()
-      }
-      if (fifth.length) TaskScroll.model.lastTaskOnPage = fifth[fifth.length-1].normalId
-      return fifth
-    },
-    setMostRecentTask: function() {
-      globalModel.taskViewOffset = TaskScroll.model.lastTaskOnPage
+    tasks: function() {
+      // find({questname: m.route.param('questName')})
+      return Tasks.find().fetch()
     }
   },
 
@@ -23,12 +11,9 @@ TaskScroll = {
     ctrl = this
     ctrl.css = TaskScroll.stylesheet().classes
     ctrl.questName = m.route.param('questName')
-    ctrl.tasks = m.prop(TaskScroll.model.getTasks(ctrl.questName))
-    ctrl.scrollTasks = function(up) {
-      var direction = up || undefined
-      TaskScroll.model.setMostRecentTask()
-      ctrl.tasks(TaskScroll.model.getTasks(ctrl.questName, direction))
-    }
+    ctrl.tasks = m.prop(TaskScroll.model.tasks())
+    ctrl.offset = 0
+    ctrl.max = ctrl.tasks().length ? ctrl.tasks().length - 5 : 0
     return ctrl
   }),
 
@@ -53,13 +38,13 @@ TaskScroll = {
       upButton:{
         class: ctrl.css.upButton,
         onclick: function() {
-          ctrl.scrollTasks('up')
+          (ctrl.offset - 5) < 0 ? ctrl.offset = 0 : ctrl.offset -= 5
         }
       },
       downButton:{
         class: ctrl.css.downButton,
         onclick: function() {
-          ctrl.scrollTasks()
+          (ctrl.offset + 5) > ctrl.max ? ctrl.offset = ctrl.max : ctrl.offset += 5
         }
       },
       center:{
@@ -70,7 +55,8 @@ TaskScroll = {
 
     return m('div.main', attr.main, [
       m('div.tasksList', attr.tasksList, [
-        ctrl.tasks().map(function (task) {
+        // slice four items from the tasks array starting with the offset
+        ctrl.tasks().slice(ctrl.offset, ctrl.offset + 5).map(function (task) {
           return m('div.task', attr.task, [
             m('div.center', attr.center, [
               m('span', attr.bold, task.name)
