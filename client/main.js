@@ -31,7 +31,7 @@ if(Meteor.isClient) {
   Meteor.startup(function() {
 
     globalModel =  {
-      'backStack' : []
+      // 'backStack' : []
     }
 
 

@@ -28,7 +28,7 @@ QuestScroll = {
         return {
           class: ctrl.css.quest,
           onclick: function() {
-            globalModel.backStack.push('/questLog');
+            // globalModel.backStack.push('/questLog');
             m.route('/taskLog/' + questName)
           }
         }

@@ -17,9 +17,10 @@ NavBarBack = {
       main: {
         class: ctrl.css.main,
         onclick: function() {
-          console.log(globalModel.backStack[globalModel.backStack.length-1])
-          var route = globalModel.backStack.pop() || '/'
-          m.route(route)
+          // console.log(globalModel.backStack[globalModel.backStack.length-1])
+          // var route = globalModel.backStack.pop() || '/'
+          // m.route(route)
+          window.history.back()
         }
       },
       center: {

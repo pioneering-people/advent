@@ -30,7 +30,7 @@ TaskScroll = {
       return {
         class: ctrl.css.task,
           onclick: function() {
-            globalModel.backStack.push('/taskLog')
+            // globalModel.backStack.push('/taskLog')
             m.route('/taskItem/' + taskName)
           }
         }

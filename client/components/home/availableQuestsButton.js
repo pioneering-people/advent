@@ -16,7 +16,7 @@ AvailableQuestsButton = {
         class: ctrl.css.main,
         onclick: function() {
           m.route('/questLog')
-          globalModel.backStack.push('/');
+          // globalModel.backStack.push('/');
         }
       },
       center: {

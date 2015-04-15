@@ -15,7 +15,7 @@ ActiveQuestsButton = {
       main: {
         class: ctrl.css.main,
         onclick: function() {
-          globalModel.backStack.push('/');
+          // globalModel.backStack.push('/');
           m.route('/questLogActive')
         }
       },

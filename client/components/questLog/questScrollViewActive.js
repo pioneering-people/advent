@@ -28,7 +28,7 @@ QuestScrollActive = {
         return {
           class: ctrl.css.quest,
           onclick: function() {
-            globalModel.backStack.push('/questLogActive');
+            // globalModel.backStack.push('/questLogActive');
             m.route('/taskLog/' + questName)
           }
         }
