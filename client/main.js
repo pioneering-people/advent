@@ -31,9 +31,7 @@ if(Meteor.isClient) {
   Meteor.startup(function() {
 
     globalModel =  {
-      'backStack' : [],
-      'questViewOffset' : 0,
-      'taskViewOffset' : 0
+      'backStack' : []
     }
 
 
