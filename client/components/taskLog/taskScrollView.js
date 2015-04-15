@@ -82,16 +82,17 @@ TaskScroll = {
       'height': '90vh',
       'padding': '0',
       'margin': '0',
-      'outline': '10px dotted red',
+      'outline': '1px solid gray',
       'text-align': 'center',
-      'font-size': '1em'
+      'font-size': '1em',
+      'font': '18px Helvetica, Arial, sans-serif'
     },
     tasksList: {
       'width': '100%',
       'height': '90%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid orange',
+      'outline': '1px solid gray',
       'text-align': 'center',
       'font-size': '1em'
     },
@@ -100,7 +101,7 @@ TaskScroll = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid blue',
+      'outline': '1px solid gray',
       'text-align': 'center',
       'font-size': '1em'
     },
@@ -109,11 +110,12 @@ TaskScroll = {
       'height': '10%',
       'padding': '0px',
       'margin': 'auto',
-      'outline': '1px solid green'
+      //'outline': '1px solid green'
     },
     upButton: {
+      'outline': '1px solid gray',
       'position': 'relative',
-      'background-color': 'blue',
+      //'background-color': 'blue',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
@@ -122,8 +124,9 @@ TaskScroll = {
       'text-align': 'center'
     },
     downButton: {
+      'outline': '1px solid gray',
       'position': 'relative',
-      'background-color': 'magenta',
+      //'background-color': 'magenta',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
