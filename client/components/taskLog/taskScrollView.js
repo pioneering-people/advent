@@ -1,32 +1,33 @@
-QuestScroll = {
+TaskScroll = {
 
   model: {
-    lastQuestOnPage:  0,
-    getQuests: function(up) {
+    lastTaskOnPage:  0,
+    getTasks: function(questName, up) {
       var fifth = []
-      if (globalModel.questViewOffset !== 0){
-        if(up) fifth = Quests.find({normalId: {'$lt': globalModel.questViewOffset}}, {limit: 5}).fetch()
-        else fifth = Quests.find({normalId: {'$gt': globalModel.questViewOffset}}, {limit: 5}).fetch()
+      if (globalModel.taskViewOffset !== 0){
+        if(up) fifth = Tasks.find({quest: questName, normalId: {'$lt': globalModel.taskViewOffset}}, {limit: 5}).fetch()
+        else fifth = Tasks.find({quest: questName, normalId: {'$gt': globalModel.taskViewOffset}}, {limit: 5}).fetch()
       }
       else {
-        fifth = Quests.find({}, {limit: 5}).fetch()
+        fifth = Tasks.find({quest: questName}, {limit: 5}).fetch()
       }
-      if (fifth.length) QuestScroll.model.lastQuestOnPage = fifth[fifth.length-1].normalId
+      if (fifth.length) TaskScroll.model.lastTaskOnPage = fifth[fifth.length-1].normalId
       return fifth
     },
-    setMostRecentQuest: function() {
-      globalModel.questViewOffset = QuestScroll.model.lastQuestOnPage
+    setMostRecentTask: function() {
+      globalModel.taskViewOffset = TaskScroll.model.lastTaskOnPage
     }
   },
 
   controller: reactive(function() {
     ctrl = this
-    ctrl.css = QuestScroll.stylesheet().classes
-    ctrl.quests = m.prop(QuestScroll.model.getQuests())
-    ctrl.scrollQuests = function(up) {
+    ctrl.css = TaskScroll.stylesheet().classes
+    ctrl.questName = m.route.param('questName')
+    ctrl.tasks = m.prop(TaskScroll.model.getTasks(ctrl.questName))
+    ctrl.scrollTasks = function(up) {
       var direction = up || undefined
-      QuestScroll.model.setMostRecentQuest()
-      ctrl.quests(QuestScroll.model.getQuests(direction))
+      TaskScroll.model.setMostRecentTask()
+      ctrl.tasks(TaskScroll.model.getTasks(ctrl.questName, direction))
     }
     return ctrl
   }),
@@ -37,17 +38,11 @@ QuestScroll = {
       main: {
         class: ctrl.css.main
       },
-      questsList: {
-        class: ctrl.css.questsList
+      tasksList: {
+        class: ctrl.css.tasksList
       },
-      quest: function(questName){
-        return {
-          class: ctrl.css.quest,
-          onclick: function() {
-            globalModel.backStack.push('/questLog');
-            m.route('/taskLog/' + questName)
-          }
-        }
+      task: {
+        class: ctrl.css.task
       },
       bold: {
         class: ctrl.css.bold
@@ -58,13 +53,13 @@ QuestScroll = {
       upButton:{
         class: ctrl.css.upButton,
         onclick: function() {
-          ctrl.scrollQuests('up')
+          ctrl.scrollTasks('up')
         }
       },
       downButton:{
         class: ctrl.css.downButton,
         onclick: function() {
-          ctrl.scrollQuests()
+          ctrl.scrollTasks()
         }
       },
       center:{
@@ -74,17 +69,11 @@ QuestScroll = {
 
 
     return m('div.main', attr.main, [
-      m('div.questsList', attr.questsList, [
-        ctrl.quests().map(function (quest) {
-          return m('div.quest', attr.quest(quest.name), [
+      m('div.tasksList', attr.tasksList, [
+        ctrl.tasks().map(function (task) {
+          return m('div.task', attr.task, [
             m('div.center', attr.center, [
-              m('span', attr.bold, quest.name),
-              m('br'),
-              m('span', 'created by '),
-              m('span', quest.creator),
-              m('br'),
-              m('span','Prize: '),
-              m('span', quest.prize)
+              m('span', attr.bold, task.name)
             ])
           ])
         })
@@ -107,26 +96,25 @@ QuestScroll = {
       'height': '90vh',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      'outline': '10px dotted red',
       'text-align': 'center',
-      'font-size': '1em',
-      'font': '18px Helvetica, Arial, sans-serif'
+      'font-size': '1em'
     },
-    questsList: {
+    tasksList: {
       'width': '100%',
       'height': '90%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      'outline': '1px solid orange',
       'text-align': 'center',
       'font-size': '1em'
     },
-    quest: {
+    task: {
       'width': '100%',
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      'outline': '1px solid blue',
       'text-align': 'center',
       'font-size': '1em'
     },
@@ -135,12 +123,11 @@ QuestScroll = {
       'height': '10%',
       'padding': '0px',
       'margin': 'auto',
-      //'outline': '1px solid green'
+      'outline': '1px solid green'
     },
     upButton: {
-      'outline': '1px solid gray',
       'position': 'relative',
-      //'background-color': 'blue',
+      'background-color': 'blue',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
@@ -149,9 +136,8 @@ QuestScroll = {
       'text-align': 'center'
     },
     downButton: {
-      'outline': '1px solid gray',
       'position': 'relative',
-      //'background-color': 'magenta',
+      'background-color': 'magenta',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',

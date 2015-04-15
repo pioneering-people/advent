@@ -1,4 +1,3 @@
-
 if(Users.find().count() === 0) {
   Users.insert({
     name: 'Slippin Jimmy',
@@ -170,12 +169,13 @@ if(Quests.find().count() === 0) {
     settings: {
       singleActivity: false, //one activity at a time
     }
-  })    
+  })
 }
 
 
 if(Tasks.find().count() === 0) {
-  Tasks.insert({
+ Tasks.insert({
+    normalId: 1,
     quest: 'Downtown Dabbler',
     taskNumber: 0,
     name: 'Spray Paint the Capitol',
@@ -183,6 +183,7 @@ if(Tasks.find().count() === 0) {
     //image-feed: ,
   })
   Tasks.insert({
+    normalId: 2,
     quest: 'City Cavalcade',
     taskNumber: 0,
     name: 'Sell Oregano to High school kids',
@@ -190,6 +191,7 @@ if(Tasks.find().count() === 0) {
     //image-feed: ,
   })
   Tasks.insert({
+    normalId: 3,
     quest: 'Downtown Dabbler',
     taskNumber: 1,
     name: 'get someone to twerk on a street lamp',
@@ -197,6 +199,7 @@ if(Tasks.find().count() === 0) {
     //image-feed: ,
   })
   Tasks.insert({
+    normalId: 4,
     quest: 'City Cavalcade',
     taskNumber: 1,
     name: 'Take a picture of a Wal-Mart model',
@@ -204,11 +207,123 @@ if(Tasks.find().count() === 0) {
     //image-feed: ,
   })
   Tasks.insert({
+    normalId: 5,
     quest: 'RoundUp',
     taskNumber: 1,
     name: 'buy some beer',
     location: [35.2742415,-100.7415556],
     //image-feed: ,
   })
+  Tasks.insert({
+    normalId: 6,
+    quest: 'Downtown Dabbler',
+    taskNumber: 2,
+    name: 'Streak down congress',
+    location: [30.2742415,-97.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 7,
+    quest: 'Downtown Dabbler',
+    taskNumber: 3,
+    name: 'have sex with a robot',
+    location: [30.2742415,-97.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 8,
+    quest: 'Downtown Dabbler',
+    taskNumber: 4,
+    name: 'jump off a bride',
+    location: [30.2742415,-97.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 9,
+    quest: 'Downtown Dabbler',
+    taskNumber: 6,
+    name: 'steal a car',
+    location: [30.2742415,-97.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 10,
+    quest: 'City Cavalcade',
+    taskNumber: 2,
+    name: 'kiss a stranger',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 11,
+    quest: 'City Cavalcade',
+    taskNumber: 3,
+    name: 'feed a homeless man',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 12,
+    quest: 'City Cavalcade',
+    taskNumber: 4,
+    name: 'drink 5 shots in 5 minutes',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 13,
+    quest: 'City Cavalcade',
+    taskNumber: 5,
+    name: 'dance on a street corner for money',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 14,
+    quest: 'City Cavalcade',
+    taskNumber: 6,
+    name: 'get in a fight',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 15,
+    quest: 'RoundUp',
+    taskNumber: 2,
+    name: 'buy some beer',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 16,
+    quest: 'RoundUp',
+    taskNumber: 3,
+    name: 'bury $20',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 17,
+    quest: 'RoundUp',
+    taskNumber: 4,
+    name: 'kiss a stranger',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 18,
+    quest: 'RoundUp',
+    taskNumber: 5,
+    name: 'let the air of a police cars tires',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
+  Tasks.insert({
+    normalId: 19,
+    quest: 'RoundUp',
+    taskNumber: 6,
+    name: 'bike across town',
+    location: [35.2742415,-100.7415556],
+    //image-feed: ,
+  })
 }
-
