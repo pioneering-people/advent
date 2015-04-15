@@ -32,7 +32,8 @@ if(Meteor.isClient) {
 
     globalModel =  {
       'backStack' : [],
-      'questViewOffset' : 0
+      'questViewOffset' : 0,
+      'taskViewOffset' : 0
     }
 
 
@@ -51,7 +52,8 @@ if(Meteor.isClient) {
       '/': Home,
       '/questLog': QuestLog,
       '/auth': Login,
-      '/options': Options
+      '/options': Options,
+      '/taskLog/:questName': TaskLog,
     })
   })
 }
