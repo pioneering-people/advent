@@ -33,14 +33,15 @@ NavBarBack = {
 
   styles: {
     main: {
-      'outline': '1px solid gray',
-      //'background-color': 'blue',
+      //'outline': '1px solid gray',
+      'background-color': '#e43114',
       'width': '12.5%',
       'display': 'inline-block',
       'float': 'left',
       'height': '100%',
       'text-align': 'center',
-      'font': 'bold 22px Helvetica, Arial, sans-serif'
+      'font': 'bold 22px Helvetica, Arial, sans-serif',
+      'color': '#fcfefe'
     },
     center: {
       'margin': 'auto',

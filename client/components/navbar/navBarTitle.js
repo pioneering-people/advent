@@ -28,14 +28,15 @@ NavBarTitle = {
 
   styles: {
     title: {
-      'outline': '1px solid gray',
-      //'background-color': '#cd563e',
+      //'outline': '1px solid gray',
+      'background-color': '#e43114',
       'width': '75%',
       'display':'inline-block',
       'float': 'left',
       'height': '100%',
       'text-align': 'center',
-      'font': 'bold 22px Helvetica, Arial, sans-serif'
+      'font': 'bold 22px Helvetica, Arial, sans-serif',
+      'color': '#fcfefe'
     },
     center: {
       'margin': 'auto',
