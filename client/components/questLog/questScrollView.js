@@ -1,33 +1,17 @@
 QuestScroll = {
 
   model: {
-    lastQuestOnPage:  0,
-    getQuests: function(up) {
-      var fifth = []
-      if (globalModel.questViewOffset !== 0){
-        if(up) fifth = Quests.find({normalId: {'$lt': globalModel.questViewOffset}}, {limit: 5}).fetch()
-        else fifth = Quests.find({normalId: {'$gt': globalModel.questViewOffset}}, {limit: 5}).fetch()
-      }
-      else {
-        fifth = Quests.find({}, {limit: 5}).fetch()
-      }
-      if (fifth.length) QuestScroll.model.lastQuestOnPage = fifth[fifth.length-1].normalId
-      return fifth
-    },
-    setMostRecentQuest: function() {
-      globalModel.questViewOffset = QuestScroll.model.lastQuestOnPage
+    quests: function() {
+      return Quests.find().fetch()
     }
   },
 
   controller: reactive(function() {
     ctrl = this
     ctrl.css = QuestScroll.stylesheet().classes
-    ctrl.quests = m.prop(QuestScroll.model.getQuests())
-    ctrl.scrollQuests = function(up) {
-      var direction = up || undefined
-      QuestScroll.model.setMostRecentQuest()
-      ctrl.quests(QuestScroll.model.getQuests(direction))
-    }
+    ctrl.quests = m.prop(QuestScroll.model.quests())
+    ctrl.offset = 0
+    ctrl.max = ctrl.quests().length ? ctrl.quests().length - 5 : 0
     return ctrl
   }),
 
@@ -58,13 +42,14 @@ QuestScroll = {
       upButton:{
         class: ctrl.css.upButton,
         onclick: function() {
-          ctrl.scrollQuests('up')
+          (ctrl.offset - 5) < 0 ? ctrl.offset = 0 : ctrl.offset -= 5
         }
       },
       downButton:{
         class: ctrl.css.downButton,
         onclick: function() {
-          ctrl.scrollQuests()
+          //if translating down four would cause less than 4 items to be on the screen.. set the offset to the max
+          (ctrl.offset + 5) > ctrl.max ? ctrl.offset = ctrl.max : ctrl.offset += 5
         }
       },
       center:{
@@ -75,7 +60,7 @@ QuestScroll = {
 
     return m('div.main', attr.main, [
       m('div.questsList', attr.questsList, [
-        ctrl.quests().map(function (quest) {
+        ctrl.quests().slice(ctrl.offset, ctrl.offset + 5).map(function (quest, index) {
           return m('div.quest', attr.quest(quest.name), [
             m('div.center', attr.center, [
               m('span', attr.bold, quest.name),
