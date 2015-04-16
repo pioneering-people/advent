@@ -93,7 +93,7 @@ QuestScroll = {
   styles: {
     main: {
       'width': '100%',
-      'height': '90vh',
+      'height': '90%',
       'padding': '0',
       'margin': '0',
       'outline': '1px solid gray',
