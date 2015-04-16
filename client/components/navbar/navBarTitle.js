@@ -1,7 +1,7 @@
 NavBarTitle = {
 
   model: {
-  //set title of page
+
 
   },
 
@@ -22,7 +22,7 @@ NavBarTitle = {
       }
     }
     return m('div.titleBtn', attr.title, [
-      m('div.center', attr.center, 'Quest App')
+      m('div.center', attr.center, getTitle())
     ])
   },
 
@@ -51,4 +51,27 @@ NavBarTitle = {
     return this._stylesheet
   }
 
+}
+function getTitle() {
+ // return m.route()
+  if(m.route() === '/'){
+    return 'Home'
+
+
+
+
+
+  } else if(m.route() === '/questLog'){
+    return 'Available Quests'
+  } else if(m.route() === '/questLogActive'){
+    return 'Active Quests'
+  } else if(m.route().split('').splice(0,9).join('') === '/taskLog/'){
+    return m.route().split('').splice(9).join('') 
+  } else if(m.route().split('').splice(0,10).join('') === '/taskItem/'){
+    return m.route().split('').splice(10).join('')
+  } else if(m.route().split('').splice(0,8).join('') === '/options'){
+    return 'Menu'
+  }
+  
+  
 }
