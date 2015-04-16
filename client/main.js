@@ -50,6 +50,7 @@ if(Meteor.isClient) {
       '/': Home,
       '/questLogActive': QuestLogActive,
       '/questLog': QuestLog,
+      '/questItem/:questName': QuestItem,
       '/auth': Login,
       '/options': Options,
       '/taskLog/:questName': TaskLog,
