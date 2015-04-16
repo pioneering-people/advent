@@ -31,8 +31,23 @@ QuestItem = {
         return {
           class: ctrl.css.signupButton,
           onclick: function() {
-            // also needs to add you to participants
-            m.route('/')
+            var id = 0
+            var name = Session.get('user')
+            var result = Quests.find({name : ctrl.questName}).fetch() || []
+
+            if(result.length) {
+              id = result[0]._id
+            }
+
+            if(id) {
+              Quests.update({ _id : id }, { $push: { participants : name } })
+              m.route('/')
+            } else {
+              console.log('Sign Up Error')
+            }
+
+            // Will need to add to the Users.quests object
+
           }
         }
       }
