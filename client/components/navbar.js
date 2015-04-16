@@ -116,6 +116,8 @@ function getTitle() {
     return m.route().split('').splice(10).join('')
   } else if(m.route().split('').splice(0,8).join('') === '/options'){
     return 'Menu'
+  }else if(m.route().split('').splice(0,12).join('') === '/createQuest'){
+    return 'Create a Quest'
   }
   
   
