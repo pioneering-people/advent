@@ -2,12 +2,25 @@ QuestLog = {
 
   model: {
   //set title of page
-
+    quests: function() {
+      var route = m.route()
+      var result = route === '/questLog' ?
+        Quests.find({participants: {$ne:Session.get('user')}}).fetch()
+      : Quests.find({participants: Session.get('user')}).fetch()
+      return result
+    }
   },
 
   controller: reactive(function() {
     ctrl = this
     ctrl.css = QuestLog.stylesheet().classes
+    ctrl.quests = m.prop(QuestLog.model.quests())
+    ctrl.offset = 0
+      ctrl.max = (function() {
+      var result = ctrl.quests().length ? ctrl.quests().length - 5 : 0
+      if(result < 0) result = 0
+      return result
+    })()
     return ctrl
   }),
 
@@ -16,11 +29,66 @@ QuestLog = {
     var attr = {
       QuestLog: {
         class: ctrl.css.QuestLog
+      },
+      questsList: {
+        class: ctrl.css.questsList
+      },
+      quest: function(questName){
+        return {
+          class: ctrl.css.quest,
+          onclick: function() {
+            // globalModel.backStack.push('/questLog');
+            var route = m.route()
+            route === '/questLog' ?
+            m.route('/questItem/' + questName)
+            : m.route('/taskLog/' + questName)
+          }
+        }
+      },
+      scrollButtons: {
+        class: ctrl.css.scrollButtons
+      },
+      upButton:{
+        class: ctrl.css.upButton,
+        onclick: function() {
+          (ctrl.offset - 5) < 0 ? ctrl.offset = 0 : ctrl.offset -= 5
+        }
+      },
+      downButton:{
+        class: ctrl.css.downButton,
+        onclick: function() {
+          //if translating down four would cause less than 4 items to be on the screen.. set the offset to the max
+          (ctrl.offset + 5) > ctrl.max ? ctrl.offset = ctrl.max : ctrl.offset += 5
+        }
       }
     }
     return m('div.QuestLog', attr.QuestLog, [
       NavBar,
-      QuestScroll
+      // m('div.main', attr.main, [
+      m('div.questsList', attr.questsList, [
+        ctrl.quests().slice(ctrl.offset, ctrl.offset + 5).map(function (quest, index) {
+          return m('div.quest', attr.quest(quest.name), [
+            m('div.center', [
+              m('span.bold', quest.name),
+              m('br'),
+              m('span', 'created by '),
+              m('span', quest.creator),
+              m('br'),
+              m('span','Prize: '),
+              m('span', quest.prize)
+            ])
+          ])
+        })
+      ]),
+      m('div.scrollButtons', attr.scrollButtons, [
+        m('div.downButton', attr.upButton, [
+          m('div.center', '<-')
+        ]),
+        m('div.upButton', attr.downButton, [
+          m('div.center', '->')
+        ])
+      ])
+      // ])
     ])
   },
 
@@ -32,6 +100,53 @@ QuestLog = {
       'margin': '0',
       'outline': '1px solid gray', 
       'font': 'bold 22px Helvetica, Arial, sans-serif'
+    },
+    questsList: {
+      'width': '100%',
+      'height': '80%',
+      'padding': '0',
+      'margin': '0',
+      'outline': '1px solid gray',
+      'text-align': 'center',
+      'font-size': '1em'
+    },
+    quest: {
+      'width': '100%',
+      'height': '20%',
+      'padding': '0',
+      'margin': '0',
+      'outline': '1px solid gray',
+      'text-align': 'center',
+      'font-size': '1em'
+    },
+    scrollButtons: {
+      'width': '100%',
+      'height': '10%',
+      'padding': '0px',
+      'margin': 'auto',
+      //'outline': '1px solid green'
+    },
+    upButton: {
+      'outline': '1px solid gray',
+      'position': 'relative',
+      //'background-color': 'blue',
+      'display': 'inline-block',
+      'width': '50%',
+      'float': 'left',
+      'height': '100%',
+      'font-size': '2em',
+      'text-align': 'center'
+    },
+    downButton: {
+      'outline': '1px solid gray',
+      'position': 'relative',
+      //'background-color': 'magenta',
+      'display': 'inline-block',
+      'width': '50%',
+      'float': 'left',
+      'height': '100%',
+      'font-size': '2em',
+      'text-align': 'center'
     }
   },
 

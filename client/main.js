@@ -48,7 +48,7 @@ if(Meteor.isClient) {
     //index routes
     m.route(document.body, '/', {
       '/': Home,
-      '/questLogActive': QuestLogActive,
+      '/questLogActive': QuestLog,
       '/questLog': QuestLog,
       '/questItem/:questName': QuestItem,
       '/auth': Login,

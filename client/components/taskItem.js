@@ -32,12 +32,6 @@ TaskItem = {
       },
       photoButton: {
         class: ctrl.css.photoButton
-      },
-      bold: {
-        class: ctrl.css.bold
-      },
-      center:{
-        class: ctrl.css.center
       }
     }
 
@@ -45,24 +39,24 @@ TaskItem = {
     return m('div.taskItem', attr.taskItem, [
       NavBar,
       m('div.taskDetails', attr.taskDetails, [
-        m('div.center', attr.center, [
-          m('span', attr.bold, 'Quest: ' + ctrl.taskDetails.quest),
+        m('div.center', [
+          m('span.bold', 'Quest: ' + ctrl.taskDetails.quest),
           m('br'),
           m('br'),
-          m('span', attr.bold, 'Task: ' + ctrl.taskDetails.name),
+          m('span.bold', 'Task: ' + ctrl.taskDetails.name),
           m('br'),
           m('br'),
-          m('span', attr.bold, 'Location: ' + ctrl.taskDetails.location)
+          m('span.bold', 'Location: ' + ctrl.taskDetails.location)
         ])
       ]),
       m('div.mapButton', attr.mapButton, [
-        m('div.center', attr.center, [
-          m('span', attr.bold, 'Map')
+        m('div.center', [
+          m('span.bold', 'Map')
         ])
       ]),
       m('div.photoButton', attr.photoButton, [
-        m('div.center', attr.center, [
-          m('span', attr.bold, 'Upload Photo')
+        m('div.center', [
+          m('span.bold', 'Upload Photo')
         ])
       ])
     ])
@@ -100,15 +94,6 @@ TaskItem = {
       'margin': '0',
       'outline': '1px solid gray',
       'text-align': 'center'
-    },
-    bold: {
-      'font-weight': 'bold'
-    },
-    center:{
-      'margin': 'auto',
-      'position': 'relative',
-      'top': '50%',
-      'transform': 'translateY(-50%)'
     }
   },
 

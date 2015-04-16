@@ -28,6 +28,17 @@ span {
   user-select: none;
 }
 
+.center{
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bold: {
+  font-weight: bold;
+}
+/*
 #homepage{
   position: absolute;
   margin: 0;
@@ -106,3 +117,4 @@ span {
   text-align: center;
 }
 
+*/

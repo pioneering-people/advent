@@ -2,6 +2,9 @@ Home = {
 
   model: {
   //set title of page
+    getStats: function() {
+      return Users.find({name: Session.get('user')}).fetch()[0] || {}
+    }
 
   },
 
@@ -9,6 +12,7 @@ Home = {
     ctrl = this
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = Home.stylesheet().classes
+    ctrl.stats = Home.model.getStats()
     return ctrl
   }),
 
@@ -17,13 +21,41 @@ Home = {
     var attr = {
       home: {
         class: ctrl.css.home
+      },
+      userStats: {
+        class: ctrl.css.userStats
+      },
+      activeQuestsButton: {
+        class: ctrl.css.activeQuestsButton,
+        onclick: function() {
+          // globalModel.backStack.push('/');
+          m.route('/questLogActive')
+        }
+      },
+      availableQuestsButton: {
+        class: ctrl.css.availableQuestsButton,
+        onclick: function() {
+          m.route('/questLog')
+          // globalModel.backStack.push('/');
+        }
       }
     }
     return m('div.home', attr.home, [
       NavBar,
-      UserStats,
-      ActiveQuestsButton,
-      AvailableQuestsButton
+      m('div.userStats', attr.userStats, [
+        m('div.center', [
+          m('br'),
+          m('h2.bold', ctrl.stats.name),
+          m('span', 'You are currently participating in ' + Quests.find({participants: Session.get('user')}).fetch().length + ' quests'),
+          m('br')
+        ])
+      ]),
+      m('div.activeQuestsButton', attr.activeQuestsButton, [
+        m('div.center', 'Active Quests')
+      ]),
+      m('div.availableQuestsButton', attr.availableQuestsButton, [
+        m('div.center', 'Available Quests')
+      ])
     ])
 
   },
@@ -36,6 +68,33 @@ Home = {
       'padding': '0',
       'margin': '0',
       'outline': '1px solid gray'
+    },
+    userStats: {
+      'width': '100%',
+      'height': '50%',
+      'padding': '0',
+      'margin': '0',
+      'outline': '1px solid gray',
+      'text-align': 'center',
+      'font': '18px Helvetica, Arial, sans-serif'
+    },
+    activeQuestsButton: {
+      'width': '100%',
+      'height': '20%',
+      'padding': '0',
+      'margin': '0',
+      'outline': '1px solid gray',
+      'text-align': 'center',
+      'font': 'bold 18px Helvetica, Arial, sans-serif'
+    },
+    availableQuestsButton:{
+      'width': '100%',
+      'height': '20%',
+      'padding': '0',
+      'margin': '0',
+      'outline': '1px solid gray',
+      'text-align': 'center',
+      'font': 'bold 18px Helvetica, Arial, sans-serif'
     }
   },
 

@@ -35,12 +35,6 @@ QuestItem = {
             m.route('/')
           }
         }
-      },
-      bold: {
-        class: ctrl.css.bold
-      },
-      center:{
-        class: ctrl.css.center
       }
     }
 
@@ -48,28 +42,28 @@ QuestItem = {
     return m('div.questItem', attr.questItem, [
       NavBar,
       m('div.questDetails', attr.questDetails, [
-        m('div.center', attr.center, [
-          m('span', attr.bold, 'Quest: ' + ctrl.questDetails.name),
+        m('div.center', [
+          m('span.bold', 'Quest: ' + ctrl.questDetails.name),
           m('br'),
           m('br'),
-          m('span', attr.bold, 'Creator: ' + ctrl.questDetails.creator),
+          m('span.bold', 'Creator: ' + ctrl.questDetails.creator),
           m('br'),
-          m('span', attr.bold, 'Start: ' + ctrl.questDetails.start),
+          m('span.bold', 'Start: ' + ctrl.questDetails.start),
           m('br'),
-          m('span', attr.bold, 'End: ' + ctrl.questDetails.end),
+          m('span.bold', 'End: ' + ctrl.questDetails.end),
           m('br'),
-          m('span', attr.bold, 'Prize: ' + ctrl.questDetails.prize),
+          m('span.bold', 'Prize: ' + ctrl.questDetails.prize),
           m('br'),
-          m('span', attr.bold, 'Minimum start price: ' + ctrl.questDetails.minimumStartPrice),
+          m('span.bold', 'Minimum start price: ' + ctrl.questDetails.minimumStartPrice),
           m('br'),
-          m('span', attr.bold, 'Funds raised so far: ' + ctrl.questDetails.fundsRaised),
+          m('span.bold', 'Funds raised so far: ' + ctrl.questDetails.fundsRaised),
           m('br'),
-          m('span', attr.bold, 'Participants: ' + ctrl.questDetails.participants)
+          m('span.bold', 'Participants: ' + ctrl.questDetails.participants)
         ])
       ]),
       m('div.signupButton', attr.signupButton(), [
-        m('div.center', attr.center, [
-          m('span', attr.bold, 'Sign Up')
+        m('div.center', [
+          m('span.bold', 'Sign Up')
         ])
       ])
     ])
@@ -99,15 +93,6 @@ QuestItem = {
       'margin': '0',
       'outline': '1px solid gray',
       'text-align': 'center'
-    },
-    bold: {
-      'font-weight': 'bold'
-    },
-    center:{
-      'margin': 'auto',
-      'position': 'relative',
-      'top': '50%',
-      'transform': 'translateY(-50%)'
     }
   },
 
