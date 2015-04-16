@@ -3,6 +3,7 @@ Options = {
     routes: [
       {route: '/', name: 'Home'},
       {route: '/questLog', name: 'Quest Log'},
+      {route: '/createQuest', name: 'Create Quest'},
       {route: '/auth', name:'Logout'}
     ]
 
