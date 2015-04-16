@@ -33,7 +33,7 @@ QuestScroll = {
           class: ctrl.css.quest,
           onclick: function() {
             // globalModel.backStack.push('/questLog');
-            m.route('/taskLog/' + questName)
+            m.route('/questItem/' + questName)
           }
         }
       },
