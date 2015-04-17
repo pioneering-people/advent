@@ -4,6 +4,15 @@ TaskItem = {
   //set title of page
     getTaskDetails: function(taskName) {
       return Tasks.find({name: taskName}).fetch()[0] || {}
+    },
+    uploadPhoto: function(image, taskName, taskDetails) {
+      Photos.insert({
+        user: Session.get('user'),
+        image: image,
+        quest: taskDetails.quest,
+        task: taskName,
+        createdAt: Date.now()
+      })
     }
   },
 
@@ -28,10 +37,18 @@ TaskItem = {
         class: ctrl.css.taskDetails
       },
       mapButton: {
-        class: ctrl.css.mapButton
+        class: ctrl.css.mapButton,
+        onclick: function() {
+          window.location = 'geo:' + ctrl.taskDetails.location.join(',')
+        }
       },
       photoButton: {
-        class: ctrl.css.photoButton
+        class: ctrl.css.photoButton,
+        onclick: function() {
+          MeteorCamera.getPicture({quality: 20}, function(err, image) {
+            TaskItem.model.uploadPhoto(image, ctrl.taskName, ctrl.taskDetails)
+          })
+       }
       },
       boldTitle: {
         class: ctrl.css.boldTitle
