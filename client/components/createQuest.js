@@ -20,7 +20,7 @@ CreateQuest = {
         singleActivity: false, //one activity at a time
         }
       })
-      // m.route('/createTasks')
+      m.route('/createTasks/'+params.name)
     }
   },
 
@@ -61,10 +61,10 @@ CreateQuest = {
           e.preventDefault()
           console.log(e)
           var params = {}
-          params.name = e.target[0].value,
-          params.start = e.target[1].value,
-          params.end = e.target[2].value,
-          params.prize = +(e.target[3].value),
+          params.name = e.target[0].value
+          params.start = e.target[1].value
+          params.end = e.target[2].value
+          params.prize = +(e.target[3].value)
           params.minimumStartPrice = e.target[4].value
           
           CreateQuest.model.createQuest(params)
