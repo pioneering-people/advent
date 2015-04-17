@@ -1,30 +1,23 @@
 CreateTasks = {
 
   model: {
-    createQuest: function(params) {
-      // debugger
-      Quests.insert({  
-        // normalId: ,
-        name: params.name ,
-        active: false,
+    
+    currentTasks: [],
+    createTask: function(params) {
+      Tasks.insert({  
+        quest: ctrl.questName,
         start: params.start,
-        end: params.end,
-        prize: params.prize,
-        minimumStartPrice: params.minimumStartPrice,
-        fundsRaised: 0,
-        creator: Session.get('user'),
-        participants: [],
-        settings: {
-        singleActivity: false, //one activity at a time
-        }
+        name: params.name,
+        location: [28.2742415,-80.7415556],
       })
-      m.route('/createTasks')
+     
     }
   },
 
   controller: reactive(function() {
     ctrl = this
-    ctrl.css = CreateQuest.stylesheet().classes
+    ctrl.questName = m.route.param('questName')
+    ctrl.css = CreateTasks.stylesheet().classes
   }),
 
 
@@ -36,12 +29,13 @@ CreateTasks = {
       header: {
         class: ctrl.css.header
       },
-      CreateQuest: {
-        class: ctrl.css.CreateQuest
+      CreateTasks: {
+        class: ctrl.css.CreateTasks
       },
-      questdeets: {
-        class: ctrl.css.questdeets
+      taskdeets: {
+        class: ctrl.css.taskdeets
       },
+     
       submitBtn: {
         class: ctrl.css.submit,
          onmousedown: function(e) {
@@ -57,49 +51,48 @@ CreateTasks = {
       createForm: {
         onsubmit: function(e) {
           e.preventDefault()
-          console.log(e)
-          var params = {}
-          params.name = e.target[0].value,
-          params.start = e.target[1].value,
-          params.end = e.target[2].value,
-          params.prize = e.target[3].value,
-          params.minimumStartPrice = e.target[4].value
+          parseInput()
+        }
+      },
+      submitForm: {
+        onsubmit: function(e) {
+          e.preventDefault()
+          var tasks = CreateTasks.model.currentTasks
           
-          CreateQuest.model.createQuest(params)
+          if(document.getElementById('description').value){ //need to make sure all fields are filled out
+            parseInput()
+          }
+          tasks.forEach(function(task){
+            return CreateTasks.model.createTask(task)
+          })
         }
       }
 
     }
-     return m('div.CreateQuest', attr.CreateQuest, [
+     return m('div.CreateTasks', attr.CreateTasks, [
       NavBar,
       m('div', attr.container, [
-      m('h3', attr.header, 'Name of quest')
-      , m('form.createForm', attr.createForm, [
-           m('input', attr.questdeets),
-           m('br'),
-           m('h3', attr.header, 'Task One'),
-           m('input', attr.questdeets),
-           m('h3', attr.header, 'Task Two'),
-           m('input', attr.questdeets),
-           m('br'),
-           m('h3', attr.header, 'Prize'),
-           m('input', attr.questdeets),
-           m('br'),
-           m('h3', attr.header, 'Minimum Start Price'),
-           m('input', attr.questdeets),
-           m('br'),
-           m('button', attr.submitBtn, 'Submit')
-       ])
+      m('form#createForm', attr.createForm, [
+        m('h3', attr.header, 'Task Description'),
+        m('input#description', attr.taskdeets),
+        m('br'),
+        m('h3', attr.header, 'Location'),
+        m('input#location', attr.taskdeets),
+        m('br'),
+        m('br'),
+        m('button', attr.submitBtn, 'Add Task'),
+      ]),
+      m('form.submitForm', attr.submitForm, [ 
+        m('button', attr.submitBtn, 'Submit')
+      ])
     ])
       
     ])
-  
-
   },
 
 //
   styles: {
-    CreateQuest: {
+    CreateTasks: {
       'width': '100%',
       'height': '100%',
       'padding': '0',
@@ -119,7 +112,15 @@ CreateTasks = {
     header: {
       'color': '#FFFFFF'
     },
-    questdeets: {
+    taskDescription: {
+      'width': '50%',
+      'height': '60px',
+      'padding': '0px 0px 0px 5px',
+      'margin': '0px 0px 10px 0px',
+      'background-color': '#FFFFFF',
+      'color': 'black'
+    },
+    taskdeets: {
       'width': '50%',
       'height': '20px',
       'padding': '0px 0px 0px 5px',
@@ -144,4 +145,14 @@ CreateTasks = {
   }
 
 
+}
+
+
+function parseInput() {
+  var params = {}
+  params.name = document.getElementById('description').value
+  params.location = document.getElementById('location').value
+  CreateTasks.model.currentTasks.push(params)
+  document.getElementById('description').value = ''
+  document.getElementById('location').value = ''
 }
