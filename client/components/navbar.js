@@ -53,8 +53,7 @@ NavBar = {
       'width': '100%',
       'height': '10%',
       'padding': '0',
-      'margin': '0',
-      'outline': '1px solid gray'
+      'margin': '0'
     },
     backBtn: {
       //'outline': '1px solid gray',
@@ -64,7 +63,7 @@ NavBar = {
       'float': 'left',
       'height': '100%',
       'text-align': 'center',
-      'font': 'bold 22px Helvetica, Arial, sans-serif',
+      'font': 'bold 24px Helvetica, Arial, sans-serif',
       'color': '#fcfefe'
     },
     title: {
@@ -75,7 +74,7 @@ NavBar = {
       'float': 'left',
       'height': '100%',
       'text-align': 'center',
-      'font': 'bold 22px Helvetica, Arial, sans-serif',
+      'font': 'bold 24px Helvetica, Arial, sans-serif',
       'color': '#fcfefe'
     },
     menuBtn: {
@@ -86,7 +85,7 @@ NavBar = {
       'float': 'left',
       'height': '100%',
       'text-align': 'center',
-      'font': 'bold 22px Helvetica, Arial, sans-serif',
+      'font': 'bold 24px Helvetica, Arial, sans-serif',
       'color': '#fcfefe'
     }
   },

@@ -32,6 +32,12 @@ TaskItem = {
       },
       photoButton: {
         class: ctrl.css.photoButton
+      },
+      boldTitle: {
+        class: ctrl.css.boldTitle
+      },
+      centerButton: {
+        class: ctrl.css.centerButton
       }
     }
 
@@ -40,23 +46,26 @@ TaskItem = {
       NavBar,
       m('div.taskDetails', attr.taskDetails, [
         m('div.center', [
-          m('span.bold', 'Quest: ' + ctrl.taskDetails.quest),
+          m('span', attr.boldTitle, 'Quest: '),
+          m('span', ctrl.taskDetails.quest),
           m('br'),
           m('br'),
-          m('span.bold', 'Task: ' + ctrl.taskDetails.name),
+          m('span', attr.boldTitle, 'Task: '),
+          m('span', ctrl.taskDetails.name),
           m('br'),
           m('br'),
-          m('span.bold', 'Location: ' + ctrl.taskDetails.location)
+          m('span', attr.boldTitle, 'Location: '),
+          m('span', ctrl.taskDetails.location)
         ])
       ]),
       m('div.mapButton', attr.mapButton, [
-        m('div.center', [
-          m('span.bold', 'Map')
+        m('div', attr.centerButton, [
+          m('span', 'Map')
         ])
       ]),
       m('div.photoButton', attr.photoButton, [
-        m('div.center', [
-          m('span.bold', 'Upload Photo')
+        m('div', attr.centerButton, [
+          m('span', 'Upload Photo')
         ])
       ])
     ])
@@ -68,23 +77,25 @@ TaskItem = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
-      'font': 'bold 22px Helvetica, Arial, sans-serif'
+      //'outline': '1px solid gray',
+      'font': '22px Helvetica, Arial, sans-serif'
     },
     taskDetails: {
       'width': '100%',
       'height': '50%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
-      'text-align': 'center'
+      //'outline': '1px solid gray',
+      //'text-align': 'center'
+      'margin-left': '10%'
     },
     mapButton: {
       'width': '100%',
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      'border-top': '1px solid #F7F7F9',
+      'font': 'bold 28px Helvetica, Arial, sans-serif', 
       'text-align': 'center'
     },
     photoButton: {
@@ -92,8 +103,17 @@ TaskItem = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      'border-top': '1px solid #F7F7F9',
+      'font': 'bold 28px Helvetica, Arial, sans-serif',
       'text-align': 'center'
+    },
+    centerButton:{
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '35%'
+    },
+    boldTitle:{
+      'font-weight': 'bold'
     }
   },
 

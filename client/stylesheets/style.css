@@ -31,13 +31,13 @@ span {
 .center{
   margin: auto;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  top: 25%;
+  bottom: 66%;
 
-.bold: {
-  font-weight: bold;
-}
+/*  transform: translateY(-50%);
+*/}
+
+
 /*
 #homepage{
   position: absolute;
