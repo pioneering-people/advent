@@ -30,7 +30,9 @@ NavBar = {
       },
       menuBtn: {
         class: ctrl.css.menuBtn,
-        onclick: m.route.bind(null, '/options')
+        onclick: function(){
+          m.route('/options')
+        }
       }
     }
     return m('div.navbar', attr.navbar, [
@@ -110,7 +112,7 @@ function getTitle() {
   } else if(m.route() === '/questLogActive'){
     return 'Active Quests'
   } else if(m.route().split('').splice(0,9).join('') === '/taskLog/'){
-    return m.route().split('').splice(9).join('') 
+    return m.route().split('').splice(9).join('')
   } else if(m.route().split('').splice(0,10).join('') === '/taskItem/'){
     return m.route().split('').splice(10).join('')
   } else if(m.route().split('').splice(0,8).join('') === '/options'){
@@ -120,6 +122,6 @@ function getTitle() {
   } else if(m.route().split('').splice(0,12).join('') === '/createTasks'){
     return 'Create a Task'
   }
-  
-  
+
+
 }

@@ -4,9 +4,23 @@ QuestLog = {
   //set title of page
     quests: function() {
       var route = m.route()
-      var result = route === '/questLog' ?
-        Quests.find({participants: {$ne:Session.get('user')}}).fetch()
-      : Quests.find({participants: Session.get('user')}).fetch()
+      var result = []
+
+      switch(route){
+        case '/questLog':
+          result = Quests.find({participants: {$ne:Session.get('user')}}).fetch()
+          break
+        case '/questLogActive':
+          result = Quests.find({participants: Session.get('user')}).fetch()
+          break
+        case '/myQuests':
+          result = Quests.find({creator: Session.get('user')}).fetch()
+          break
+        default:
+          console.log('Route:', route)
+          console.log('Result:', result)
+      }
+
       return result
     }
   },
@@ -107,7 +121,7 @@ QuestLog = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray', 
+      //'outline': '1px solid gray',
       'font': '20px Helvetica, Arial, sans-serif'
     },
     questsList: {

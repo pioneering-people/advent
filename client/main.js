@@ -56,7 +56,8 @@ if(Meteor.isClient) {
       '/taskLog/:questName': TaskLog,
       '/taskItem/:taskName': TaskItem,
       '/createQuest': CreateQuest,
-      '/createTasks/:questName': CreateTasks
+      '/createTasks/:questName': CreateTasks,
+      '/myQuests': QuestLog
     })
   })
 }
