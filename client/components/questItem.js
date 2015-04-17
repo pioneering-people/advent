@@ -40,23 +40,27 @@ QuestItem = {
         return {
           class: ctrl.css.signupButton,
           onclick: function() {
-            var id = 0
+            var questId = 0
+            var userId = 0
+            var tasksCompleted = { completed : [] }
             var name = Session.get('user')
-            var result = Quests.find({name : ctrl.questName}).fetch() || []
+            var user = Users.find({ name : name }).fetch() || []
+            var tasks = Tasks.find({ quest: ctrl.questName }).fetch() || []
+            var quest = Quests.find({ name : ctrl.questName }).fetch() || []
 
-            if(result.length) {
-              id = result[0]._id
-            }
+            var setModifier = { $set: {} }
+            setModifier.$set['quests.' + ctrl.questName] = tasksCompleted
 
-            if(id) {
-              Quests.update({ _id : id }, { $push: { participants : name } })
+            if(quest.length && user.length) {
+              questId = quest[0]._id
+              userId = user[0]._id
+            } else console.log('Error: cannot find quest or user')
+
+            if(questId && userId) {
+              Quests.update({ _id : questId }, { $push: { participants : name } })
+              Users.update({ _id : userId }, setModifier)
               m.route('/')
-            } else {
-              console.log('Sign Up Error')
-            }
-
-            // Will need to add to the Users.quests object
-
+            } else console.log('Error: cannot sign up')
           }
         }
       }

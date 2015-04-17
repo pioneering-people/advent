@@ -6,10 +6,9 @@ if(Users.find().count() === 0) {
     title: 'scrappy scavanger',
     quests: {
       'City Cavalcade': {
-        completed: {
-          0: false,
-          1: false
-        }
+        completed: [
+          // completed id
+        ]
       }
     }
   }),
@@ -20,10 +19,9 @@ if(Users.find().count() === 0) {
     title: 'scrappy scavanger',
     quests: {
       'Downtown Dabbler': {
-        completed: {
-          0: true,
-          1: false
-        }
+        completed: [
+          // completed id
+        ]
       }
     }
   }),
@@ -34,8 +32,9 @@ if(Users.find().count() === 0) {
     title: 'scrappy scavanger',
     quests: {
       'RoundUp': {
-        completed: {
-        }
+        completed: [
+          // completed id
+        ]
       }
     }
   }),
@@ -46,8 +45,9 @@ if(Users.find().count() === 0) {
     title: 'scrappy scavanger',
     quests: {
       'RoundUp': {
-        completed: {
-        }
+        completed: [
+          // completed id
+        ]
       }
     }
   })
