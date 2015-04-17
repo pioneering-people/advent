@@ -60,6 +60,15 @@ QuestLog = {
           //if translating down four would cause less than 4 items to be on the screen.. set the offset to the max
           (ctrl.offset + 5) > ctrl.max ? ctrl.offset = ctrl.max : ctrl.offset += 5
         }
+      },
+      centerQuest:{
+        class: ctrl.css.centerQuest
+      },
+      centerNav:{
+        class: ctrl.css.centerNav
+      },
+      boldName:{
+        class: ctrl.css.boldName
       }
     }
     return m('div.QuestLog', attr.QuestLog, [
@@ -68,8 +77,8 @@ QuestLog = {
       m('div.questsList', attr.questsList, [
         ctrl.quests().slice(ctrl.offset, ctrl.offset + 5).map(function (quest, index) {
           return m('div.quest', attr.quest(quest.name), [
-            m('div.center', [
-              m('span.bold', quest.name),
+            m('div', attr.centerQuest, [
+              m('span', attr.boldName, quest.name),
               m('br'),
               m('span', 'created by '),
               m('span', quest.creator),
@@ -82,10 +91,10 @@ QuestLog = {
       ]),
       m('div.scrollButtons', attr.scrollButtons, [
         m('div.downButton', attr.upButton, [
-          m('div.center', '<-')
+          m('div', attr.centerNav, '<-')
         ]),
         m('div.upButton', attr.downButton, [
-          m('div.center', '->')
+          m('div', attr.centerNav, '->')
         ])
       ])
       // ])
@@ -98,15 +107,15 @@ QuestLog = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray', 
-      'font': 'bold 22px Helvetica, Arial, sans-serif'
+      //'outline': '1px solid gray', 
+      'font': '20px Helvetica, Arial, sans-serif'
     },
     questsList: {
       'width': '100%',
       'height': '80%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      //'outline': '1px solid gray',
       'text-align': 'center',
       'font-size': '1em'
     },
@@ -115,38 +124,51 @@ QuestLog = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      'border-bottom': '1px solid #F7F7F9',
       'text-align': 'center',
       'font-size': '1em'
     },
     scrollButtons: {
+      //'border-top': '1px solid #F7F7F9',
       'width': '100%',
       'height': '10%',
       'padding': '0px',
       'margin': 'auto',
+      'background-color': '#F7F7F9'
       //'outline': '1px solid green'
     },
     upButton: {
-      'outline': '1px solid gray',
       'position': 'relative',
       //'background-color': 'blue',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
       'height': '100%',
-      'font-size': '2em',
       'text-align': 'center'
     },
     downButton: {
-      'outline': '1px solid gray',
       'position': 'relative',
       //'background-color': 'magenta',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
       'height': '100%',
-      'font-size': '2em',
       'text-align': 'center'
+    },
+    centerQuest: {
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '15%'
+    },
+    centerNav: {
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '25%',
+      'font': 'bold 24px Helvetica, Arial, sans-serif',
+      'color': '#e43114'
+    },
+    boldName: {
+      'font-weight': 'bold'
     }
   },
 

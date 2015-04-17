@@ -54,6 +54,12 @@ TaskLog = {
         onclick: function() {
           (ctrl.offset + 5) > ctrl.max ? ctrl.offset = ctrl.max : ctrl.offset += 5
         }
+      },
+      centerTask:{
+        class: ctrl.css.centerTask
+      },
+      centerNav:{
+        class: ctrl.css.centerNav
       }
     }
     return m('div.TaskLog', attr.TaskLog, [
@@ -63,18 +69,18 @@ TaskLog = {
         // slice four items from the tasks array starting with the offset
         ctrl.tasks().slice(ctrl.offset, ctrl.offset + 5).map(function (task) {
           return m('div.task', attr.task(task.name), [
-            m('div.center', [
-              m('span.bold', task.name)
+            m('div', attr.centerTask, [
+              m('span', task.name)
             ])
           ])
         })
       ]),
       m('div.scrollButtons', attr.scrollButtons, [
         m('div.downButton', attr.upButton, [
-          m('div.center', '<-')
+          m('div.center', attr.centerNav, '<-')
         ]),
         m('div.upButton', attr.downButton, [
-          m('div.center', '->')
+          m('div.center', attr.centerNav, '->')
         ])
       ])
 
@@ -88,14 +94,14 @@ TaskLog = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid green'
+      //'outline': '1px solid green'
     },
     tasksList: {
       'width': '100%',
       'height': '80%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      //'outline': '1px solid gray',
       'text-align': 'center',
       'font-size': '1em'
     },
@@ -104,39 +110,51 @@ TaskLog = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      'border-bottom': '1px solid #F7F7F9',
       'text-align': 'center',
       'font-size': '1em'
     },
     scrollButtons: {
+      //'border-top': '1px solid gray',
       'width': '100%',
       'height': '10%',
       'padding': '0px',
       'margin': 'auto',
+      'background-color': '#F7F7F9'
       //'outline': '1px solid green'
     },
     upButton: {
-      'outline': '1px solid gray',
       'position': 'relative',
       //'background-color': 'blue',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
       'height': '100%',
-      'font-size': '2em',
       'text-align': 'center'
     },
     downButton: {
-      'outline': '1px solid gray',
       'position': 'relative',
       //'background-color': 'magenta',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
       'height': '100%',
-      'font-size': '2em',
       'text-align': 'center'
-    }
+    },
+    centerTask: {
+      'font': 'bold 20px Helvetica, Arial, sans-serif',
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '35%'
+    },
+    centerNav: {
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '25%',
+      'font': 'bold 24px Helvetica, Arial, sans-serif',
+      'color': '#e43114'
+    },
+
   },
 
   stylesheet: function () {

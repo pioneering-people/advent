@@ -38,23 +38,29 @@ Home = {
           m.route('/questLog')
           // globalModel.backStack.push('/');
         }
+      },
+      centerButton: {
+        class: ctrl.css.centerButton
+      },
+      centerUser: {
+        class: ctrl.css.centerUser
       }
     }
     return m('div.home', attr.home, [
       NavBar,
       m('div.userStats', attr.userStats, [
-        m('div.center', [
+        m('div', attr.centerUser, [
           m('br'),
-          m('h2.bold', ctrl.stats.name),
+          m('h1.bold', ctrl.stats.name),
           m('span', 'You are currently participating in ' + Quests.find({participants: Session.get('user')}).fetch().length + ' quests'),
           m('br')
         ])
       ]),
       m('div.activeQuestsButton', attr.activeQuestsButton, [
-        m('div.center', 'Active Quests')
+        m('div', attr.centerButton, 'Active Quests')
       ]),
       m('div.availableQuestsButton', attr.availableQuestsButton, [
-        m('div.center', 'Available Quests')
+        m('div', attr.centerButton, 'Available Quests')
       ])
     ])
 
@@ -67,14 +73,15 @@ Home = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray'
+      //'outline': '1px solid gray'
     },
     userStats: {
       'width': '100%',
       'height': '50%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      //'outline': '1px solid gray',
+      'border-bottom': '1px solid #F7F7F9',
       'text-align': 'center',
       'font': '18px Helvetica, Arial, sans-serif'
     },
@@ -83,19 +90,32 @@ Home = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      //'outline': '1px solid gray',
+      'border-bottom': '1px solid #F7F7F9',
       'text-align': 'center',
-      'font': 'bold 18px Helvetica, Arial, sans-serif'
+      'font': 'bold 28px Helvetica, Arial, sans-serif'
     },
     availableQuestsButton:{
       'width': '100%',
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray',
+      //'outline': '1px solid gray',
+      //'border-bottom': '1px solid gray',
       'text-align': 'center',
-      'font': 'bold 18px Helvetica, Arial, sans-serif'
-    }
+      'font': 'bold 28px Helvetica, Arial, sans-serif'
+    },
+    centerButton:{
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '35%'
+    },
+    centerUser:{
+      'margin': 'auto',
+      'position': 'relative',
+      'top': '25%'
+    },
+    
   },
 
   stylesheet: function () {
