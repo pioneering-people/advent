@@ -63,7 +63,8 @@ CreateTasks = {
             parseInput()
           }
           tasks.forEach(function(task){
-            return CreateTasks.model.createTask(task)
+            CreateTasks.model.createTask(task)
+            CreateTasks.model.currentTasks = []
           })
         }
       }
@@ -80,7 +81,7 @@ CreateTasks = {
         m('input#location', attr.taskdeets),
         m('br'),
         m('br'),
-        m('button', attr.submitBtn, 'Add Task'),
+        // m('button', attr.submitBtn, 'Add Task'),
       ]),
       m('form.submitForm', attr.submitForm, [ 
         m('button', attr.submitBtn, 'Submit')
