@@ -45,7 +45,7 @@ CreateQuest = {
         class: ctrl.css.questdeets
       },
       submitBtn: {
-        class: ctrl.css.submit,
+        class: ctrl.css.submitBtn,
          onmousedown: function(e) {
           e.target.style['background-color'] = '#559E3D'
         },
@@ -75,22 +75,41 @@ CreateQuest = {
      return m('div.CreateQuest', attr.CreateQuest, [
       NavBar,
       m('div', attr.container, [
-      m('h3', attr.header, 'Name of quest')
-      , m('form.createForm', attr.createForm, [
-           m('input', attr.questdeets),
-           m('br'),
-           m('h3', attr.header, 'Start Date'),
-           m('input', attr.questdeets),
-           m('h3', attr.header, 'End Date'),
-           m('input', attr.questdeets),
-           m('br'),
-           m('h3', attr.header, 'Prize'),
-           m('input', attr.questdeets),
-           m('br'),
-           m('h3', attr.header, 'Minimum Start Price'),
-           m('input', attr.questdeets),
-           m('br'),
-           m('button', attr.submitBtn, 'Submit')
+        m('form.createForm', attr.createForm, [
+          m('div.form-group', attr.questdeets, [
+            m('label.control-label', 'Quest Name'),
+            m('input.form-control')
+          ]),
+          m('div.form-group', attr.questdeets, [
+            m('label.control-label', 'Start Date'),
+            m('input.form-control')
+          ]),
+          m('div.form-group', attr.questdeets, [
+            m('label.control-label', 'End Date'),
+            m('input.form-control')
+          ]),
+          m('div.form-group', attr.questdeets, [
+            m('label.control-label', 'Prize'),
+            m('input.form-control')
+          ]),
+          m('div.form-group', attr.questdeets, [
+            m('label.control-label', 'Entry Fee'),
+            m('input.form-control')
+          ]),
+           // m('input', attr.questdeets),
+           // m('br'),
+           // m('div', attr.header, 'Start Date'),
+           // m('input', attr.questdeets),
+           // m('div', attr.header, 'End Date'),
+           // m('input', attr.questdeets),
+           // m('br'),
+           // m('div', attr.header, 'Prize'),
+           // m('input', attr.questdeets),
+           // m('br'),
+           // m('div', attr.header, 'Minimum Start Price'),
+           // m('input', attr.questdeets),
+           // m('br'),
+           m('button.btn btn-default btn-lg', attr.submitBtn, 'Submit')
        ])
     ])
       
@@ -106,38 +125,26 @@ CreateQuest = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      'outline': '1px solid gray'
     },
      container: {
-      'width': '25%'
-      , 'position': 'relative'
-      , 'height': '100%'
-      , 'padding': '20px'
-      , 'margin': '0px auto 0px auto'
-      , 'background-color': '#3790A4'
-      , 'text-align': 'center'
-      , 'font': '16px Helvetica, Arial, sans-serif'
-    },
-    header: {
-      'color': '#FFFFFF'
+      'color': '#333',
+      'width': '100%',
+      'text-align': 'center',
+      'height': '85%',
+      'text-align': 'center',
+      'font': '20px Helvetica, Arial, sans-serif',
+      'margin-top': '3%'
     },
     questdeets: {
       'width': '50%',
-      'height': '20px',
-      'padding': '0px 0px 0px 5px',
-      'margin': '0px 0px 10px 0px',
-      'background-color': '#FFFFFF',
-      'color': 'black'
+      'text-align': 'center',
+      'margin-left': 'auto',
+      'margin-right': 'auto',
+      'padding-top': '15px'
     },
     submitBtn: {
-      'background-color': '#0278AA',
-      'margin': '30px 0px 30px 0px',
-      'padding': '20px 0px 0px 0px',
-      'color': '#FFFFFF'
+      'margin-top': '20px'
     }
-
-
-
   },
 
   stylesheet: function () {

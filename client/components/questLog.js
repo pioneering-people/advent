@@ -120,6 +120,7 @@ QuestLog = {
       'font-size': '1em'
     },
     quest: {
+      'color': '#333',
       'width': '100%',
       'height': '20%',
       'padding': '0',

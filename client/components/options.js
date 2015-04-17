@@ -45,6 +45,7 @@ Options = {
   },
   styles: {
     options: {
+      'color': '#333',
       'width': '100%',
       'height': '100%',
       'font': 'bold 28px Helvetica, Arial, sans-serif'

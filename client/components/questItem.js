@@ -107,6 +107,7 @@ QuestItem = {
 
   styles: {
     questItem: {
+      'color': '#333',
       'width': '100%',
       'height': '100%',
       'padding': '0',
@@ -115,6 +116,7 @@ QuestItem = {
       'font': '22px Helvetica, Arial, sans-serif'
     },
     questDetails: {
+      'color': '#333',
       'width': '100%',
       'height': '70%',
       'padding': '0',

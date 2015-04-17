@@ -39,7 +39,10 @@ TaskItem = {
       mapButton: {
         class: ctrl.css.mapButton,
         onclick: function() {
-          window.location = 'geo:' + ctrl.taskDetails.location.join(',')
+          var location = ctrl.taskDetails.location instanceof Array ?
+            ctrl.taskDetails.location.join(',')
+          : ctrl.taskDetails.location
+          window.location = 'geo: 0,0?q=' + location
         }
       },
       photoButton: {
@@ -90,6 +93,7 @@ TaskItem = {
 
   styles: {
     taskItem: {
+      'background-color': '#333',
       'width': '100%',
       'height': '100%',
       'padding': '0',
