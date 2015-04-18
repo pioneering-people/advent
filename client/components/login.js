@@ -83,9 +83,6 @@ Login = {
     ])
   }
   , styles: {
-    body: {
-      'padding-top': '40px',
-    },
     container: {
       'background-color': '#eee',
       'width': '350px',
@@ -94,7 +91,7 @@ Login = {
       'position': 'relative',
       'height': '300px',
       'padding': '20px',
-      'margin-top': '40px',
+      'margin-top': '10%',
 
       '-webkit-border-radius': '10px 10px 10px 10px',
       ' -moz-border-radius': '10px 10px 10px 10px',
