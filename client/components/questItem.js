@@ -9,6 +9,7 @@ QuestItem = {
 
   controller: reactive(function() {
     ctrl = this
+    if(!Session.get('user'))m.route('/auth')
     ctrl.css = QuestItem.stylesheet().classes
     ctrl.questName = m.route.param('questName')
     ctrl.questDetails = QuestItem.model.getQuestDetails(ctrl.questName)

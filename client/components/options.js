@@ -10,6 +10,7 @@ Options = {
   },
   controller: reactive(function() {
     ctrl = this
+    if(!Session.get('user'))m.route('/auth')
     ctrl.css = Options.stylesheet().classes
     ctrl.routes = Options.model.routes
     return ctrl

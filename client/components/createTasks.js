@@ -16,6 +16,7 @@ CreateTasks = {
 
   controller: reactive(function() {
     ctrl = this
+    if(!Session.get('user'))m.route('/auth')
     ctrl.questName = m.route.param('questName')
     ctrl.css = CreateTasks.stylesheet().classes
   }),

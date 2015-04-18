@@ -10,6 +10,7 @@ TaskLog = {
 
   controller: reactive(function() {
     ctrl = this
+    if(!Session.get('user'))m.route('/auth')
     ctrl.css = TaskLog.stylesheet().classes
     ctrl.questName = m.route.param('questName')
     ctrl.tasks = m.prop(TaskLog.model.tasks())
