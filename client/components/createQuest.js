@@ -47,15 +47,15 @@ CreateQuest = {
       },
       submitBtn: {
         class: ctrl.css.submitBtn,
-         onmousedown: function(e) {
-          e.target.style['background-color'] = '#559E3D'
-        },
-         onmouseup: function(e) {
-          e.target.style['background-color'] = '#0278AA'
-        },
-         onmouseleave: function(e) {
-          e.target.style['background-color'] = '#0278AA'
-        }
+        //  onmousedown: function(e) {
+        //   e.target.style['background-color'] = '#559E3D'
+        // },
+        //  onmouseup: function(e) {
+        //   e.target.style['background-color'] = '#0278AA'
+        // },
+        //  onmouseleave: function(e) {
+        //   e.target.style['background-color'] = '#0278AA'
+        // }
       },
       createForm: {
         onsubmit: function(e) {
