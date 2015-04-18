@@ -54,7 +54,7 @@ if(Meteor.isClient) {
       '/auth': Login,
       '/options': Options,
       '/taskLog/:questName': TaskLog,
-      '/taskItem/:taskName': TaskItem,
+      '/taskItem/:questName/:taskName': TaskItem,
       '/createQuest': CreateQuest,
       '/createTasks/:questName': CreateTasks,
       '/myQuests': QuestLog,

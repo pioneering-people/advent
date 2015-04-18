@@ -2,8 +2,8 @@ TaskItem = {
 
   model: {
   //set title of page
-    getTaskDetails: function(taskName) {
-      return Tasks.find({name: taskName}).fetch()[0] || {}
+    getTaskDetails: function(questName, taskName) {
+      return Tasks.find({quest: questName, name: taskName}).fetch()[0] || {}
     },
     uploadPhoto: function(image, taskName, taskDetails) {
       Photos.insert({
@@ -21,7 +21,8 @@ TaskItem = {
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = TaskItem.stylesheet().classes
     ctrl.taskName = m.route.param('taskName')
-    ctrl.taskDetails = TaskItem.model.getTaskDetails(ctrl.taskName)
+    ctrl.questName = m.route.param('questName')
+    ctrl.taskDetails = TaskItem.model.getTaskDetails(ctrl. questName, ctrl.taskName)
     return ctrl
   }),
 
@@ -128,7 +129,7 @@ TaskItem = {
       'padding': '0',
       'margin': '0',
       'border-top': '1px solid #F7F7F9',
-      'font': 'bold 28px Helvetica, Arial, sans-serif', 
+      'font': 'bold 28px Helvetica, Arial, sans-serif',
       'text-align': 'center'
     },
     photoButton: {
