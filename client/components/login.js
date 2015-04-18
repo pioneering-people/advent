@@ -34,7 +34,7 @@ Login = {
         class: ctrl.css.password
       }
       , loginBtn: {
-        class: ctrl.css.login
+        class: ctrl.css.loginBtn  
         , onmousedown: function(e) {
           e.target.style['background-color'] = '#559E3D'
         }
@@ -57,58 +57,58 @@ Login = {
     }
 
     return m('div', attr.container, [
-      m('h3', attr.header, 'Login')
-      , m('form.loginForm', attr.loginForm, [
-        m('input', attr.username)
-        , m('br')
-        , m('input', attr.password)
-        , m('br')
-        , m('button', attr.loginBtn, 'Submit')
+      m('h3', attr.header, 'Login'), 
+      m('form.loginForm', attr.loginForm, [
+        m("input[placeholder='Username'][type='text']", attr.username),
+        m("input[placeholder='Password'][type='text']", attr.password),
+        m('button.btn btn-primary', attr.loginBtn, 'Submit')
       ])
     ])
   }
   , styles: {
+    body: {
+      'padding-top': '40px',
+    },
     container: {
-      'width': '25%'
-      , 'position': 'relative'
-      , 'height': '100%'
-      , 'padding': '20px'
-      , 'margin': '0px auto 0px auto'
-      , 'background-color': '#272822'
-      , 'text-align': 'center'
-      , 'font': 'bold 22px Helvetica, Arial, sans-serif'
-    }
-    , header: {
-      'color': '#FFFFFF'
-    }
-    , username: {
-      'width': '100%'
-      , 'padding': '0px 0px 0px 5px'
-      , 'margin': '0px 0px 20px 0px'
-      , 'background-color': '#474747'
-      , 'color': 'white'
-    }
-    , password: {
-      'width': '100%'
-      , 'padding': '0px 0px 0px 5px'
-      , 'margin': '0px 0px 20px 0px'
-      , 'background-color': '#474747'
-      , 'color': 'white'
-    }
-    , loginBtn: {
-      'background-color': '#0278AA'
-      , 'margin': '0px 0px 30px 0px'
-      , 'color': '#FFFFFF'
-    }
-  }
+      'background-color': '#eee',
+      'width': '350px',
+      'margin-left': 'auto',
+      'margin-right': 'auto',
+      'position': 'relative',
+      'height': '300px',
+      'padding': '20px',
+      'margin-top': '40px',
 
-  , stylesheet: function () {
+      '-webkit-border-radius': '10px 10px 10px 10px',
+      ' -moz-border-radius': '10px 10px 10px 10px',
+      'border-radius': '10px 10px 10px 10px',
+      '-webkit-box-shadow': '0 1px 2px rgba(0,0,0,.15)',
+      '-moz-box-shadow': '0 1px 2px rgba(0,0,0,.15)',
+      'box-shadow': '0 1px 2px rgba(0,0,0,.15)'
+    },
+    username: {
+      'margin-top': '20px',
+      'width': '200px',
+      'margin-left': '50px'
+    },
+    password: {
+      'margin-top': '20px',
+      'margin-left': '50px',
+      'width': '200px'
+    },
+    loginBtn: {
+      'margin-top': '40px',
+      'margin-left': '50px'
+    },
+    header: {
+      'margin-left': '50px'
+    }
+  },
+
+  stylesheet: function () {
     this._stylesheet || (this._stylesheet = jss.createStyleSheet(this.styles).attach())
     return this._stylesheet
-  }
-
-
-  
+  } 
 }
 
 
