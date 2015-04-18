@@ -54,6 +54,15 @@ TaskItem = {
           })
        }
       },
+      imageFeedButton: {
+        class: ctrl.css.imageFeedButton,
+        onclick: function() {
+          var route = '/imageFeed/' + 
+            ctrl.taskDetails.quest + '/' +
+            ctrl.taskDetails.name
+          m.route(route)
+        }
+      },
       boldTitle: {
         class: ctrl.css.boldTitle
       },
@@ -88,6 +97,11 @@ TaskItem = {
         m('div', attr.centerButton, [
           m('span', 'Upload Photo')
         ])
+      ]),
+      m('div.imageFeedButton', attr.imageFeedButton, [
+        m('div', attr.centerButton, [
+          m('span', 'Image Feed')
+        ])
       ])
     ])
   },
@@ -113,7 +127,7 @@ TaskItem = {
     },
     mapButton: {
       'width': '100%',
-      'height': '20%',
+      'height': '13.333333%',
       'padding': '0',
       'margin': '0',
       'border-top': '1px solid #F7F7F9',
@@ -122,7 +136,16 @@ TaskItem = {
     },
     photoButton: {
       'width': '100%',
-      'height': '20%',
+      'height': '13.333333%',
+      'padding': '0',
+      'margin': '0',
+      'border-top': '1px solid #F7F7F9',
+      'font': 'bold 28px Helvetica, Arial, sans-serif',
+      'text-align': 'center'
+    },
+    imageFeedButton: {
+      'width': '100%',
+      'height': '13.333333%',
       'padding': '0',
       'margin': '0',
       'border-top': '1px solid #F7F7F9',
