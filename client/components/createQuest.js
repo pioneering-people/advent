@@ -45,6 +45,12 @@ CreateQuest = {
       },
       submitBtn: {
         class: ctrl.css.submitBtn,
+         onmousedown: function(e) {
+          e.target.style['background-color'] = '#559E3D'
+        },
+         onmouseup: function(e) {
+          e.target.style['background-color'] = '#FFFFFF'
+        }
       },
       createForm: {
         onsubmit: function(e) {
@@ -54,9 +60,9 @@ CreateQuest = {
           params.name = e.target[0].value
           params.start = e.target[1].value
           params.end = e.target[2].value
-          params.prize = +(e.target[3].value)
+          params.prize = String(e.target[3].value)
           params.minimumStartPrice = e.target[4].value
-          
+
           CreateQuest.model.createQuest(params)
         }
       }
@@ -125,4 +131,7 @@ CreateQuest = {
     this._stylesheet || (this._stylesheet = jss.createStyleSheet(this.styles).attach())
     return this._stylesheet
   }
+
+
+
 }
