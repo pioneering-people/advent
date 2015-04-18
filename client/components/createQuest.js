@@ -4,9 +4,7 @@ CreateQuest = {
   model: {
     createQuest: function(params) {
       var user = Session.get('user')
-      // debugger
-      Quests.insert({  
-        // normalId: ,
+      Quests.insert({
         name: params.name ,
         active: false,
         start: params.start,
@@ -47,15 +45,6 @@ CreateQuest = {
       },
       submitBtn: {
         class: ctrl.css.submitBtn,
-        //  onmousedown: function(e) {
-        //   e.target.style['background-color'] = '#559E3D'
-        // },
-        //  onmouseup: function(e) {
-        //   e.target.style['background-color'] = '#0278AA'
-        // },
-        //  onmouseleave: function(e) {
-        //   e.target.style['background-color'] = '#0278AA'
-        // }
       },
       createForm: {
         onsubmit: function(e) {
@@ -98,15 +87,12 @@ CreateQuest = {
             m('input.form-control')
           ]),
           m('button.btn btn-default btn-lg', attr.submitBtn, 'Submit')
-       ])
+        ])
+      ]) 
     ])
-      
-    ])
-  
-
   },
 
-//
+
   styles: {
     CreateQuest: {
       'width': '100%',
@@ -139,7 +125,4 @@ CreateQuest = {
     this._stylesheet || (this._stylesheet = jss.createStyleSheet(this.styles).attach())
     return this._stylesheet
   }
-
-
-
 }
