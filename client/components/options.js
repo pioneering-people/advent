@@ -75,8 +75,6 @@ Options = {
     this._stylesheet || (this._stylesheet = jss.createStyleSheet(this.styles).attach())
     return this._stylesheet
   }
-
-
 }
 
 

@@ -113,7 +113,6 @@ TaskItem = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
       'font': '22px Helvetica, Arial, sans-serif'
     },
     taskDetails: {
@@ -121,8 +120,6 @@ TaskItem = {
       'height': '50%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
-      //'text-align': 'center'
       'margin-left': '10%'
     },
     mapButton: {

@@ -1,7 +1,6 @@
 Home = {
 
   model: {
-  //set title of page
     getStats: function() {
       return Users.find({name: Session.get('user')}).fetch()[0] || {}
     }
@@ -28,7 +27,6 @@ Home = {
       activeQuestsButton: {
         class: ctrl.css.activeQuestsButton,
         onclick: function() {
-          // globalModel.backStack.push('/');
           m.route('/questLogActive')
         }
       },
@@ -36,7 +34,6 @@ Home = {
         class: ctrl.css.availableQuestsButton,
         onclick: function() {
           m.route('/questLog')
-          // globalModel.backStack.push('/');
         }
       },
       centerButton: {
@@ -74,14 +71,12 @@ Home = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray'
     },
     userStats: {
       'width': '100%',
       'height': '50%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
       'border-bottom': '1px solid #F7F7F9',
       'text-align': 'center',
       'font': '18px Helvetica, Arial, sans-serif'
@@ -91,7 +86,6 @@ Home = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
       'border-bottom': '1px solid #F7F7F9',
       'text-align': 'center',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
@@ -101,8 +95,6 @@ Home = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
-      //'border-bottom': '1px solid gray',
       'text-align': 'center',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
     },

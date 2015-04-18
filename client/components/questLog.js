@@ -139,7 +139,6 @@ QuestLog = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
       'font': '20px Helvetica, Arial, sans-serif'
     },
     questsList: {
@@ -147,7 +146,6 @@ QuestLog = {
       'height': '80%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
       'text-align': 'center',
       'font-size': '1em'
     },
@@ -162,17 +160,14 @@ QuestLog = {
       'font-size': '1em'
     },
     scrollButtons: {
-      //'border-top': '1px solid #F7F7F9',
       'width': '100%',
       'height': '10%',
       'padding': '0px',
       'margin': 'auto',
       'background-color': '#F7F7F9'
-      //'outline': '1px solid green'
     },
     upButton: {
       'position': 'relative',
-      //'background-color': 'blue',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
@@ -181,7 +176,6 @@ QuestLog = {
     },
     downButton: {
       'position': 'relative',
-      //'background-color': 'magenta',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',

@@ -19,9 +19,6 @@ NavBar = {
       backBtn: {
         class: ctrl.css.backBtn,
         onclick: function() {
-          // console.log(globalModel.backStack[globalModel.backStack.length-1])
-          // var route = globalModel.backStack.pop() || '/'
-          // m.route(route)
           window.history.back()
         }
       },
@@ -49,7 +46,6 @@ NavBar = {
 
   },
 
-//
   styles: {
     navbar: {
       'width': '100%',
@@ -60,7 +56,6 @@ NavBar = {
 
     },
     backBtn: {
-      //'outline': '1px solid gray',
       'background-color': '#e43114',
       'width': '12.5%',
       'display': 'inline-block',
@@ -71,7 +66,6 @@ NavBar = {
       'color': '#fcfefe'
     },
     title: {
-      //'outline': '1px solid gray',
       'background-color': '#e43114',
       'width': '75%',
       'display':'inline-block',
@@ -82,7 +76,6 @@ NavBar = {
       'color': '#fcfefe'
     },
     menuBtn: {
-      //'outline': '1px solid gray',
       'background-color': '#e43114',
       'width': '12.5%',
       'display': 'inline-block',
@@ -98,15 +91,11 @@ NavBar = {
     this._stylesheet || (this._stylesheet = jss.createStyleSheet(this.styles).attach())
     return this._stylesheet
   }
-
-
-
 }
 
 
 
 function getTitle() {
- // return m.route()
   if(m.route() === '/'){
     return 'Home'
   } else if(m.route() === '/questLog'){
@@ -124,6 +113,4 @@ function getTitle() {
   } else if(m.route().split('').splice(0,12).join('') === '/createTasks'){
     return 'Create a Task'
   }
-
-
 }

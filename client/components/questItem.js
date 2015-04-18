@@ -1,7 +1,6 @@
 QuestItem = {
 
   model: {
-    //set title of page
     getQuestDetails: function(questName) {
       return Quests.find({name: questName}).fetch()[0] || {}
     }
@@ -113,7 +112,6 @@ QuestItem = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
       'font': '22px Helvetica, Arial, sans-serif'
     },
     questDetails: {
@@ -122,8 +120,6 @@ QuestItem = {
       'height': '70%',
       'padding': '0',
       'margin-left': '10%',
-      //'outline': '1px solid gray',
-      //'text-align': 'center'
     },
     signupButton: {
       'width': '100%',

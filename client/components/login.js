@@ -18,9 +18,7 @@ Login = {
           organization: '',
           experience: 0,
           title: 'scrappy scavenger',
-          quests: {
-
-          }
+          quests: {}
         })
         m.route('/')
       }
@@ -49,15 +47,6 @@ Login = {
       }
       , loginBtn: {
         class: ctrl.css.loginBtn  
-        // , onmousedown: function(e) {
-        //   e.target.style['background-color'] = '#559E3D'
-        // }
-        // , onmouseup: function(e) {
-        //   e.target.style['background-color'] = '#0278AA'
-        // }
-        // , onmouseleave: function(e) {
-        //   e.target.style['background-color'] = '#0278AA'
-        // }
       }
       , loginForm: {
         onsubmit: function(e) {

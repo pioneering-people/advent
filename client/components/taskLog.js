@@ -3,7 +3,6 @@ TaskLog = {
   model: {
   //set title of page
     tasks: function() {
-      // find({questname: m.route.param('questName')})
       return Tasks.find({quest: ctrl.questName}).fetch()
     },
     offset: 0
@@ -113,14 +112,12 @@ TaskLog = {
       'height': '100%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid green'
     },
     tasksList: {
       'width': '100%',
       'height': '80%',
       'padding': '0',
       'margin': '0',
-      //'outline': '1px solid gray',
       'text-align': 'center',
       'font-size': '1em'
     },
@@ -134,17 +131,14 @@ TaskLog = {
       'font-size': '1em'
     },
     scrollButtons: {
-      //'border-top': '1px solid gray',
       'width': '100%',
       'height': '10%',
       'padding': '0px',
       'margin': 'auto',
       'background-color': '#F7F7F9'
-      //'outline': '1px solid green'
     },
     upButton: {
       'position': 'relative',
-      //'background-color': 'blue',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
@@ -153,7 +147,6 @@ TaskLog = {
     },
     downButton: {
       'position': 'relative',
-      //'background-color': 'magenta',
       'display': 'inline-block',
       'width': '50%',
       'float': 'left',
@@ -173,7 +166,6 @@ TaskLog = {
       'font': 'bold 24px Helvetica, Arial, sans-serif',
       'color': '#e43114'
     },
-
   },
 
   stylesheet: function () {
