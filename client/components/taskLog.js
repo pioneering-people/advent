@@ -5,7 +5,8 @@ TaskLog = {
     tasks: function() {
       // find({questname: m.route.param('questName')})
       return Tasks.find({quest: ctrl.questName}).fetch()
-    }
+    },
+    offset: 0
   },
 
   controller: reactive(function() {
@@ -14,7 +15,7 @@ TaskLog = {
     ctrl.css = TaskLog.stylesheet().classes
     ctrl.questName = m.route.param('questName')
     ctrl.tasks = m.prop(TaskLog.model.tasks())
-    ctrl.offset = 0
+    ctrl.offset = m.prop(QuestLog.model.offset)
     ctrl.max = (function() {
       var result = ctrl.tasks().length ? ctrl.tasks().length - 5 : 0
       if(result < 0) result = 0
@@ -47,13 +48,29 @@ TaskLog = {
       upButton:{
         class: ctrl.css.upButton,
         onclick: function() {
-          (ctrl.offset - 5) < 0 ? ctrl.offset = 0 : ctrl.offset -= 5
+          var offset = QuestLog.model.offset
+          ctrl.offset() - 5 < 0 ? function() {
+            QuestLog.model.offset = 0
+            ctrl.offset(0)
+          }()
+          : function() {
+            QuestLog.model.offset -= 5
+            ctrl.offset(QuestLog.model.offset)
+          }()
         }
       },
       downButton:{
         class: ctrl.css.downButton,
         onclick: function() {
-          (ctrl.offset + 5) > ctrl.max ? ctrl.offset = ctrl.max : ctrl.offset += 5
+          var offset = QuestLog.model.offset
+          ctrl.offset() + 5 > ctrl.max ? function() {
+            QuestLog.model.offset =ctrl.max
+            ctrl.offset(ctrl.max)
+          }()
+          : function() {
+            QuestLog.model.offset += 5
+            ctrl.offset(QuestLog.model.offset)
+          }()
         }
       },
       centerTask:{
@@ -68,7 +85,7 @@ TaskLog = {
       // m('div.main', attr.main, [
       m('div.tasksList', attr.tasksList, [
         // slice four items from the tasks array starting with the offset
-        ctrl.tasks().slice(ctrl.offset, ctrl.offset + 5).map(function (task) {
+        ctrl.tasks().slice(ctrl.offset(), ctrl.offset() + 5).map(function (task) {
           return m('div.task', attr.task(task.name), [
             m('div', attr.centerTask, [
               m('span', task.name)

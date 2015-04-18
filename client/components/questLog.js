@@ -22,7 +22,8 @@ QuestLog = {
       }
 
       return result
-    }
+    },
+    offset: 0
   },
 
   controller: reactive(function() {
@@ -30,7 +31,7 @@ QuestLog = {
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = QuestLog.stylesheet().classes
     ctrl.quests = m.prop(QuestLog.model.quests())
-    ctrl.offset = 0
+    ctrl.offset = m.prop(QuestLog.model.offset)
       ctrl.max = (function() {
       var result = ctrl.quests().length ? ctrl.quests().length - 5 : 0
       if(result < 0) result = 0
@@ -66,14 +67,30 @@ QuestLog = {
       upButton:{
         class: ctrl.css.upButton,
         onclick: function() {
-          (ctrl.offset - 5) < 0 ? ctrl.offset = 0 : ctrl.offset -= 5
+          var offset = QuestLog.model.offset
+          ctrl.offset() - 5 < 0 ? function() {
+            QuestLog.model.offset = 0
+            ctrl.offset(0)
+          }()
+          : function() {
+            QuestLog.model.offset -= 5
+            ctrl.offset(QuestLog.model.offset)
+          }()
         }
       },
       downButton:{
         class: ctrl.css.downButton,
         onclick: function() {
           //if translating down four would cause less than 4 items to be on the screen.. set the offset to the max
-          (ctrl.offset + 5) > ctrl.max ? ctrl.offset = ctrl.max : ctrl.offset += 5
+          var offset = QuestLog.model.offset
+          ctrl.offset() + 5 > ctrl.max ? function() {
+            QuestLog.model.offset = ctrl.max
+            ctrl.offset(ctrl.max)
+          }()
+          : function() {
+            QuestLog.model.offset += 5
+            ctrl.offset(QuestLog.model.offset)
+          }()
         }
       },
       centerQuest:{
@@ -90,7 +107,7 @@ QuestLog = {
       NavBar,
       // m('div.main', attr.main, [
       m('div.questsList', attr.questsList, [
-        ctrl.quests().slice(ctrl.offset, ctrl.offset + 5).map(function (quest, index) {
+        ctrl.quests().slice(ctrl.offset(), ctrl.offset() + 5).map(function (quest, index) {
           return m('div.quest', attr.quest(quest.name), [
             m('div', attr.centerQuest, [
               m('span', attr.boldName, quest.name),
