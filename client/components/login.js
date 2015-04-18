@@ -72,7 +72,7 @@ Login = {
         }
       }
     }
-    debugger
+   
     return m('div', attr.container, [
       m('h3', attr.header, 'Login'), 
       m('form.loginForm', attr.loginForm, [
