@@ -25,6 +25,9 @@ Options = {
         return {
           class: ctrl.css.optionLink,
           onclick: function() {
+            if(link === '/auth'){
+              Session.set({user: ''})
+            }
             m.route(link)
           }
         }
