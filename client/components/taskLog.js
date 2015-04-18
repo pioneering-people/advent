@@ -32,12 +32,12 @@ TaskLog = {
       tasksList: {
         class: ctrl.css.tasksList
       },
-      task: function(taskName) {
+      task: function(questName, taskName) {
       return {
         class: ctrl.css.task,
           onclick: function() {
             // globalModel.backStack.push('/taskLog')
-            m.route('/taskItem/' + taskName)
+            m.route('/taskItem/' + questName + '/' + taskName)
           }
         }
       },
@@ -85,7 +85,7 @@ TaskLog = {
       m('div.tasksList', attr.tasksList, [
         // slice four items from the tasks array starting with the offset
         ctrl.tasks().slice(ctrl.offset(), ctrl.offset() + 5).map(function (task) {
-          return m('div.task', attr.task(task.name), [
+          return m('div.task', attr.task(ctrl.questName, task.name), [
             m('div', attr.centerTask, [
               m('span', task.name)
             ])
