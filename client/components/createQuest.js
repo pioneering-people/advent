@@ -97,20 +97,7 @@ CreateQuest = {
             m('label.control-label', 'Entry Fee'),
             m('input.form-control')
           ]),
-           // m('input', attr.questdeets),
-           // m('br'),
-           // m('div', attr.header, 'Start Date'),
-           // m('input', attr.questdeets),
-           // m('div', attr.header, 'End Date'),
-           // m('input', attr.questdeets),
-           // m('br'),
-           // m('div', attr.header, 'Prize'),
-           // m('input', attr.questdeets),
-           // m('br'),
-           // m('div', attr.header, 'Minimum Start Price'),
-           // m('input', attr.questdeets),
-           // m('br'),
-           m('button.btn btn-default btn-lg', attr.submitBtn, 'Submit')
+          m('button.btn btn-default btn-lg', attr.submitBtn, 'Submit')
        ])
     ])
       
