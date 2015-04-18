@@ -102,20 +102,20 @@ Login = {
     },
     username: {
       'margin-top': '20px',
-      'width': '200px',
-      'margin-left': '50px'
+      'width': '220px',
+      'margin-left': '45px'
     },
     password: {
       'margin-top': '20px',
-      'margin-left': '50px',
-      'width': '200px'
+      'margin-left': '45px',
+      'width': '220px'
     },
     loginBtn: {
       'margin-top': '40px',
-      'margin-left': '50px'
+      'margin-left': '45px'
     },
     header: {
-      'margin-left': '50px'
+      'margin-left': '45px'
     }
   },
 
