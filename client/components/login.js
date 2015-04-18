@@ -3,21 +3,34 @@ Login = {
     login: function(user, pass) {
       var match = Passwords.find({user: user}).fetch() || {}
       if(match.length)
-        if(match.pass = pass) {
-          Session.set({user: user})
-          m.route('/')
-        }
-        else console.log('invalid password')
-      else {
+      if(match[0].pass === pass) {
+        console.log('found')
+        Session.set({user: user})
+        m.route('/')
+      }  else {
+        return 'user'
+      }
+      if(!match.length) {
         Session.set({user: user})
         Passwords.insert({user: user, pass: pass})
+        Users.insert({
+          name: user,
+          organization: '',
+          experience: 0,
+          title: 'scrappy scavenger',
+          quests: {
+
+          }
+        })
         m.route('/')
       }
-
+      return ''
     }
   }
   , controller: function(options) {
     this.css = Login.stylesheet().classes
+    if(Session.get('user'))m.route('/')
+    this.passPlaceholder = m.prop('Password')
   }
   , view: function(ctrl) {
     var attr = {
@@ -31,7 +44,8 @@ Login = {
         class: ctrl.css.username
       }
       , password: {
-        class: ctrl.css.password
+        class: ctrl.css.password,
+        placeholder: ctrl.passPlaceholder()
       }
       , loginBtn: {
         class: ctrl.css.loginBtn  
@@ -49,13 +63,16 @@ Login = {
         onsubmit: function(e) {
           e.preventDefault()
           console.log(e)
-          Login.model.login(e.currentTarget[0].value, e.target[1].value)
+          var result = Login.model.login(e.currentTarget[0].value, e.target[1].value)
+          if(result)
+            if(result === 'user')
+              ctrl.passPlaceholder('Invalid Password or Username')
           e.target[0].value = ''
           e.target[1].value = ''
         }
       }
     }
-
+    debugger
     return m('div', attr.container, [
       m('h3', attr.header, 'Login'), 
       m('form.loginForm', attr.loginForm, [

@@ -27,6 +27,7 @@ QuestLog = {
 
   controller: reactive(function() {
     ctrl = this
+    if(!Session.get('user'))m.route('/auth')
     ctrl.css = QuestLog.stylesheet().classes
     ctrl.quests = m.prop(QuestLog.model.quests())
     ctrl.offset = 0

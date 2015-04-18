@@ -18,6 +18,7 @@ TaskItem = {
 
   controller: reactive(function() {
     ctrl = this
+    if(!Session.get('user'))m.route('/auth')
     ctrl.css = TaskItem.stylesheet().classes
     ctrl.taskName = m.route.param('taskName')
     ctrl.taskDetails = TaskItem.model.getTaskDetails(ctrl.taskName)
