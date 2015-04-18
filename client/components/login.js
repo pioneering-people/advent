@@ -49,15 +49,15 @@ Login = {
       }
       , loginBtn: {
         class: ctrl.css.loginBtn  
-        , onmousedown: function(e) {
-          e.target.style['background-color'] = '#559E3D'
-        }
-        , onmouseup: function(e) {
-          e.target.style['background-color'] = '#0278AA'
-        }
-        , onmouseleave: function(e) {
-          e.target.style['background-color'] = '#0278AA'
-        }
+        // , onmousedown: function(e) {
+        //   e.target.style['background-color'] = '#559E3D'
+        // }
+        // , onmouseup: function(e) {
+        //   e.target.style['background-color'] = '#0278AA'
+        // }
+        // , onmouseleave: function(e) {
+        //   e.target.style['background-color'] = '#0278AA'
+        // }
       }
       , loginForm: {
         onsubmit: function(e) {
@@ -78,7 +78,7 @@ Login = {
       m('form.loginForm', attr.loginForm, [
         m("input[placeholder='Username'][type='text']", attr.username),
         m("input[placeholder='Password'][type='text']", attr.password),
-        m('button.btn btn-primary', attr.loginBtn, 'Submit')
+        m('button.btn btn-default btn-lg', attr.loginBtn, 'Submit')
       ])
     ])
   }
