@@ -26,6 +26,7 @@ CreateQuest = {
 
   controller: reactive(function() {
     ctrl = this
+    if(!Session.get('user'))m.route('/auth')
     ctrl.css = CreateQuest.stylesheet().classes
   }),
 
