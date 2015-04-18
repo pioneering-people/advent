@@ -1,6 +1,7 @@
 Home = {
 
   model: {
+  //set title of page
     getStats: function() {
       return Users.find({name: Session.get('user')}).fetch()[0] || {}
     }

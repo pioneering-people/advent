@@ -44,13 +44,13 @@ CreateQuest = {
         class: ctrl.css.questdeets
       },
       submitBtn: {
-        class: ctrl.css.submitBtn,
-         onmousedown: function(e) {
-          e.target.style['background-color'] = '#559E3D'
-        },
-         onmouseup: function(e) {
-          e.target.style['background-color'] = '#FFFFFF'
-        }
+        // class: ctrl.css.submitBtn,
+        //  onmousedown: function(e) {
+        //   e.target.style['background-color'] = '#559E3D'
+        // },
+        //  onmouseup: function(e) {
+        //   e.target.style['background-color'] = '#FFFFFF'
+        // }
       },
       createForm: {
         onsubmit: function(e) {
