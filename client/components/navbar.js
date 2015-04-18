@@ -35,7 +35,7 @@ NavBar = {
         }
       }
     }
-    return m('div.navbar', attr.navbar, [
+    return m('div.navbar navbar-static-top', attr.navbar, [
       m('div.backBtn', attr.backBtn, [
         m('div.center', '<')
       ]),
@@ -55,7 +55,9 @@ NavBar = {
       'width': '100%',
       'height': '10%',
       'padding': '0',
-      'margin': '0'
+      'margin': '0',
+      'background-color': '#e43114',
+
     },
     backBtn: {
       //'outline': '1px solid gray',
