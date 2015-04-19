@@ -4,21 +4,31 @@ CreateQuest = {
   model: {
     createQuest: function(params) {
       var user = Session.get('user')
-      Quests.insert({
-        name: params.name ,
-        active: false,
-        start: params.start,
-        end: params.end,
-        prize: params.prize,
-        minimumStartPrice: params.minimumStartPrice,
-        fundsRaised: 0,
-        creator: user,
-        participants: [],
-        settings: {
-        singleActivity: false, //one activity at a time
-        }
-      })
-      m.route('/createTasks/'+params.name)
+      if(params.name && params.start && params.end && params.prize && params.minimumStartPrice){
+        Quests.insert({
+          name: params.name ,
+          active: false,
+          start: params.start,
+          end: params.end,
+          prize: params.prize,
+          minimumStartPrice: params.minimumStartPrice,
+          fundsRaised: 0,
+          creator: user,
+          participants: [],
+          settings: {
+            singleActivity: false, //one activity at a time
+          }
+        })
+        m.route('/createTasks/'+params.name)
+      } else{
+
+        document.getElementById('namefield').placeholder= 'fill in all fields'
+        document.getElementById('startfield').placeholder= 'fill in all fields'
+        document.getElementById('endfield').placeholder= 'fill in all fields'
+        document.getElementById('prizefield').placeholder= 'fill in all fields'
+        document.getElementById('minfield').placeholder= 'fill in all fields'
+        // return 'empty fields'
+      }
     }
   },
 
@@ -26,6 +36,7 @@ CreateQuest = {
     ctrl = this
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = CreateQuest.stylesheet().classes
+    this.fieldPlaceholder = m.prop('Empty')
   }),
 
 
@@ -41,7 +52,8 @@ CreateQuest = {
         class: ctrl.css.CreateQuest
       },
       questdeets: {
-        class: ctrl.css.questdeets
+        class: ctrl.css.questdeets,
+        placeholder: ctrl.fieldPlaceholder()
       },
       submitBtn: {
         // class: ctrl.css.submitBtn,
@@ -62,7 +74,6 @@ CreateQuest = {
           params.end = e.target[2].value
           params.prize = String(e.target[3].value)
           params.minimumStartPrice = e.target[4].value
-
           CreateQuest.model.createQuest(params)
         }
       }
@@ -74,23 +85,23 @@ CreateQuest = {
         m('form.createForm', attr.createForm, [
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Quest Name'),
-            m('input.form-control')
+            m('input.form-control#namefield')
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Start Date'),
-            m('input.form-control')
+            m('input.form-control#startfield')
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'End Date'),
-            m('input.form-control')
+            m('input.form-control#endfield')
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Prize'),
-            m('input.form-control')
+            m('input.form-control#prizefield')
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Entry Fee'),
-            m('input.form-control')
+            m('input.form-control#minfield')
           ]),
           m('button.btn btn-default btn-lg', attr.submitBtn, 'Submit')
         ])

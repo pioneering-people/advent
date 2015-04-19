@@ -39,7 +39,8 @@ Login = {
         class: ctrl.css.header
       }
       , username: {
-        class: ctrl.css.username
+        class: ctrl.css.username,
+        placeholder: ctrl.passPlaceholder()
       }
       , password: {
         class: ctrl.css.password,
@@ -66,7 +67,7 @@ Login = {
       m('h3', attr.header, 'Login'), 
       m('form.loginForm', attr.loginForm, [
         m("input.form-control[placeholder='Username'][type='text']", attr.username),
-        m("input.form-control[placeholder='Password'][type='text']", attr.password),
+        m("input.form-control[placeholder='Password'][type='password']", attr.password),
         m('button.btn btn-default btn-lg', attr.loginBtn, 'Submit')
       ])
     ])
