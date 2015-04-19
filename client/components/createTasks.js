@@ -11,11 +11,13 @@ CreateTasks = {
         location: params.location
       })
 
-    }
+    },
+    name: 'Create Tasks'
   },
 
   controller: reactive(function() {
     ctrl = this
+     NavBar.model.title = CreateQuest.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.questName = m.route.param('questName')
     ctrl.css = CreateTasks.stylesheet().classes

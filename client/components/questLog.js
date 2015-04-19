@@ -23,11 +23,13 @@ QuestLog = {
 
       return result
     },
-    offset: 0
+    offset: 0,
+    name: 'Quest Log'
   },
 
   controller: reactive(function() {
     ctrl = this
+    NavBarFixed.model.title = QuestLog.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = QuestLog.stylesheet().classes
     ctrl.quests = m.prop(QuestLog.model.quests())

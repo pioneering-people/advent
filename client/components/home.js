@@ -13,12 +13,13 @@ Home = {
         })
         // m.redraw(true)
       }
-    }
-
+    },
+    name: 'Home'
   },
 
   controller: reactive(function() {
     ctrl = this
+    NavBar.model.title = Home.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = Home.stylesheet().classes
     ctrl.stats = Home.model.getStats()

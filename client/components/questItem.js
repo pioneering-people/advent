@@ -3,11 +3,13 @@ QuestItem = {
   model: {
     getQuestDetails: function(questName) {
       return Quests.find({name: questName}).fetch()[0] || {}
-    }
+    },
+    name: 'Quest Item'
   },
 
   controller: reactive(function() {
     ctrl = this
+    NavBar.model.title = QuestItem.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = QuestItem.stylesheet().classes
     ctrl.questName = m.route.param('questName')

@@ -29,11 +29,13 @@ CreateQuest = {
         document.getElementById('minfield').placeholder= 'fill in all fields'
         // return 'empty fields'
       }
-    }
+    },
+    name: 'Create Quest'
   },
 
   controller: reactive(function() {
     ctrl = this
+     NavBar.model.title = CreateQuest.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = CreateQuest.stylesheet().classes
     this.fieldPlaceholder = m.prop('Empty')

@@ -5,11 +5,12 @@ Options = {
       {route: '/myQuests', name: 'My Quests'},
       {route: '/createQuest', name: 'Create Quest'},
       {route: '/auth', name:'Logout'}
-    ]
-
+    ],
+    name: 'Menu'
   },
   controller: reactive(function() {
     ctrl = this
+    NavBar.model.title = Options.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = Options.stylesheet().classes
     ctrl.routes = Options.model.routes
