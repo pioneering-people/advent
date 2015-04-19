@@ -14,7 +14,7 @@ TaskItem = {
         createdAt: Date.now()
       })
     },
-     name: 'Task Item'
+     name: 'Task Details'
   },
 
   controller: reactive(function() {

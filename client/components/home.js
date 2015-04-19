@@ -82,7 +82,7 @@ Home = {
         m('div', attr.centerButton, 'Active Quests')
       ]),
       m('div.availableQuestsButton', attr.availableQuestsButton, [
-        m('div', attr.centerButton, 'Available Quests')
+        m('div', attr.centerButton, 'Browse Quests')
       ])
     ])
 

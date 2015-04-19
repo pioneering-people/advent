@@ -4,7 +4,7 @@ QuestItem = {
     getQuestDetails: function(questName) {
       return Quests.find({name: questName}).fetch()[0] || {}
     },
-    name: 'Quest Item'
+    name: 'Quest Details'
   },
 
   controller: reactive(function() {

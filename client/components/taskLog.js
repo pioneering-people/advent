@@ -6,7 +6,7 @@ TaskLog = {
       return Tasks.find({quest: ctrl.questName}).fetch()
     },
     offset: 0,
-    name: 'Task Log'
+    name: 'Tasks'
   },
 
   controller: reactive(function() {
