@@ -47,7 +47,7 @@ Login = {
         placeholder: ctrl.passPlaceholder()
       }
       , loginBtn: {
-        class: ctrl.css.loginBtn  
+        class: ctrl.css.loginBtn
       }
       , loginForm: {
         onsubmit: function(e) {
@@ -61,10 +61,18 @@ Login = {
           e.target[1].value = ''
         }
       }
+      , logo: {
+        class: ctrl.css.logo,
+        src: function() {
+          var result = 'img/advent-logo.png'
+          return result
+        }()
+      },
     }
-   
+
     return m('div', attr.container, [
-      m('h3', attr.header, 'Login'), 
+      m('img', attr.logo),
+      m('h3', attr.header, 'Login:'),
       m('form.loginForm', attr.loginForm, [
         m("input.form-control[placeholder='Username'][type='text']", attr.username),
         m("input.form-control[placeholder='Password'][type='password']", attr.password),
@@ -79,9 +87,9 @@ Login = {
       'margin-left': 'auto',
       'margin-right': 'auto',
       'position': 'relative',
-      'height': '300px',
+      'height': '570px',
       'padding': '20px',
-      'margin-top': '10%',
+      'margin-top': '3%',
 
       '-webkit-border-radius': '10px 10px 10px 10px',
       ' -moz-border-radius': '10px 10px 10px 10px',
@@ -91,7 +99,7 @@ Login = {
       'box-shadow': '0 1px 2px rgba(0,0,0,.15)'
     },
     username: {
-      'margin-top': '20px',
+      'margin-top': '15px',
       'width': '220px',
       'margin-left': '35px'
     },
@@ -101,18 +109,23 @@ Login = {
       'width': '220px'
     },
     loginBtn: {
-      'margin-top': '40px',
-      'margin-left': '35px'
+      'margin-top': '20px',
+      'margin-left': '100px'
     },
     header: {
+      'margin-top': '25px',
       'margin-left': '35px'
-    }
+    },
+    logo: {
+      'width': '100%',
+      'height': '50%'
+    },
   },
 
   stylesheet: function () {
     this._stylesheet || (this._stylesheet = jss.createStyleSheet(this.styles).attach())
     return this._stylesheet
-  } 
+  }
 }
 
 

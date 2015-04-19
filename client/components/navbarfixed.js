@@ -52,11 +52,11 @@ NavBarFixed = {
       'height': '10%',
       'padding': '0',
       'margin': '0',
-      'background-color': '#e43114',
+      'background-color': '#ff5252',
 
     },
     backBtn: {
-      'background-color': '#e43114',
+      'background-color': '#ff5252',
       'width': '12.5%',
       'display': 'inline-block',
       'float': 'left',
@@ -66,7 +66,7 @@ NavBarFixed = {
       'color': '#fcfefe'
     },
     title: {
-      'background-color': '#e43114',
+      'background-color': '#ff5252',
       'width': '75%',
       'display':'inline-block',
       'float': 'left',
@@ -76,7 +76,7 @@ NavBarFixed = {
       'color': '#fcfefe'
     },
     menuBtn: {
-      'background-color': '#e43114',
+      'background-color': '#ff5252',
       'width': '12.5%',
       'display': 'inline-block',
       'float': 'left',

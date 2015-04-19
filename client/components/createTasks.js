@@ -136,7 +136,7 @@ function parseInput() {
 
   m.request({
     method: "GET",
-    url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + params.location.split(' ').join('+') + "&key=AIzaSyDyEkFw22hmfw4A4DSHQMXYCI-jH6wV_zI"
+    url: "http://maps.googleapis.com/maps/api/geocode/json?address=" + params.location.split(' ').join('+') + "&key=AIzaSyDyEkFw22hmfw4A4DSHQMXYCI-jH6wV_zI"
   }).then(function(data) {
 
     if(data && data.results && data.results.length && document.getElementById('description').value != '') {

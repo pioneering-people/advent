@@ -129,7 +129,7 @@ QuestItem = {
       'background-color': '#F7F7F9',
       'text-align': 'center',
       'font': 'bold 32px Helvetica, Arial, sans-serif',
-      'color': '#e43114'
+      'color': '#ff5252'
     },
     centerButton:{
       'margin': 'auto',
