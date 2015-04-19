@@ -116,7 +116,7 @@ QuestItem = {
     },
     questDetails: {
       'color': '#333',
-      'width': '100%',
+      'width': '90%',
       'height': '70%',
       'padding': '0',
       'margin-left': '10%',
