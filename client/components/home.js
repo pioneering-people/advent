@@ -38,7 +38,7 @@ Home = {
       activeQuestsButton: {
         class: ctrl.css.activeQuestsButton,
         onclick: function() {
-          m.route('/questLogActive')
+          m.route('/activeQuests')
         }
       },
       availableQuestsButton: {
