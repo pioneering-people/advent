@@ -112,5 +112,11 @@ function getTitle() {
     return 'Create a Quest'
   } else if(m.route().split('').splice(0,12).join('') === '/createTasks'){
     return 'Create a Task'
+  } else if(m.route().split('').splice(0,10).join('') === '/imageFeed'){
+    return 'Image Feed'
+  } else if(m.route().split('').splice(0,9).join('') === '/myQuests'){
+    return 'My Quests'
   }
+
+
 }

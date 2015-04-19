@@ -38,7 +38,7 @@ ImageFeed = {
 
     }
     return m('div.imageFeed', attr.imageFeed, [
-      NavBar,
+      NavBarFixed,
       m('div.feed', attr.feed, [
         ctrl.photos.slice(0, 6).map(function(photo) {
           return m('div', attr.photoContainer, [
@@ -54,6 +54,7 @@ ImageFeed = {
       'width': '100%'
     },
     feed: {
+      'margin-top': '10%',
       'height': '90%',
       'width': '100%'
     },
