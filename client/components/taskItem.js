@@ -53,14 +53,38 @@ TaskItem = {
         class: ctrl.css.photoButton,
         onclick: function() {
           MeteorCamera.getPicture({quality: 20}, function(err, image) {
-            TaskItem.model.uploadPhoto(image, ctrl.taskName, ctrl.taskDetails)
+            if(!err) {
+              var userId
+              var questId
+              var user = Users.find({ name : Session.get('user') }).fetch()
+              var quest = Quests.find({ name : ctrl.questName }).fetch()
+              var addModifier = { $addToSet: {} }
+              var modifierFiller = 'quests.' + ctrl.questName + '.completed'
+
+              if(user.length) userId = user[0]._id
+              if(quest.length) questId = quest[0]._id
+
+              addModifier.$addToSet[modifierFiller] = ctrl.taskDetails._id
+              Users.update({ _id : userId}, addModifier)
+
+              var questTaskCount = Tasks.find({quest: ctrl.questName}).count()
+              var userTaskCount = Users.find({ name : Session.get('user') }).fetch()[0]['quests'][String(ctrl.questName)]['completed'].length
+
+              if(questTaskCount === userTaskCount) {
+                if(quest[0].winner === ''){
+                  Quests.update({_id : questId}, {$set: {winner: Session.get('user')}})
+                }
+              }
+
+              TaskItem.model.uploadPhoto(image, ctrl.taskName, ctrl.taskDetails)
+            }
           })
        }
       },
       imageFeedButton: {
         class: ctrl.css.imageFeedButton,
         onclick: function() {
-          var route = '/imageFeed/' + 
+          var route = '/imageFeed/' +
             ctrl.taskDetails.quest + '/' +
             ctrl.taskDetails.name
           m.route(route)

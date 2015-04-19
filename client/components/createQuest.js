@@ -15,6 +15,7 @@ CreateQuest = {
           fundsRaised: 0,
           creator: user,
           participants: [],
+          winner: '',
           settings: {
             singleActivity: false, //one activity at a time
           }
@@ -107,7 +108,7 @@ CreateQuest = {
           ]),
           m('button.btn btn-default btn-lg', attr.submitBtn, 'Submit')
         ])
-      ]) 
+      ])
     ])
   },
 
