@@ -155,7 +155,7 @@ TaskLog = {
       'font': 'bold 20px Helvetica, Arial, sans-serif',
       'margin': 'auto',
       'position': 'relative',
-      'top': '35%'
+      'top': '40%'
     },
     centerNav: {
       'margin': 'auto',
