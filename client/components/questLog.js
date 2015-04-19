@@ -10,7 +10,7 @@ QuestLog = {
         case '/questLog':
           result = Quests.find({participants: {$ne:Session.get('user')}}).fetch()
           break
-        case '/questLogActive':
+        case '/activeQuests':
           result = Quests.find({participants: Session.get('user')}).fetch()
           break
         case '/myQuests':
@@ -24,12 +24,27 @@ QuestLog = {
       return result
     },
     offset: 0,
-    name: 'Quest Log'
+    name: function() {
+      switch(m.route()){
+        case '/questLog':
+          return 'Browse Quests'
+          break
+        case '/activeQuests':
+          return 'Active Quests'
+          break
+        case '/myQuests':
+          return 'My Quests'
+          break
+        default:
+          return 'Browse Quests'
+      }
+    }
   },
 
   controller: reactive(function() {
     ctrl = this
-    NavBarFixed.model.title = QuestLog.model.name
+    // debugger
+    NavBarFixed.model.title = QuestLog.model.name()
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = QuestLog.stylesheet().classes
     ctrl.quests = m.prop(QuestLog.model.quests())
