@@ -94,7 +94,7 @@ QuestItem = {
           m('span', ctrl.questDetails.fundsRaised),
           m('br'),
           m('span', attr.boldTitle, 'Participants: '),
-          m('span', ctrl.questDetails.participants)
+          m('span', ctrl.questDetails.participants.toString().split(",").join(", "))
         ])
       ]),
       m('div.signupButton', attr.signupButton(), [
