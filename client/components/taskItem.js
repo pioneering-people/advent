@@ -117,7 +117,7 @@ TaskItem = {
       'font': '22px Helvetica, Arial, sans-serif'
     },
     taskDetails: {
-      'width': '100%',
+      'width': '90%',
       'height': '50%',
       'padding': '0',
       'margin': '0',

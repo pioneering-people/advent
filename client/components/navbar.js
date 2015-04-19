@@ -32,7 +32,7 @@ NavBar = {
         }
       }
     }
-    return m('div.navbar navbar-static-top', attr.navbar, [
+    return m('div.navbar navbar-fixed-top', attr.navbar, [
       m('div.backBtn', attr.backBtn, [
         m('div.center', '<')
       ]),
