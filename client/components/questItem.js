@@ -126,7 +126,8 @@ QuestItem = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'background-color': '#F7F7F9',
+      'background-color': '#f0f0f0',
+      'border-top': '1px solid #c1c1c1',
       'text-align': 'center',
       'font': 'bold 32px Helvetica, Arial, sans-serif',
       'color': '#ff5252'

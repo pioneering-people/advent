@@ -128,27 +128,33 @@ TaskItem = {
       'height': '13.333333%',
       'padding': '0',
       'margin': '0',
-      'border-top': '1px solid #F7F7F9',
+      'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
-      'text-align': 'center'
+      'text-align': 'center',
+      'color': '#ff5252',
+      'background-color': '#f0f0f0'
     },
     photoButton: {
       'width': '100%',
       'height': '13.333333%',
       'padding': '0',
       'margin': '0',
-      'border-top': '1px solid #F7F7F9',
+      'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
-      'text-align': 'center'
+      'text-align': 'center',
+      'color': '#ff5252',
+      'background-color': '#f0f0f0'
     },
     imageFeedButton: {
       'width': '100%',
       'height': '13.333333%',
       'padding': '0',
       'margin': '0',
-      'border-top': '1px solid #F7F7F9',
+      'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
-      'text-align': 'center'
+      'text-align': 'center',
+      'color': '#ff5252',
+      'background-color': '#f0f0f0'
     },
     centerButton:{
       'margin': 'auto',

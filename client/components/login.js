@@ -83,7 +83,7 @@ Login = {
   }
   , styles: {
     container: {
-      'background-color': '#eee',
+      'background-color': '#f0f0f0',
       'width': '330px',
       'margin-left': 'auto',
       'margin-right': 'auto',
