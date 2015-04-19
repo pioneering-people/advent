@@ -29,6 +29,7 @@ Login = {
     this.css = Login.stylesheet().classes
     if(Session.get('user'))m.route('/')
     this.passPlaceholder = m.prop('Password')
+    this.usernamePlaceholder = m.prop('Username')
   }
   , view: function(ctrl) {
     var attr = {
@@ -40,7 +41,7 @@ Login = {
       }
       , username: {
         class: ctrl.css.username,
-        placeholder: ctrl.passPlaceholder()
+        placeholder: ctrl.usernamePlaceholder()
       }
       , password: {
         class: ctrl.css.password,
