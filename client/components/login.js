@@ -75,7 +75,7 @@ Login = {
   , styles: {
     container: {
       'background-color': '#eee',
-      'width': '350px',
+      'width': '330px',
       'margin-left': 'auto',
       'margin-right': 'auto',
       'position': 'relative',
@@ -93,19 +93,19 @@ Login = {
     username: {
       'margin-top': '20px',
       'width': '220px',
-      'margin-left': '45px'
+      'margin-left': '35px'
     },
     password: {
       'margin-top': '20px',
-      'margin-left': '45px',
+      'margin-left': '35px',
       'width': '220px'
     },
     loginBtn: {
       'margin-top': '40px',
-      'margin-left': '45px'
+      'margin-left': '35px'
     },
     header: {
-      'margin-left': '45px'
+      'margin-left': '35px'
     }
   },
 
