@@ -77,14 +77,18 @@ TaskLog = {
       },
       centerNav:{
         class: ctrl.css.centerNav
+      },
+      placeholder:{
+        class: ctrl.css.placeholder
       }
     }
     return m('div.TaskLog', attr.TaskLog, [
-      NavBar,
+      NavBarFixed,
       // m('div.main', attr.main, [
       m('div.tasksList', attr.tasksList, [
+        m('div', attr.placeholder),
         // slice four items from the tasks array starting with the offset
-        ctrl.tasks().slice(ctrl.offset(), ctrl.offset() + 5).map(function (task) {
+        ctrl.tasks().map(function (task) {
           return m('div.task', attr.task(ctrl.questName, task.name), [
             m('div', attr.centerTask, [
               m('span', task.name)
@@ -92,14 +96,14 @@ TaskLog = {
           ])
         })
       ]),
-      m('div.scrollButtons', attr.scrollButtons, [
-        m('div.downButton', attr.upButton, [
-          m('div.center', attr.centerNav, '<-')
-        ]),
-        m('div.upButton', attr.downButton, [
-          m('div.center', attr.centerNav, '->')
-        ])
-      ])
+      // m('div.scrollButtons', attr.scrollButtons, [
+      //   m('div.downButton', attr.upButton, [
+      //     m('div.center', attr.centerNav, '<-')
+      //   ]),
+      //   m('div.upButton', attr.downButton, [
+      //     m('div.center', attr.centerNav, '->')
+      //   ])
+      // ])
 
       // ])
     ])
@@ -110,22 +114,16 @@ TaskLog = {
       'color': '#333',
       'width': '100%',
       'height': '100%',
-      'padding': '0',
-      'margin': '0',
     },
     tasksList: {
       'width': '100%',
-      'height': '80%',
-      'padding': '0',
-      'margin': '0',
+      'height': '90%',
       'text-align': 'center',
       'font-size': '1em'
     },
     task: {
       'width': '100%',
       'height': '20%',
-      'padding': '0',
-      'margin': '0',
       'border-bottom': '1px solid #F7F7F9',
       'text-align': 'center',
       'font-size': '1em'
@@ -166,6 +164,9 @@ TaskLog = {
       'font': 'bold 24px Helvetica, Arial, sans-serif',
       'color': '#e43114'
     },
+    placeholder: {
+      'height': '11%'
+    }
   },
 
   stylesheet: function () {

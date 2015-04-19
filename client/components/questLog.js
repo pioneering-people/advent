@@ -185,7 +185,7 @@ QuestLog = {
     centerQuest: {
       'margin': 'auto',
       'position': 'relative',
-      'top': '25%'
+      'top': '20%'
     },
     centerNav: {
       'margin': 'auto',
@@ -198,7 +198,7 @@ QuestLog = {
       'font-weight': 'bold'
     },
     placeholder: {
-      'height': '10%'
+      'height': '11%'
     }
   },
 
