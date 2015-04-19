@@ -12,11 +12,12 @@ ImageFeed = {
           createdAt: -1
         }
       }).fetch()
-
-    }
+    },
+    name: 'Image Feed'
   },
   controller: reactive(function() {
     ctrl = this
+    NavBarFixed.model.title = ImageFeed.model.name
     ctrl.css = ImageFeed.stylesheet().classes
     ctrl.photos = ImageFeed.model.photos()
     return ctrl

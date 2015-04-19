@@ -5,11 +5,13 @@ TaskLog = {
     tasks: function() {
       return Tasks.find({quest: ctrl.questName}).fetch()
     },
-    offset: 0
+    offset: 0,
+    name: 'Task Log'
   },
 
   controller: reactive(function() {
     ctrl = this
+    NavBarFixed.model.title = TaskLog.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = TaskLog.stylesheet().classes
     ctrl.questName = m.route.param('questName')

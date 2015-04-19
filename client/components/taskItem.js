@@ -13,11 +13,13 @@ TaskItem = {
         task: taskName,
         createdAt: Date.now()
       })
-    }
+    },
+     name: 'Task Item'
   },
 
   controller: reactive(function() {
     ctrl = this
+    NavBar.model.title = TaskItem.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.css = TaskItem.stylesheet().classes
     ctrl.taskName = m.route.param('taskName')
