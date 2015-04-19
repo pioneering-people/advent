@@ -61,7 +61,9 @@ Options = {
       'height': '22.5%',
       'padding': '0',
       'margin': '0',
-      'border-bottom': '1px solid #F7F7F9',
+      'border-bottom': '1px solid #c1c1c1',
+      'color': '#ff5252',
+      'background-color': '#f0f0f0',
       'text-align': 'center',
       'font-size': '1em'
     },

@@ -61,38 +61,6 @@ QuestLog = {
           }
         }
       },
-      scrollButtons: {
-        class: ctrl.css.scrollButtons
-      },
-      upButton:{
-        class: ctrl.css.upButton,
-        onclick: function() {
-          var offset = QuestLog.model.offset
-          ctrl.offset() - 5 < 0 ? function() {
-            QuestLog.model.offset = 0
-            ctrl.offset(0)
-          }()
-          : function() {
-            QuestLog.model.offset -= 5
-            ctrl.offset(QuestLog.model.offset)
-          }()
-        }
-      },
-      downButton:{
-        class: ctrl.css.downButton,
-        onclick: function() {
-          //if translating down four would cause less than 4 items to be on the screen.. set the offset to the max
-          var offset = QuestLog.model.offset
-          ctrl.offset() + 5 > ctrl.max ? function() {
-            QuestLog.model.offset = ctrl.max
-            ctrl.offset(ctrl.max)
-          }()
-          : function() {
-            QuestLog.model.offset += 5
-            ctrl.offset(QuestLog.model.offset)
-          }()
-        }
-      },
       centerQuest:{
         class: ctrl.css.centerQuest
       },
@@ -110,7 +78,6 @@ QuestLog = {
       NavBarFixed,
       m('div.questsList', attr.questsList, [
         m('div', attr.placeholder),
-        //ctrl.quests().slice(ctrl.offset(), ctrl.offset() + 5).map(function (quest, index) {
         ctrl.quests().map(function (quest, index) {  
           return m('div.quest', attr.quest(quest.name), [
             m('div', attr.centerQuest, [
@@ -125,15 +92,6 @@ QuestLog = {
           ])
         })
       ]),
-      // m('div.scrollButtons', attr.scrollButtons, [
-      //   m('div.downButton', attr.upButton, [
-      //     m('div', attr.centerNav, '<-')
-      //   ]),
-      //   m('div.upButton', attr.downButton, [
-      //     m('div', attr.centerNav, '->')
-      //   ])
-      // ])
-      // ])
     ])
   },
 
@@ -155,32 +113,9 @@ QuestLog = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'border-bottom': '1px solid #F7F7F9',
+      'border-bottom': '1px solid #c1c1c1',
       'text-align': 'center',
       'font-size': '1em'
-    },
-    scrollButtons: {
-      'width': '100%',
-      'height': '10%',
-      'padding': '0px',
-      'margin': 'auto',
-      'background-color': '#F7F7F9'
-    },
-    upButton: {
-      'position': 'relative',
-      'display': 'inline-block',
-      'width': '50%',
-      'float': 'left',
-      'height': '100%',
-      'text-align': 'center'
-    },
-    downButton: {
-      'position': 'relative',
-      'display': 'inline-block',
-      'width': '50%',
-      'float': 'left',
-      'height': '100%',
-      'text-align': 'center'
     },
     centerQuest: {
       'margin': 'auto',

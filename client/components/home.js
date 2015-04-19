@@ -101,7 +101,7 @@ Home = {
       'height': '50%',
       'padding': '0',
       'margin': '0',
-      'border-bottom': '1px solid #F7F7F9',
+      'border-bottom': '1px solid #c1c1c1',
       'text-align': 'center',
       'font': '18px Helvetica, Arial, sans-serif'
     },
@@ -110,7 +110,9 @@ Home = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'border-bottom': '1px solid #F7F7F9',
+      'background-color': '#f0f0f0',
+      'color': '#ff5252',
+      'border-bottom': '1px solid #c1c1c1',
       'text-align': 'center',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
     },
@@ -120,6 +122,8 @@ Home = {
       'padding': '0',
       'margin': '0',
       'text-align': 'center',
+      'background-color': '#f0f0f0',
+      'color': '#ff5252',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
     },
     profilePic: {
