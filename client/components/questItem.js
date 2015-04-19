@@ -96,10 +96,10 @@ QuestItem = {
           m('span', ctrl.questDetails.fundsRaised),
           m('br'),
           m('span', attr.boldTitle, 'Participants: '),
-          m('span', ctrl.questDetails.participants.toString().split(",").join(", "))
+          m('span', ctrl.questDetails.participants.length)
         ])
       ]),
-      m('div.signupButton', attr.signupButton(), [
+      m('div.bigButton', attr.signupButton(), [
         m('div', attr.centerButton, [
           m('span.bold', 'Sign Up')
         ])
@@ -128,11 +128,11 @@ QuestItem = {
       'height': '20%',
       'padding': '0',
       'margin': '0',
-      'background-color': '#f0f0f0',
+      // 'background-color': '#f0f0f0',
       'border-top': '1px solid #c1c1c1',
       'text-align': 'center',
       'font': 'bold 32px Helvetica, Arial, sans-serif',
-      'color': '#ff5252'
+      // 'color': '#ff5252'
     },
     centerButton:{
       'margin': 'auto',

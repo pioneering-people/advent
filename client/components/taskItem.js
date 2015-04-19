@@ -91,17 +91,17 @@ TaskItem = {
           m('span', ctrl.taskDetails.location)
         ])
       ]),
-      m('div.mapButton', attr.mapButton, [
+      m('div.bigButton', attr.mapButton, [
         m('div', attr.centerButton, [
           m('span', 'Map')
         ])
       ]),
-      m('div.photoButton', attr.photoButton, [
+      m('div.bigButton', attr.photoButton, [
         m('div', attr.centerButton, [
           m('span', 'Upload Photo')
         ])
       ]),
-      m('div.imageFeedButton', attr.imageFeedButton, [
+      m('div.bigButton', attr.imageFeedButton, [
         m('div', attr.centerButton, [
           m('span', 'Image Feed')
         ])
@@ -133,8 +133,8 @@ TaskItem = {
       'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
       'text-align': 'center',
-      'color': '#ff5252',
-      'background-color': '#f0f0f0'
+      // 'color': '#ff5252',
+      // 'background-color': '#f0f0f0'
     },
     photoButton: {
       'width': '100%',
@@ -144,8 +144,8 @@ TaskItem = {
       'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
       'text-align': 'center',
-      'color': '#ff5252',
-      'background-color': '#f0f0f0'
+      // 'color': '#ff5252',
+      // 'background-color': '#f0f0f0'
     },
     imageFeedButton: {
       'width': '100%',
@@ -155,8 +155,8 @@ TaskItem = {
       'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
       'text-align': 'center',
-      'color': '#ff5252',
-      'background-color': '#f0f0f0'
+      // 'color': '#ff5252',
+      // 'background-color': '#f0f0f0'
     },
     centerButton:{
       'margin': 'auto',
