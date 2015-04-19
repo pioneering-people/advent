@@ -1,4 +1,4 @@
-NavBar = {
+NavBarFixed = {
 
   model: {
 
@@ -32,7 +32,7 @@ NavBar = {
         }
       }
     }
-    return m('div.navbar navbar-static-top', attr.navbar, [
+    return m('div.navbar navbar-fixed-top', attr.navbar, [
       m('div.backBtn', attr.backBtn, [
         m('div.center', '<')
       ]),
@@ -114,9 +114,5 @@ function getTitle() {
     return 'Create a Task'
   } else if(m.route().split('').splice(0,10).join('') === '/imageFeed'){
     return 'Image Feed'
-  } else if(m.route().split('').splice(0,9).join('') === '/myQuests'){
-    return 'My Quests'
   }
-
-
 }
