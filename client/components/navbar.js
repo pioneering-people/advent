@@ -63,7 +63,7 @@ NavBar = {
       'height': '100%',
       'text-align': 'center',
       'font': 'bold 24px Helvetica, Arial, sans-serif',
-      'color': '#fcfefe'
+      'color': '#fff'
     },
     title: {
       'background-color': '#ff5252',
@@ -73,7 +73,7 @@ NavBar = {
       'height': '100%',
       'text-align': 'center',
       'font': 'bold 24px Helvetica, Arial, sans-serif',
-      'color': '#fcfefe'
+      'color': '#fff'
     },
     menuBtn: {
       'background-color': '#ff5252',
@@ -83,7 +83,7 @@ NavBar = {
       'height': '100%',
       'text-align': 'center',
       'font': 'bold 24px Helvetica, Arial, sans-serif',
-      'color': '#fcfefe'
+      'color': '#fff'
     }
   },
 
