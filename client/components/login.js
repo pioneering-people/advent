@@ -40,8 +40,7 @@ Login = {
         class: ctrl.css.header
       }
       , username: {
-        class: ctrl.css.username,
-        placeholder: ctrl.usernamePlaceholder()
+        class: ctrl.css.username
       }
       , password: {
         class: ctrl.css.password,
@@ -57,7 +56,7 @@ Login = {
           var result = Login.model.login(e.currentTarget[0].value, e.target[1].value)
           if(result)
             if(result === 'user')
-              ctrl.passPlaceholder('Invalid Password or Username')
+              ctrl.passPlaceholder('Invalid Username or Password')
           e.target[0].value = ''
           e.target[1].value = ''
         }
