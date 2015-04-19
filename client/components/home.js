@@ -4,6 +4,15 @@ Home = {
   //set title of page
     getStats: function() {
       return Users.find({name: Session.get('user')}).fetch()[0] || {}
+    },
+    uploadPhoto: function(image, userInfo) {
+      if(image){
+        Users.update({_id: userInfo._id}, {$set: {
+            pic: image
+          }
+        })
+        // m.redraw(true)
+      }
     }
 
   },
@@ -37,6 +46,19 @@ Home = {
           m.route('/questLog')
         }
       },
+      profilePic: {
+        class: ctrl.css.profilePic,
+        src: function() {
+          var result = 'img/default.png'
+          if(ctrl.stats.pic) return ctrl.stats.pic
+          return result
+        }(),
+        onclick: function() {
+          MeteorCamera.getPicture({quality: 70, width: 150, height: 150}, function(err, image) {
+            Home.model.uploadPhoto(image, ctrl.stats)
+          })
+        }
+      },
       centerButton: {
         class: ctrl.css.centerButton
       },
@@ -48,8 +70,9 @@ Home = {
       NavBar,
       m('div.userStats', attr.userStats, [
         m('div', attr.centerUser, [
+          m('img', attr.profilePic),
           m('br'),
-          m('h1.bold', ctrl.stats.name),
+          m('h2.bold', ctrl.stats.name),
           m('span', 'You are currently participating in ' + Quests.find({participants: Session.get('user')}).fetch().length + ' quests'),
           m('br')
         ])
@@ -99,6 +122,11 @@ Home = {
       'text-align': 'center',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
     },
+    profilePic: {
+      'width': '12%',
+      'height': '12%',
+      'border-radius': '50px'
+    },
     centerButton:{
       'margin': 'auto',
       'position': 'relative',
@@ -107,7 +135,7 @@ Home = {
     centerUser:{
       'margin': 'auto',
       'position': 'relative',
-      'top': '25%'
+      'top': '5%'
     },
     
   },
