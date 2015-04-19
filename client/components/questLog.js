@@ -89,7 +89,10 @@ QuestLog = {
               m('span', quest.creator),
               m('br'),
               m('span','Prize: '),
-              m('span', quest.prize)
+              m('span', quest.prize),
+              m('br'),
+              m('span','Winner: '),
+              m('span', quest.winner)
             ])
           ])
         })
