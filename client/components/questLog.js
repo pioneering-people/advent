@@ -101,13 +101,17 @@ QuestLog = {
       },
       boldName:{
         class: ctrl.css.boldName
+      },
+      placeholder:{
+        class: ctrl.css.placeholder
       }
     }
     return m('div.QuestLog', attr.QuestLog, [
-      NavBar,
-      // m('div.main', attr.main, [
+      NavBarFixed,
       m('div.questsList', attr.questsList, [
-        ctrl.quests().slice(ctrl.offset(), ctrl.offset() + 5).map(function (quest, index) {
+        m('div', attr.placeholder),
+        //ctrl.quests().slice(ctrl.offset(), ctrl.offset() + 5).map(function (quest, index) {
+        ctrl.quests().map(function (quest, index) {  
           return m('div.quest', attr.quest(quest.name), [
             m('div', attr.centerQuest, [
               m('span', attr.boldName, quest.name),
@@ -121,14 +125,14 @@ QuestLog = {
           ])
         })
       ]),
-      m('div.scrollButtons', attr.scrollButtons, [
-        m('div.downButton', attr.upButton, [
-          m('div', attr.centerNav, '<-')
-        ]),
-        m('div.upButton', attr.downButton, [
-          m('div', attr.centerNav, '->')
-        ])
-      ])
+      // m('div.scrollButtons', attr.scrollButtons, [
+      //   m('div.downButton', attr.upButton, [
+      //     m('div', attr.centerNav, '<-')
+      //   ]),
+      //   m('div.upButton', attr.downButton, [
+      //     m('div', attr.centerNav, '->')
+      //   ])
+      // ])
       // ])
     ])
   },
@@ -137,15 +141,11 @@ QuestLog = {
     QuestLog: {
       'width': '100%',
       'height': '100%',
-      'padding': '0',
-      'margin': '0',
       'font': '20px Helvetica, Arial, sans-serif'
     },
     questsList: {
       'width': '100%',
-      'height': '80%',
-      'padding': '0',
-      'margin': '0',
+      'height': '90%',
       'text-align': 'center',
       'font-size': '1em'
     },
@@ -185,7 +185,7 @@ QuestLog = {
     centerQuest: {
       'margin': 'auto',
       'position': 'relative',
-      'top': '15%'
+      'top': '25%'
     },
     centerNav: {
       'margin': 'auto',
@@ -196,6 +196,9 @@ QuestLog = {
     },
     boldName: {
       'font-weight': 'bold'
+    },
+    placeholder: {
+      'height': '10%'
     }
   },
 
