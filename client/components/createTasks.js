@@ -53,17 +53,16 @@ CreateTasks = {
           e.preventDefault()
           var tasks = CreateTasks.model.currentTasks
 
-          if(document.getElementById('description').value &&
-             document.getElementById('location').value) {
-            parseInput()
+          if(tasks.length) {
+            tasks.forEach(function(task){
+              CreateTasks.model.createTask(task)
+              CreateTasks.model.currentTasks = []
+            })
+            m.route('/')
+          } else {
+            document.getElementById('description').placeholder = 'Error: no tasks added to quest'
+            document.getElementById('location').placeholder = 'Error: no tasks added to quest'
           }
-
-          tasks.forEach(function(task){
-            CreateTasks.model.createTask(task)
-            CreateTasks.model.currentTasks = []
-          })
-
-          m.route('/')
         }
       }
     }
@@ -82,7 +81,7 @@ CreateTasks = {
         m('button.btn btn-default btn-lg', attr.submitBtn, 'Add Task'),
       ]),
       m('form.submitForm', attr.submitForm, [
-        m('button.btn btn-default btn-lg', attr.submitBtn, 'Submit')
+        m('button.btn btn-default btn-lg', attr.submitBtn, 'Submit Quest')
       ])
     ])
 
@@ -140,17 +139,17 @@ function parseInput() {
     url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + params.location.split(' ').join('+') + "&key=AIzaSyDyEkFw22hmfw4A4DSHQMXYCI-jH6wV_zI"
   }).then(function(data) {
 
-    if(data && data.results && data.results.length) {
+    if(data && data.results && data.results.length && document.getElementById('description').value != '') {
       params.location = data.results[0].formatted_address
-
       CreateTasks.model.currentTasks.push(params)
+
       document.getElementById('description').value = ''
       document.getElementById('location').value = ''
+      document.getElementById('description').placeholder = ''
       document.getElementById('location').placeholder = ''
     } else {
-      document.getElementById('description').value = ''
-      document.getElementById('location').value = ''
-      document.getElementById('location').placeholder = 'Error: not a valid address'
+      document.getElementById('description').placeholder = 'Error: not a valid input'
+      document.getElementById('location').placeholder = 'Error: not a valid input'
     }
 
   })
