@@ -39,3 +39,17 @@ span {
 img {
   max-width: 100%;
 }
+
+.bigButton {
+  -webkit-box-shadow: inset 0px 5px 10px -1px #963030;
+  box-shadow: inset 0px 5px 10px -1px #963030;
+  color: #A86868;
+  background-color: #f0f0f0;
+}
+
+.bigButton:active {
+  -webkit-box-shadow: inset 0px 10px 20px -1px #632020;
+  box-shadow: inset 0px 10px 20px -1px #632020;
+  color: #963030;
+  background-color: #d9d9d9;
+}

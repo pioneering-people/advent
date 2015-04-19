@@ -47,19 +47,6 @@ Home = {
           m.route('/questLog')
         }
       },
-      profilePic: {
-        class: ctrl.css.profilePic,
-        src: function() {
-          var result = 'img/default.png'
-          if(ctrl.stats.pic) return ctrl.stats.pic
-          return result
-        }(),
-        onclick: function() {
-          MeteorCamera.getPicture({quality: 70, width: 150, height: 150}, function(err, image) {
-            Home.model.uploadPhoto(image, ctrl.stats)
-          })
-        }
-      },
       centerButton: {
         class: ctrl.css.centerButton
       },
@@ -71,18 +58,16 @@ Home = {
       NavBar,
       m('div.userStats', attr.userStats, [
         m('div', attr.centerUser, [
-          m('img', attr.profilePic),
-          m('br'),
-          m('h2.bold', ctrl.stats.name),
+          m('h1.bold', ctrl.stats.name),
           m('span', 'You are currently participating in ' + Quests.find({participants: Session.get('user')}).fetch().length + ' quests'),
           m('br')
         ])
       ]),
-      m('div.activeQuestsButton', attr.activeQuestsButton, [
+      m('div.bigButton', attr.activeQuestsButton, [
         m('div', attr.centerButton, 'Active Quests')
       ]),
-      m('div.availableQuestsButton', attr.availableQuestsButton, [
-        m('div', attr.centerButton, 'Browse Quests')
+      m('div.bigButton', attr.availableQuestsButton, [
+        m('div', attr.centerButton, 'Available Quests')
       ])
     ])
 
@@ -112,7 +97,7 @@ Home = {
       'padding': '0',
       'margin': '0',
       'background-color': '#f0f0f0',
-      'color': '#ff5252',
+      // 'color': '#ff5252',
       'border-bottom': '1px solid #c1c1c1',
       'text-align': 'center',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
@@ -124,13 +109,8 @@ Home = {
       'margin': '0',
       'text-align': 'center',
       'background-color': '#f0f0f0',
-      'color': '#ff5252',
+      // 'color': '#ff5252',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
-    },
-    profilePic: {
-      'width': '12%',
-      'height': '12%',
-      'border-radius': '50px'
     },
     centerButton:{
       'margin': 'auto',

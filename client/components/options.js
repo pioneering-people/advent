@@ -41,7 +41,7 @@ Options = {
     return m('div.options', attr.options, [
       NavBar,
       ctrl.routes.map(function(route) {
-        return m('div.route', attr.optionLink(route.route), [
+        return m('div.bigButton', attr.optionLink(route.route), [
           m('div', attr.centerOptions, [
             m('span',route.name)
           ])
@@ -63,8 +63,8 @@ Options = {
       'padding': '0',
       'margin': '0',
       'border-bottom': '1px solid #c1c1c1',
-      'color': '#ff5252',
-      'background-color': '#f0f0f0',
+      // 'color': '#ff5252',
+      // 'background-color': '#f0f0f0',
       'text-align': 'center',
       'font-size': '1em'
     },
