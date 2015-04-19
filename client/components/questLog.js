@@ -91,8 +91,13 @@ QuestLog = {
               m('span','Prize: '),
               m('span', quest.prize),
               m('br'),
-              m('span','Winner: '),
-              m('span', quest.winner)
+              function() {
+                if(quest.winner){
+                  var winnerTag = m('span','Winner: ')
+                  var winnerName = m('span', quest.winner)
+                  return [winnerTag, winnerName]
+                } else return null
+              }()
             ])
           ])
         })
