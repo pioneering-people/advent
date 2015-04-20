@@ -91,11 +91,15 @@ CreateQuest = {
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Start Date'),
-            m('input.form-control#startfield')
+            m('input.form-control datepicker #startfield', {
+              config: addDatePicker
+            })
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'End Date'),
-            m('input.form-control#endfield')
+            m('input.form-control datepicker #endfield', {
+              config: addDatePicker
+            })
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Prize'),
@@ -147,4 +151,9 @@ CreateQuest = {
 
 
 
+}
+
+function addDatePicker(element, isInit, context) {
+  if(isInit) return
+  $(element).datepicker()
 }
