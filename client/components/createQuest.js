@@ -93,18 +93,20 @@ CreateQuest = {
             m('label.control-label', 'Start Date'),
             m('input.form-control datepicker #startfield', {
               config: addDatePicker,
-              onfocus: function(e){
-                e.target[0].blur()
-              }
+              disableTouchKeyboard: 'true'
+              // onfocus: function(e){
+              //   e.target[0].blur()
+              // }
             })
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'End Date'),
             m('input.form-control datepicker #endfield', {
               config: addDatePicker,
-              onfocus: function(e){
-                e.target[0].blur()
-              }
+              disableTouchKeyboard: 'true'
+              // onfocus: function(e){
+              //   e.target[0].blur()
+              // }
             })
           ]),
           m('div.form-group', attr.questdeets, [
