@@ -91,23 +91,11 @@ CreateQuest = {
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Start Date'),
-            m('input.form-control #startfield', {
-              // config: addDatePicker,
-              // disableTouchKeyboard: 'true'
-              // onfocus: function(e){
-              //   e.target[0].blur()
-              // }
-            })
+            m('input.form-control #startfield')
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'End Date'),
-            m('input.form-control #endfield', {
-              // config: addDatePicker,
-              // disableTouchKeyboard: 'true'
-              // onfocus: function(e){
-              //   e.target[0].blur()
-              // }
-            })
+            m('input.form-control #endfield')
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Prize'),
