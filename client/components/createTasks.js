@@ -103,7 +103,7 @@ CreateTasks = {
       'height': '85%',
       'text-align': 'center',
       'font': '20px Helvetica, Arial, sans-serif',
-      'margin-top': '2%'
+      'margin-top': '3%'
     },
     taskdeets: {
       'width': '50%',

@@ -47,6 +47,20 @@ Home = {
           m.route('/questLog')
         }
       },
+      profilePic: {
+              class: ctrl.css.profilePic,
+              src: function() {
+                var result = 'img/default.png'
+                if(ctrl.stats.pic) return ctrl.stats.pic
+                return result
+              }(),
+              onclick: function() {
+                MeteorCamera.getPicture({quality: 70, width: 150, height: 150}, function(err, image) {
+                  if(err) return
+                  Home.model.uploadPhoto(image, ctrl.stats)
+                })
+              }
+            },
       centerButton: {
         class: ctrl.css.centerButton
       },
@@ -58,8 +72,9 @@ Home = {
       NavBar,
       m('div.userStats', attr.userStats, [
         m('div', attr.centerUser, [
+          m('img', attr.profilePic),
           m('br'),
-          m('h1.bold', ctrl.stats.name),
+          m('h2.bold', ctrl.stats.name),
           m('span', 'You are currently participating in ' + Quests.find({participants: Session.get('user')}).fetch().length + ' quests'),
           m('br')
         ])
@@ -68,7 +83,7 @@ Home = {
         m('div', attr.centerButton, 'Active Quests')
       ]),
       m('div.bigButton', attr.availableQuestsButton, [
-        m('div', attr.centerButton, 'Available Quests')
+        m('div', attr.centerButton, 'Browse Quests')
       ])
     ])
 
@@ -121,7 +136,12 @@ Home = {
     centerUser:{
       'margin': 'auto',
       'position': 'relative',
-      'top': '25%'
+      'top': '15%'
+    },
+    profilePic: {
+      'width': '150px',
+      'height': '150px',
+      'border-radius': '25px'
     },
     
   },
