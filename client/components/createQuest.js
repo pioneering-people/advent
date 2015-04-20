@@ -91,14 +91,16 @@ CreateQuest = {
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'Start Date'),
-            m('input[disable].form-control datepicker #startfield', {
-              config: addDatePicker
+            m('input.form-control datepicker #startfield', {
+              config: addDatePicker,
+              readonly: 'readonly'
             })
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'End Date'),
-            m('input[disable].form-control datepicker #endfield', {
-              config: addDatePicker
+            m('input.form-control datepicker #endfield', {
+              config: addDatePicker,
+              readonly: 'readonly'
             })
           ]),
           m('div.form-group', attr.questdeets, [

@@ -1,13 +1,16 @@
 # advent
 
-> A SoLoMo app for getting people to do things for you (FIX THIS)
+advent is a mobile scavenger hunt app where you can create and complete "Quests". Quests consist of individual tasks set at specific locations by the quest creator. Players compete by uploading pictures of themselves performing each task. The first player to complete each task of a quest is the winner.
+
+A scavenger hunt can be a fun way to socialize and explore your city. Whether your organization has a prize giveaway and wants to raise awareness or you just have an extra ticket to tonight's show but need some cigarettes, create quests with advent to take care of your needs.
 
 ## Table of Contents
 
 1. [Team](#team)
-2. [Requirements](#requirements)
-3. [Development](#development)
-4. [Contributing](#contributing)
+2. [Technologies Used](#technologies used)
+3. [Usage Guide](#usage guide)
+4. [Requirements](#requirements)
+6. [Contributing](#contributing)
 
 
 ## Team
@@ -16,22 +19,23 @@
   - __Scrum Master__: [zroyer](https://github.com/zroyer)
   - __Development Team Members__: [SaintEmbers](https://github.com/saintembers), [spintronics](https://github.com/spintronics), [youngrichard](https://github.com/youngrichard), [zroyer](https://github.com/zroyer)
 
+## Technologies Used
 
-## Usage
+Meteor v1.1.6
+Mithril v0.1.34
 
-> Create an account, browse for a quest, and be the first person to complete all the tasks to win the prize.
+## Usage Guide
+
+> Create an account
+> Active Quests displays quests you've joined
+> Browse Quests displays quests available for sign up
+> "<" (top-left) goes back to the last page
+> "=" (top-right) displays the menu
+> Access the menu to create a quest or view quests you created
 
 ## Requirements
 
-A smart phone with internet access.
-
-## Development
-
-
-### Roadmap
-
-View the project roadmap [here](https://github.com/pioneering-possums/pioneering-possums/issues)
-
+An Android phone with internet access.
 
 ## Contributing
 
