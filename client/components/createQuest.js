@@ -138,7 +138,7 @@ CreateQuest = {
       'height': '85%',
       'text-align': 'center',
       'font': '20px Helvetica, Arial, sans-serif',
-      'margin-top': '2%'
+      'margin-top': '3%'
     },
     questdeets: {
       'width': '50%',
