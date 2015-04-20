@@ -64,13 +64,7 @@ CreateQuest = {
         placeholder: ctrl.fieldPlaceholder()
       },
       submitBtn: {
-        // class: ctrl.css.submitBtn,
-        //  onmousedown: function(e) {
-        //   e.target.style['background-color'] = '#559E3D'
-        // },
-        //  onmouseup: function(e) {
-        //   e.target.style['background-color'] = '#FFFFFF'
-        // }
+        class: ctrl.css.submitBtn,
       },
       createForm: {
         onsubmit: function(e) {
@@ -132,7 +126,7 @@ CreateQuest = {
       'height': '85%',
       'text-align': 'center',
       'font': '20px Helvetica, Arial, sans-serif',
-      'margin-top': '3%'
+      'margin-top': '2%'
     },
     questdeets: {
       'width': '50%',
@@ -142,7 +136,7 @@ CreateQuest = {
       'padding-top': '15px'
     },
     submitBtn: {
-      'margin-top': '20px'
+      'margin-top': '15px'
     }
   },
 

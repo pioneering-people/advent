@@ -103,7 +103,7 @@ CreateTasks = {
       'height': '85%',
       'text-align': 'center',
       'font': '20px Helvetica, Arial, sans-serif',
-      'margin-top': '3%'
+      'margin-top': '2%'
     },
     taskdeets: {
       'width': '50%',
@@ -116,7 +116,7 @@ CreateTasks = {
       'margin-top': '20px'
     },
     submitForm: {
-      'margin-top': '15px'
+      'margin-top': '10px'
     }
 
   },
