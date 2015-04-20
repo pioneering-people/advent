@@ -93,14 +93,18 @@ CreateQuest = {
             m('label.control-label', 'Start Date'),
             m('input.form-control datepicker #startfield', {
               config: addDatePicker,
-              readonly: 'readonly'
+              onfocus: function(e){
+                e.target[0].blur()
+              }
             })
           ]),
           m('div.form-group', attr.questdeets, [
             m('label.control-label', 'End Date'),
             m('input.form-control datepicker #endfield', {
               config: addDatePicker,
-              readonly: 'readonly'
+              onfocus: function(e){
+                e.target[0].blur()
+              }
             })
           ]),
           m('div.form-group', attr.questdeets, [
