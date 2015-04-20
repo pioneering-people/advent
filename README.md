@@ -7,10 +7,10 @@ A scavenger hunt can be a fun way to socialize and explore your city. Whether yo
 ## Table of Contents
 
 1. [Team](#team)
-2. [Technologies Used](#technologies used)
-3. [Usage Guide](#usage guide)
+2. [Technologies Used](#technologies-used)
+3. [Usage Guide](#usage-guide)
 4. [Requirements](#requirements)
-6. [Contributing](#contributing)
+5. [Contributing](#contributing)
 
 
 ## Team
@@ -22,15 +22,21 @@ A scavenger hunt can be a fun way to socialize and explore your city. Whether yo
 ## Technologies Used
 
 Meteor v1.1.6
+
 Mithril v0.1.34
 
 ## Usage Guide
 
 > Create an account
+
 > Active Quests displays quests you've joined
+
 > Browse Quests displays quests available for sign up
+
 > "<" (top-left) goes back to the last page
+
 > "=" (top-right) displays the menu
+
 > Access the menu to create a quest or view quests you created
 
 ## Requirements
