@@ -157,8 +157,8 @@ TaskItem = {
       'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
       'text-align': 'center',
-      // 'color': '#ff5252',
-      // 'background-color': '#f0f0f0'
+      'color': '#ff5252',
+      'background-color': '#f0f0f0'
     },
     photoButton: {
       'width': '100%',
@@ -168,8 +168,8 @@ TaskItem = {
       'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
       'text-align': 'center',
-      // 'color': '#ff5252',
-      // 'background-color': '#f0f0f0'
+      'color': '#ff5252',
+      'background-color': '#f0f0f0'
     },
     imageFeedButton: {
       'width': '100%',
@@ -179,8 +179,8 @@ TaskItem = {
       'border-top': '1px solid #c1c1c1',
       'font': 'bold 28px Helvetica, Arial, sans-serif',
       'text-align': 'center',
-      // 'color': '#ff5252',
-      // 'background-color': '#f0f0f0'
+      'color': '#ff5252',
+      'background-color': '#f0f0f0'
     },
     centerButton:{
       'margin': 'auto',

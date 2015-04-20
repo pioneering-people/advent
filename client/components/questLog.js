@@ -93,10 +93,10 @@ QuestLog = {
     }
     return m('div.QuestLog', attr.QuestLog, [
       NavBarFixed,
-      m('div.questsList', attr.questsList, [
+      m('div', attr.questsList, [
         m('div', attr.placeholder),
         ctrl.quests().map(function (quest, index) {  
-          return m('div.quest', attr.quest(quest.name), [
+          return m('div.quest bigButton', attr.quest(quest.name), [
             m('div', attr.centerQuest, [
               m('span', attr.boldName, quest.name),
               m('br'),

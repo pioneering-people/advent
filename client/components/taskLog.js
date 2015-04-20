@@ -59,7 +59,7 @@ TaskLog = {
         m('div', attr.placeholder),
         // slice four items from the tasks array starting with the offset
         ctrl.tasks().map(function (task) {
-          return m('div.task', attr.task(ctrl.questName, task.name), [
+          return m('div.task bigButton', attr.task(ctrl.questName, task.name), [
             m('div', attr.centerTask, [
               m('span', task.name)
             ])

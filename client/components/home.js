@@ -58,6 +58,7 @@ Home = {
       NavBar,
       m('div.userStats', attr.userStats, [
         m('div', attr.centerUser, [
+          m('br'),
           m('h1.bold', ctrl.stats.name),
           m('span', 'You are currently participating in ' + Quests.find({participants: Session.get('user')}).fetch().length + ' quests'),
           m('br')
@@ -97,7 +98,7 @@ Home = {
       'padding': '0',
       'margin': '0',
       'background-color': '#f0f0f0',
-      // 'color': '#ff5252',
+      'color': '#ff5252',
       'border-bottom': '1px solid #c1c1c1',
       'text-align': 'center',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
@@ -109,7 +110,7 @@ Home = {
       'margin': '0',
       'text-align': 'center',
       'background-color': '#f0f0f0',
-      // 'color': '#ff5252',
+      'color': '#ff5252',
       'font': 'bold 28px Helvetica, Arial, sans-serif'
     },
     centerButton:{
@@ -120,7 +121,7 @@ Home = {
     centerUser:{
       'margin': 'auto',
       'position': 'relative',
-      'top': '5%'
+      'top': '25%'
     },
     
   },
