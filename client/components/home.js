@@ -55,7 +55,7 @@ Home = {
                 return result
               }(),
               onclick: function() {
-                MeteorCamera.getPicture({quality: 70, width: 150, height: 150}, function(err, image) {
+                MeteorCamera.getPicture({quality: 100, height: 150}, function(err, image) {
                   if(err) return
                   Home.model.uploadPhoto(image, ctrl.stats)
                 })
@@ -139,7 +139,6 @@ Home = {
       'top': '15%'
     },
     profilePic: {
-      'width': '150px',
       'height': '150px',
       'border-radius': '25px'
     },
