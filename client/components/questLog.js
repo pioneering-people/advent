@@ -8,7 +8,7 @@ QuestLog = {
 
       switch(route){
         case '/questLog':
-          result = Quests.find({participants: {$ne:Session.get('user')}}).fetch()
+          result = Quests.find({participants: {$ne:Session.get('user')}, winner: ''}).fetch()
           break
         case '/activeQuests':
           result = Quests.find({participants: Session.get('user')}).fetch()

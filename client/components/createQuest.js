@@ -4,31 +4,36 @@ CreateQuest = {
   model: {
     createQuest: function(params) {
       var user = Session.get('user')
-      if(params.name && params.start && params.end && params.prize && params.minimumStartPrice){
-        Quests.insert({
-          name: params.name ,
-          active: false,
-          start: params.start,
-          end: params.end,
-          prize: params.prize,
-          minimumStartPrice: params.minimumStartPrice,
-          fundsRaised: 0,
-          creator: user,
-          participants: [],
-          winner: '',
-          settings: {
-            singleActivity: false, //one activity at a time
-          }
-        })
-        m.route('/createTasks/'+params.name)
-      } else{
+      if(!Quests.find({name: params.name}).count()){
+        if(params.name && params.start && params.end && params.prize && params.minimumStartPrice){
+          Quests.insert({
+            name: params.name ,
+            active: false,
+            start: params.start,
+            end: params.end,
+            prize: params.prize,
+            minimumStartPrice: params.minimumStartPrice,
+            fundsRaised: 0,
+            creator: user,
+            participants: [],
+            winner: '',
+            settings: {
+              singleActivity: false, //one activity at a time
+            }
+          })
+          m.route('/createTasks/'+params.name)
+        } else{
 
-        document.getElementById('namefield').placeholder= 'fill in all fields'
-        document.getElementById('startfield').placeholder= 'fill in all fields'
-        document.getElementById('endfield').placeholder= 'fill in all fields'
-        document.getElementById('prizefield').placeholder= 'fill in all fields'
-        document.getElementById('minfield').placeholder= 'fill in all fields'
-        // return 'empty fields'
+          document.getElementById('namefield').placeholder = 'fill in all fields'
+          document.getElementById('startfield').placeholder = 'fill in all fields'
+          document.getElementById('endfield').placeholder = 'fill in all fields'
+          document.getElementById('prizefield').placeholder = 'fill in all fields'
+          document.getElementById('minfield').placeholder = 'fill in all fields'
+          // return 'empty fields'
+        }
+      } else {
+        document.getElementById('namefield').placeholder = 'Quest Name Taken'
+        document.getElementById('namefield').value = ''
       }
     },
     name: 'Create Quest'

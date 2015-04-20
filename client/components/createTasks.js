@@ -10,14 +10,13 @@ CreateTasks = {
         name: params.name,
         location: params.location
       })
-
     },
     name: 'Create Tasks'
   },
 
   controller: reactive(function() {
     ctrl = this
-     NavBar.model.title = CreateQuest.model.name
+    NavBar.model.title = CreateTasks.model.name
     if(!Session.get('user'))m.route('/auth')
     ctrl.questName = m.route.param('questName')
     ctrl.css = CreateTasks.stylesheet().classes
@@ -135,25 +134,34 @@ function parseInput() {
   params.name = document.getElementById('description').value
   params.location = document.getElementById('location').value
 
-
-  m.request({
-    method: "GET",
-    url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + params.location.split(' ').join('+') + "&key=AIzaSyDyEkFw22hmfw4A4DSHQMXYCI-jH6wV_zI"
-  }).then(function(data) {
-
-    if(data && data.results && data.results.length && document.getElementById('description').value != '') {
-      params.location = data.results[0].formatted_address
-      CreateTasks.model.currentTasks.push(params)
-
-      document.getElementById('description').value = ''
-      document.getElementById('location').value = ''
-      document.getElementById('description').placeholder = ''
-      document.getElementById('location').placeholder = ''
-    } else {
-      document.getElementById('description').placeholder = 'Error: not a valid input'
-      document.getElementById('location').placeholder = 'Error: not a valid input'
-    }
-
+  var exists = false
+  CreateTasks.model.currentTasks.forEach(function(val) {
+    if(val.name === params.name) exists = true
   })
+
+  if(!exists){
+    m.request({
+      method: "GET",
+      url: "https://maps.googleapis.com/maps/api/geocode/json?address=" + params.location.split(' ').join('+') + "&key=AIzaSyDyEkFw22hmfw4A4DSHQMXYCI-jH6wV_zI"
+    }).then(function(data) {
+
+      if(data && data.results && data.results.length && document.getElementById('description').value != '') {
+        params.location = data.results[0].formatted_address
+        CreateTasks.model.currentTasks.push(params)
+
+        document.getElementById('description').value = ''
+        document.getElementById('location').value = ''
+        document.getElementById('description').placeholder = ''
+        document.getElementById('location').placeholder = ''
+      } else {
+        document.getElementById('description').placeholder = 'Error: not a valid input'
+        document.getElementById('location').placeholder = 'Error: not a valid input'
+      }
+
+    })
+  } else {
+    document.getElementById('description').placeholder = 'Please Make Unique Task Names'
+    document.getElementById('description').value = ''
+  }
 
 }
