@@ -135,11 +135,12 @@ Home = {
     centerUser:{
       'margin': 'auto',
       'position': 'relative',
-      'top': '5%'
+      'top': '15%'
     },
     profilePic: {
-      'width': '25%',
-      'border-radius': '50px'
+      'width': '150px',
+      'height': 'auto',
+      'border-radius': '25px'
     },
     
   },
