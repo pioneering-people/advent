@@ -89,7 +89,7 @@ Login = {
       'position': 'relative',
       'height': '570px',
       'padding': '20px',
-      'margin-top': '3%',
+      'margin-top': '7.5%',
 
       '-webkit-border-radius': '10px 10px 10px 10px',
       ' -moz-border-radius': '10px 10px 10px 10px',
