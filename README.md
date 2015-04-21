@@ -43,6 +43,8 @@ Mithril v0.1.34
 
 An Android phone with internet access.
 
+App is deployed at `advent.meteor.com`
+
 ## Contributing
 
 See [CONTRIBUTING.md](https://github.com/unexpected-lion/ourglass/blob/master/contributing.md) for contribution guidelines.
